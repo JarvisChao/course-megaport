@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="744px" height="662px" viewBox="0 0 744 662" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Mask</title>
+    <defs>
+        <path d="M371.563464,623.117194 C278.794141,646.910031 8.14480268,726.392774 0.0891972492,520.076182 C-3.4540022,429.363744 100.071613,413.94563 41.9994611,257.171562 C5.3131993,158.130891 28.1011662,-15.2954167 208.056846,1.0821027 C318.920136,11.1706546 419.058807,148.718572 512.858572,163.733059 C618.337382,180.617753 704.753018,148.576985 738.364847,261.252205 C764.712906,349.568243 673.565261,369.026849 663.649371,571.76152 C655.20735,744.329856 473.697561,611.357078 371.563464,623.117194 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Group-5" transform="translate(-319.000000, -121.656028)">
+            <g id="people-festival" transform="translate(319.484067, 122.185129)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#EEEEEE" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>
