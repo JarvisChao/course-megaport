@@ -109,14 +109,31 @@ $(function () {
 
 // 滾動至 news 時改變背景顏色
 $(function() {
-  $(window).scroll(function(e) {
-    let $news = $('.l-news')
-    let newsTop = $news.offset().top - 60
-    let newsBottom = $news.offset().top + $news.outerHeight() / 1.4
-    if (this.scrollY > newsTop && this.scrollY < newsBottom) {
-      $('body').addClass('is-news-active')
-    } else {
-      $('body').removeClass('is-news-active')
+  $(window).scroll(function() {
+    if ($('.l-news')[0] !== undefined) {
+      let $news = $('.l-news')
+      let newsTop = $news.offset().top - 60
+      let newsBottom = $news.offset().top + $news.outerHeight() / 1.4
+      if (this.scrollY > newsTop && this.scrollY < newsBottom) {
+        $('body').addClass('is-news-active')
+      } else {
+        $('body').removeClass('is-news-active')
+      }
+    }
+  })
+})
+
+$(function() {
+  let gotop = false
+  $('.o-gotop').click(function() {
+    if (gotop === false) {
+      $('html, body').stop().animate({
+        scrollTop: 0
+      }, 300)
+      gotop = true
+      setTimeout(function() {
+        gotop = false
+      }, 1000);
     }
   })
 })
@@ -147,53 +164,55 @@ $(function() {
   }
 
   // swiper
-  const headerSwiper = new Swiper('.l-header__swiper', {
-    effect: 'fade',
-    fadeEffect: {
-      crossFade: true
-    },
-    longSwipesRatio: 0.1,
-    loop: true,
-    speed: 1600,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    on: {
-      slideChange: function () {
-        // alert(this.realIndex)
-        let shapeIndex = this.realIndex + 1
-        if (this.realIndex + 1 > 2) shapeIndex = 0
-        shapeAni(shapeIndex)
+  if (new Swiper() !== undefined) {
+    const headerSwiper = new Swiper('.l-header__swiper', {
+      effect: 'fade',
+      fadeEffect: {
+        crossFade: true
       },
-    },
-  })
+      longSwipesRatio: 0.1,
+      loop: true,
+      speed: 1600,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      on: {
+        slideChange: function () {
+          // alert(this.realIndex)
+          let shapeIndex = this.realIndex + 1
+          if (this.realIndex + 1 > 2) shapeIndex = 0
+          shapeAni(shapeIndex)
+        },
+      },
+    })
 
-  let swiperNews = new Swiper('.l-news__swiper', {
-    longSwipesRatio: 0.1,
-    loop: true,
-    speed: 1200,
-    slidesPerView: 1,
-    spaceBetween: 4,
-    breakpoints: {
-      1366: {
-        slidesPerView: 4,
-        spaceBetween: 30
+    let swiperNews = new Swiper('.l-news__swiper', {
+      longSwipesRatio: 0.1,
+      loop: true,
+      speed: 1200,
+      slidesPerView: 1,
+      spaceBetween: 4,
+      breakpoints: {
+        1366: {
+          slidesPerView: 4,
+          spaceBetween: 30
+        },
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        },
+        576: {
+          slidesPerView: 2,
+          spaceBetween: 15
+        }
       },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 20
-      },
-      576: {
-        slidesPerView: 2,
-        spaceBetween: 15
+      navigation: {
+        prevEl: '.l-news__btn-swiper.pre',
+        nextEl: '.l-news__btn-swiper.next',
       }
-    },
-    navigation: {
-      prevEl: '.l-news__btn-swiper.pre',
-      nextEl: '.l-news__btn-swiper.next',
-    }
-  })
+    })
+  }
 })
 
 // -- parallax

@@ -17,9 +17,9 @@ html(lang="en")
 
       include includes/navbar.pug
 
-      header.l-header
+      header.l-header(data-aos="fade")
         //- input-element 滑鼠進入指定區塊內才生效
-        .l-header__slogan-wrap.o-parallax-box(data-input-element=".l-header")
+        .l-header__slogan-wrap.o-parallax-box(data-input-element=".l-header" data-aos="fade-up")
           h1.l-header__slogan.u-slogan(data-depth="-0.2") 人生
             br
             | 音樂祭
@@ -72,13 +72,13 @@ html(lang="en")
             .container
               .row
                 .col-md-12
-                  .l-lineup__title-section
+                  .l-lineup__title-section(data-aos="fade-up")
                     h2.u-title-section LINEUP
                     h2.u-subtitle-section MEGAPORT FESTIVAL
                     
               .row.l-lineup__box.o-parallax-box(data-input-element=".l-lineup")
                 .col-sm-5.l-lineup__wrap(data-depth="0.1")
-                  a.l-lineup__artist.artist01(href="##")
+                  a.l-lineup__artist.artist01(href="##" data-aos="fade-up")
                     h3.l-lineup__title.title01.u-title-large 9m88
                     //- scalar(10) 設置加速度 / friction(0-1) 設置過渡
                     .l-lineup__img-mask.o-parallax-box(data-scalar-y="0" data-friction-x="0.4")
@@ -89,7 +89,7 @@ html(lang="en")
                       img.l-lineup__img(src="img/lineup/lineup01.jpg", alt="大港開唱藝人名單")
 
                 .col-sm-7.l-lineup__wrap(data-depth="-0.1")
-                  a.l-lineup__artist.artist02(href="##")
+                  a.l-lineup__artist.artist02(href="##" data-aos="fade-up")
                     h3.l-lineup__title.title02.u-title-large 恆月三途
                     .l-lineup__img-mask.o-parallax-box(data-scalar-y="0" data-friction-x="0.4")
                       .l-lineup__glitch-wrap(data-depth="0.2")
@@ -99,7 +99,7 @@ html(lang="en")
                       img.l-lineup__img(src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單")
 
                 .col-lg-4.col-sm-7.l-lineup__wrap(data-depth="-0.2")
-                  a.l-lineup__artist.artist03(href="##")
+                  a.l-lineup__artist.artist03(href="##" data-aos="fade-up")
                     h3.l-lineup__title.title03.u-title-large Beyound Cure
                     .l-lineup__img-mask.o-parallax-box(data-scalar-y="0" data-friction-x="0.4")
                       .l-lineup__glitch-wrap(data-depth="0.2")
@@ -109,7 +109,7 @@ html(lang="en")
                       img.l-lineup__img(src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單")
 
                 .col-lg-4.col-sm-5.l-lineup__wrap(data-depth="0.2")
-                  a.l-lineup__artist.artist04(href="##")
+                  a.l-lineup__artist.artist04(href="##" data-aos="fade-up")
                     h3.l-lineup__title.title04.u-title-large Dudu King
                     .l-lineup__img-mask.o-parallax-box(data-scalar-y="0" data-friction-x="0.4")
                       .l-lineup__glitch-wrap(data-depth="0.2")
@@ -119,7 +119,7 @@ html(lang="en")
                       img.l-lineup__img(src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單")
 
                 .col-lg-4.col-sm-5.offset-lg-0.offset-sm-5.l-lineup__wrap(data-depth="-0.1")
-                  a.l-lineup__artist.artist05(href="##")
+                  a.l-lineup__artist.artist05(href="##" data-aos="fade-up")
                     h3.l-lineup__title.title05.u-title-large Da Wang
                     .l-lineup__img-mask.o-parallax-box(data-scalar-y="0" data-friction-x="0.4")
                       .l-lineup__glitch-wrap(data-depth="0.2")
@@ -132,7 +132,7 @@ html(lang="en")
           .container
             .row
               .col-md-12
-                .l-news__title-section
+                .l-news__title-section(data-aos="fade-up")
                   h2.u-title-section NEWS
                   h2.u-subtitle-section MEGAPORT FESTIVAL
 
@@ -145,7 +145,7 @@ html(lang="en")
             .container
               .row
                 .col-md-12
-                  .swiper-container.l-news__swiper
+                  .swiper-container.l-news__swiper(data-aos="fade-up")
                     .swiper-wrapper
                       .swiper-slide.l-news__swiper-slide
                         .c-card
@@ -224,26 +224,26 @@ html(lang="en")
           .container 
             .row
               .col-md-12
-                .l-about__title-section
+                .l-about__title-section(data-aos="fade-right")
                   h2.u-title-section ABOUT
                   h2.u-subtitle-section MEGAPORT FESTIVAL
 
           .container.l-about__container
             .row
-              .col-md-7.order-md-0.order-2
+              .col-md-7.order-md-0.order-2(data-aos="fade-right")
                 .l-about__img-mask
                   .l-about__img(uk-parallax="bgy: -100")
               .col-md-5.order-md-0.order-1
                 .l-about__content-wrap
-                  .l-about__content
+                  .l-about__content(data-aos="fade-up")
                     h3.l-about__title.u-title 2021年即將邁入第十二屆的《大港開唱》
                     p.l-about__desc.u-text-desc 每年三月於高雄舉辦的大型音樂祭典，受到全台灣及日本香港年輕觀眾的喜愛，近年已成為台灣最具指標性的大型戶外音樂祭活動。
-                  .l-about__content
+                  .l-about__content(data-aos="fade-up")
                     h3.l-about__title.u-title 「人生」與「音樂」
                     p.l-about__desc.u-text-desc 大港舉辦在高雄港邊，獨特的海港地景和人文風情，常勾起人生中各種酸甜苦辣的回憶。大港因此找來有著豐富人生歷程的知名藝人及業界前輩演出，或是與新一代的樂團或藝人一起合作，交融出出代之間的化學變化，往往成為當年度為人津津樂道的經典現場...
-                  a.l-about__btn-more.o-btn-more(href="##") MORE
+                  a.l-about__btn-more.o-btn-more(href="##" data-aos="fade-up") MORE
 
-      include includes/footer.pug
+    include includes/footer.pug
 
     script(src="js/anime.min.js")
     script(src="js/swiper-bundle.min.js")

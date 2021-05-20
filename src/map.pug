@@ -17,7 +17,7 @@ html(lang="en")
 
       include includes/navbar.pug
 
-      header.l-header-inner
+      header.l-header-inner(data-aos="fade-down")
         .c-blockade.l-header-inner__blockade
           .c-blockade__line
             //- viewport 完成位置 / easing 延遲
@@ -38,9 +38,6 @@ html(lang="en")
                 .l-map__wrap
                   iframe.l-map__google(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.9061297135568!2d120.27933465080466!3d22.619980285085497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e047620e1c45b%3A0xe6d6d1bd1c764df2!2z6aeB5LqM6Jed6KGT54m55Y2A!5e0!3m2!1szh-TW!2stw!4v1621531731204!5m2!1szh-TW!2stw" allowfullscreen="" loading="lazy")
 
-      include includes/footer.pug
+    include includes/footer.pug
 
-    script(src="js/anime.min.js")
-    script(src="js/swiper-bundle.min.js")
-    script(src="js/parallax.min.js")
     script(src="js/main.js")

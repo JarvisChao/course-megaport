@@ -323,7 +323,7 @@ section
 
 /* -- footer -- */
 .l-footer
-  padding-top: 12rem
+  margin-top: 12rem
   &__date-mask
     display: flex
     justify-content: center
@@ -355,6 +355,10 @@ section
     &__text-btn.zh
       color: $color-sub
       opacity: 1
+  // 調整高亮
+  &__btn.is-active &
+    &__text-btn
+      color: $color-sub
   &__text-btn
     white-space: nowrap
     text-align: center
@@ -459,7 +463,7 @@ section
 
   /* -- footer -- */
   .l-footer
-    padding-top: 10vw
+    margin-top: 10vw
 
 
 @media (max-width: 575.98px)
@@ -528,7 +532,7 @@ section
 
   /* -- footer -- */
   .l-footer
-    padding-top: 12vw
+    margin-top: 12vw
     &__date-mask
       padding: 20vw 4vw
     &__img-date
