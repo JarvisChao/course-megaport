@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="1392px" height="779px" viewBox="0 0 1392 779" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="1500px" height="847px" viewBox="0 0 1500 847" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <title>Mask</title>
+    <defs>
+        <polygon id="path-1" points="1500.08226 188 1283 780.934362 0 846.020306 111.931394 0"></polygon>
+    </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <polygon id="Mask" fill="#D8D8D8" points="5.31978108e-13 222.928976 1052.86952 0.539516129 1391.26563 571.847643 910.20467 779 121.692931 752.55841"></polygon>
+        <g id="Index" transform="translate(-420.000000, 0.000000)">
+            <g id="guitarists-with-colorful-lighting-stage-copy" transform="translate(420.000000, 0.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#D8D8D8" xlink:href="#path-1"></use>
+            </g>
+        </g>
     </g>
 </svg>
