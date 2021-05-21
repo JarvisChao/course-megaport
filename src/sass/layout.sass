@@ -197,7 +197,6 @@ section
 /* -- news -- */
 .l-news
   padding-top: 12rem
-  padding-bottom: 12rem
   background-color: transparent
   &__title-section
     margin-bottom: 8rem
@@ -238,12 +237,13 @@ section
 
 /* -- about -- */
 .l-about
+  padding-top: 14rem
   &::after
     content: ''
     display: block
     position: absolute
     right: 0
-    top: 1.2rem
+    top: 16rem
     +size(60%, 8rem)
     transform-origin: right top
     transform: skew(-35deg)
@@ -317,11 +317,8 @@ section
 .l-map
   &__wrap
     +size(100%, 45vh)
-    
   &__google
     +size(100%)
-
-  
 
 
 /* -- footer -- */
@@ -424,6 +421,10 @@ section
 
   /* -- lineup -- */
   .l-lineup
+    &__box
+      margin: -18rem -4vw 0
+      padding: 0 4vw
+      overflow: hidden
     &__wrap:nth-child(5)
       align-items: flex-start
       margin-top: -4rem
@@ -443,7 +444,7 @@ section
 
   /* -- lineup -- */
   .l-lineup
-    padding-top: 8vw
+    padding-top: 10vw
     &::after
       height: 20vw
     &__sticky
@@ -481,11 +482,14 @@ section
 
   /* -- lineup -- */
   .l-lineup
-    padding-bottom: 50vw
+    &::after
+      height: 50vw
     &__title-section
       margin-bottom: 12vw
     &__box
       margin-top: -10vw
+      // 把 overflow 吃掉的補回來
+      padding-bottom: 10vw
     &__wrap
       margin-top: 10vw
     &__wrap:nth-child(5)
@@ -506,16 +510,15 @@ section
 
   /* -- news -- */
   .l-news
-    padding-top: 24vw
-    padding-bottom: 12vw
+    padding-top: 14vw
     &__title-section
       margin-bottom: 10vw
 
   /* -- about -- */
   .l-about
-    padding-top: 12vw
+    padding-top: 14vw
     &::after
-      top: 14vw
+      top: 16vw
       +size(40%, 6rem)
       background-size: 24% 100%
     &__title-section
