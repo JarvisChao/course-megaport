@@ -124,6 +124,7 @@ $(function() {
   })
 })
 
+// go top
 $(function() {
   let gotop = false
   $('.o-gotop').click(function() {

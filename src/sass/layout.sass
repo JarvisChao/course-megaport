@@ -71,24 +71,24 @@ body
       color: $color-main
       &::after
         border-color: $color-main
-  &__banner
+  &__swiper-box
     width: 100%
-    max-width: 1500px
+    max-width: 1400px
     padding-right: 6vw
+  &__swiper
+    transform: scale(1)
+    transition: 0.3s cubic-bezier(.6,.58,.59,1.58)
+    &:hover
+      transform: scale(1.05)
   &__svg-mask
     position: absolute
     width: 0
     height: 0
     overflow: hidden
     pointer-events: none
-  &__shape-wrap
-    width: 100%
-    transform: scale(0.95)
-    transition: 0.3s cubic-bezier(.6,.58,.59,1.58)
-    &:hover
-      transform: scale(1)
   &__img
-    +size(auto, 108%)
+    +size(100%, auto)
+    transform-origin: center center
     transform: scale(1)
     transition: transform 10s
 
@@ -117,6 +117,7 @@ section
     top: -10%
   &__sticky
     position: sticky
+    position: -webkit-sticky
     top: 6rem
   &__title-section
     margin-bottom: 4rem
@@ -383,7 +384,7 @@ section
 
 @media (max-width: 1024px)
   .l-header
-    &__banner
+    &__swiper-box
       padding-right: 2vw
       padding-left: 10vw
     &__slogan::after
@@ -399,12 +400,8 @@ section
   /* -- lineup -- */
   .l-lineup
     padding-top: 10vw
-    &::after
-      height: 40vw
     &__sticky
       top: 10vw
-    &__blockade
-      top: 0
 
   /* -- header inner -- */
   .l-header-inner
@@ -446,9 +443,9 @@ section
   .l-lineup
     padding-top: 10vw
     &::after
-      height: 20vw
+      height: 10rem
     &__sticky
-      top: 8vw
+      top: 10vw
 
   /* -- about -- */
   .l-about
@@ -471,7 +468,7 @@ section
 @media (max-width: 575.98px)
   /* -- header -- */
   .l-header
-    &__banner
+    &__swiper-box
       padding-left: 6vw
     &__slogan-wrap
       right: 6vw
@@ -483,7 +480,9 @@ section
   /* -- lineup -- */
   .l-lineup
     &::after
-      height: 50vw
+      height: 15rem
+    &__blockade
+      top: -5%
     &__title-section
       margin-bottom: 12vw
     &__box
