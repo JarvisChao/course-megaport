@@ -1,0 +1,8 @@
+Options All -Indexes
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^dl/ckfinder/ckfinder.html$ dl/ckfinder/ckfinder.html.php [L,NC]
+
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
