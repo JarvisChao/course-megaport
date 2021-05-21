@@ -3,21 +3,22 @@
 /* ----------------------------------- */
 // -- Detect Browser
 // 偵測瀏覽器加入對應 js 文件
-let explorer = navigator.userAgent
-if (explorer.indexOf('Firefox') >= 0) {
-  document.write('<script async src="js/smooth-scrolling-chrome.js"></script>')
-} else if (explorer.indexOf('Chrome') >= 0) {
-  document.write('<script async src="js/smooth-scrolling-chrome.js"></script>')
-} else if (explorer.indexOf('Safari') >= 0) {
-  document.write('<script async src="js/smooth-scrolling-safari.js"></script>')
+function isMobile() {
+  try { document.createEvent('TouchEvent'); return true; }
+  catch (e) { return false; }
 }
-
-// -- Hover Mobile
-$(function () {
-  function isMobile() {
-    try { document.createEvent('TouchEvent'); return true; }
-    catch (e) { return false; }
+if (!isMobile()) {
+  let explorer = navigator.userAgent
+  if (explorer.indexOf('Firefox') >= 0) {
+    document.write('<script async src="js/smooth-scrolling-chrome.js"></script>')
+  } else if (explorer.indexOf('Chrome') >= 0) {
+    document.write('<script async src="js/smooth-scrolling-chrome.js"></script>')
+  } else if (explorer.indexOf('Safari') >= 0) {
+    document.write('<script async src="js/smooth-scrolling-safari.js"></script>')
   }
+}
+// -- Hover Mobile
+$(function() {
   if (isMobile()) {
     $('.hover-mobile').css({
       display: "block"
@@ -36,7 +37,7 @@ $(function() {
   $('a').each(function() {
     let aHref = $(this).attr('href').split('/')
     let aValue = aHref[aHref.length - 1] || ' '
-    if (url.indexOf(aValue) > -1) {
+    if (url.indexOf(aValue) > -1 && aValue !== '##') {
       $(this).addClass('is-active')
     }
   })

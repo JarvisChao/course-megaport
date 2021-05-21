@@ -39,9 +39,6 @@ body
     display: inline-block
     +size(100%, 98vh)
 
-#app
-  overflow: hidden
-
 
 /* ----------------------------------- */
 /* ------ Layout ------ */
@@ -110,11 +107,17 @@ section
 
 /* -- lineup -- */
 .l-lineup
-  padding-bottom: 10rem
+  padding-top: 6rem
+  // 控制 sticky 空間
+  &::after
+    content: ''
+    display: block
+    +size(100%, 20rem)
   &__blockade
     top: -10%
   &__sticky
-    padding-top: 6rem
+    position: sticky
+    top: 6rem
   &__title-section
     margin-bottom: 4rem
   &__box
@@ -381,12 +384,6 @@ section
       margin-right: 1rem
 
 
-@media (max-width: 1366px)
-  /* -- lineup -- */
-  .l-lineup
-    padding-bottom: 20rem
-
-
 @media (max-width: 1024px)
   .l-header
     &__banner
@@ -404,9 +401,11 @@ section
 
   /* -- lineup -- */
   .l-lineup
-    padding-bottom: 40vw
+    padding-top: 10vw
+    &::after
+      height: 40vw
     &__sticky
-      padding-top: 10vw
+      top: 10vw
     &__blockade
       top: 0
 
@@ -444,9 +443,11 @@ section
 
   /* -- lineup -- */
   .l-lineup
-    padding-bottom: 20vw
+    padding-top: 8vw
+    &::after
+      height: 20vw
     &__sticky
-      padding-top: 8vw
+      top: 8vw
 
   /* -- about -- */
   .l-about
