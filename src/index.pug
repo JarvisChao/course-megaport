@@ -37,10 +37,11 @@ html(lang="en")
               .swiper-slide
                 //- viewBox 設定成共同最大值
                 svg(viewBox="0 0 1500 900")
-                  //- 設定 fill 支援 safari
+                  //- 設定 fill 支援 safari 黑背景
                   mask#banner-shape-mask(fill="white")
                     use(xlink:href="#banner-shape")
                   g(mask="url(#banner-shape-mask)")
+                    //- 設定 width height 屬性以支援 ios12 及以下版本
                     image.l-header__img(xlink:href="img/banner/banner-img01.jpg" width="100%" height="100%")
               .swiper-slide
                 svg(viewBox="0 0 1500 900")
