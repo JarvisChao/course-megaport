@@ -20,11 +20,11 @@ if (!isMobile()) {
 // -- Hover Mobile
 $(function() {
   if (isMobile()) {
-    $('.hover-mobile').css({
+    $('.u-hover-mobile').css({
       display: "block"
     })
   } else {
-    $('.hover-mobile').css({
+    $('.u-hover-mobile').css({
       display: "none"
     })
   }
@@ -210,8 +210,8 @@ $(function() {
         }
       },
       navigation: {
-        prevEl: '.l-news__btn-swiper.pre',
-        nextEl: '.l-news__btn-swiper.next',
+        prevEl: '.l-news__btn-swiper.--pre',
+        nextEl: '.l-news__btn-swiper.--next',
       }
     })
   }
@@ -219,9 +219,9 @@ $(function() {
 
 // -- parallax
 $(function() {
-  let parallaxBox = [];
-  let targetEl = $('.o-parallax-box').each(function () {
-    parallaxBox.push(new Parallax(this, {
+  let jsParallax = [];
+  $('.js-parallax').each(function () {
+    jsParallax.push(new Parallax(this, {
       // 滑鼠進入元素內才生效
       hoverOnly: true,
       // 滑鼠相對於指定元素（預設為可視區）

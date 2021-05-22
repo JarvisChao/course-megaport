@@ -12,14 +12,14 @@ html(lang="en")
   body
     #app.is-home
 
-      .hover-mobile
-        .hover-mobile__block
+      .u-hover-mobile
+        .u-hover-mobile__block
 
       include includes/navbar.pug
 
       header.l-header(data-aos="fade")
         //- input-element 滑鼠進入指定區塊內才生效
-        .l-header__slogan-wrap.o-parallax-box(data-input-element=".l-header" data-aos="fade-up")
+        .l-header__slogan-wrap.js-parallax(data-input-element=".l-header" data-aos="fade-up")
           h1.l-header__slogan.u-slogan(data-depth="-0.2") 人生
             br
             | 音樂祭
@@ -77,12 +77,12 @@ html(lang="en")
                     h2.u-title-section LINEUP
                     h2.u-subtitle-section MEGAPORT FESTIVAL
                     
-              .row.l-lineup__box.o-parallax-box(data-input-element=".l-lineup")
+              .row.l-lineup__box.js-parallax(data-input-element=".l-lineup")
                 .col-sm-5.l-lineup__wrap(data-depth="0.1")
-                  a.l-lineup__artist.artist01(href="##" data-aos="fade-up")
-                    h3.l-lineup__title.title01.u-title-large 9m88
+                  a.l-lineup__artist.--artist01(href="##" data-aos="fade-up")
+                    h3.l-lineup__title.--title01.u-title-large 9m88
                     //- scalar(10) 設置加速度 / friction(0-1) 設置過渡
-                    .l-lineup__img-mask.o-parallax-box(data-scalar-y="0" data-friction-x="0.4")
+                    .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                       .l-lineup__glitch-wrap(data-depth="0.2")
                         img.l-lineup__img(src="img/lineup/lineup01.jpg", alt="大港開唱藝人名單")
                       .l-lineup__glitch-wrap(data-depth="-0.2")
@@ -90,9 +90,9 @@ html(lang="en")
                       img.l-lineup__img(src="img/lineup/lineup01.jpg", alt="大港開唱藝人名單")
 
                 .col-sm-7.l-lineup__wrap(data-depth="-0.1")
-                  a.l-lineup__artist.artist02(href="##" data-aos="fade-up")
-                    h3.l-lineup__title.title02.u-title-large 恆月三途
-                    .l-lineup__img-mask.o-parallax-box(data-scalar-y="0" data-friction-x="0.4")
+                  a.l-lineup__artist.--artist02(href="##" data-aos="fade-up")
+                    h3.l-lineup__title.--title02.u-title-large 恆月三途
+                    .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                       .l-lineup__glitch-wrap(data-depth="0.2")
                         img.l-lineup__img(src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單")
                       .l-lineup__glitch-wrap(data-depth="-0.2")
@@ -100,9 +100,9 @@ html(lang="en")
                       img.l-lineup__img(src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單")
 
                 .col-lg-4.col-sm-7.l-lineup__wrap(data-depth="-0.2")
-                  a.l-lineup__artist.artist03(href="##" data-aos="fade-up")
-                    h3.l-lineup__title.title03.u-title-large Beyound Cure
-                    .l-lineup__img-mask.o-parallax-box(data-scalar-y="0" data-friction-x="0.4")
+                  a.l-lineup__artist.--artist03(href="##" data-aos="fade-up")
+                    h3.l-lineup__title.--title03.u-title-large Beyound Cure
+                    .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                       .l-lineup__glitch-wrap(data-depth="0.2")
                         img.l-lineup__img(src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單")
                       .l-lineup__glitch-wrap(data-depth="-0.2")
@@ -110,9 +110,9 @@ html(lang="en")
                       img.l-lineup__img(src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單")
 
                 .col-lg-4.col-sm-5.l-lineup__wrap(data-depth="0.2")
-                  a.l-lineup__artist.artist04(href="##" data-aos="fade-up")
-                    h3.l-lineup__title.title04.u-title-large Dudu King
-                    .l-lineup__img-mask.o-parallax-box(data-scalar-y="0" data-friction-x="0.4")
+                  a.l-lineup__artist.--artist04(href="##" data-aos="fade-up")
+                    h3.l-lineup__title.--title04.u-title-large Dudu King
+                    .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                       .l-lineup__glitch-wrap(data-depth="0.2")
                         img.l-lineup__img(src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單")
                       .l-lineup__glitch-wrap(data-depth="-0.2")
@@ -120,9 +120,9 @@ html(lang="en")
                       img.l-lineup__img(src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單")
 
                 .col-lg-4.col-sm-5.offset-lg-0.offset-sm-5.l-lineup__wrap(data-depth="-0.1")
-                  a.l-lineup__artist.artist05(href="##" data-aos="fade-up")
-                    h3.l-lineup__title.title05.u-title-large Da Wang
-                    .l-lineup__img-mask.o-parallax-box(data-scalar-y="0" data-friction-x="0.4")
+                  a.l-lineup__artist.--artist05(href="##" data-aos="fade-up")
+                    h3.l-lineup__title.--title05.u-title-large Da Wang
+                    .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                       .l-lineup__glitch-wrap(data-depth="0.2")
                         img.l-lineup__img(src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單")
                       .l-lineup__glitch-wrap(data-depth="-0.2")
@@ -139,9 +139,9 @@ html(lang="en")
 
           .container-fluid
             .l-news__btn-swiper-wrap
-              .l-news__btn-swiper.pre
+              .l-news__btn-swiper.--pre
                 i.fas.fa-arrow-left
-              .l-news__btn-swiper.next
+              .l-news__btn-swiper.--next
                 i.fas.fa-arrow-right
             .container
               .row
@@ -159,7 +159,7 @@ html(lang="en")
                             .c-card__content
                               h3.c-card__title 大港 防疫公告！
                               p.c-card__desc 【入場需先填寫 Line 實聯制問卷才能兌換手環】 如何填寫實聯制？ 首先加入大港開唱官方LINE帳號...
-                            a.c-card__btn-more.o-btn-more(href="##") MORE
+                            a.o-btn-more.c-card__btn-more(href="##") MORE
                       .swiper-slide.l-news__swiper-slide
                         .c-card
                           .c-card__img-mask
@@ -171,7 +171,7 @@ html(lang="en")
                             .c-card__content
                               h3.c-card__title 金牌台啤x大港開唱 聯名限定上市
                               p.c-card__desc Untitled Document 為在地音樂乾一杯！ 金牌台啤x大港開唱聯名啤酒限定上市 高雄最具代表性的大型音樂...
-                            a.c-card__btn-more.o-btn-more(href="##") MORE
+                            a.o-btn-more.c-card__btn-more(href="##") MORE
                       .swiper-slide.l-news__swiper-slide
                         .c-card
                           .c-card__img-mask
@@ -183,7 +183,7 @@ html(lang="en")
                             .c-card__content
                               h3.c-card__title 大港開唱 x MegaFun
                               p.c-card__desc ✧ 好耍 ✧趣味 ✧足歡喜 大港娛樂特區MegaFun全方位手冊 . ** MEGADIVE 孤枝大夫 ** 輕鬆享受人體衝浪支...
-                            a.c-card__btn-more.o-btn-more(href="##") MORE
+                            a.o-btn-more.c-card__btn-more(href="##") MORE
                       .swiper-slide.l-news__swiper-slide
                         .c-card
                           .c-card__img-mask
@@ -195,7 +195,7 @@ html(lang="en")
                             .c-card__content
                               h3.c-card__title 大港帥口罩
                               p.c-card__desc 想要這個大港口罩嗎？填寫實聯制問卷就送給你 #只送不賣 #有大港單雙日票券者才可兌換...
-                            a.c-card__btn-more.o-btn-more(href="##") MORE
+                            a.o-btn-more.c-card__btn-more(href="##") MORE
                       .swiper-slide.l-news__swiper-slide
                         .c-card
                           .c-card__img-mask
@@ -207,7 +207,7 @@ html(lang="en")
                             .c-card__content
                               h3.c-card__title 大港周邊
                               p.c-card__desc 
-                            a.c-card__btn-more.o-btn-more(href="##") MORE
+                            a.o-btn-more.c-card__btn-more(href="##") MORE
                       .swiper-slide.l-news__swiper-slide
                         .c-card
                           .c-card__img-mask
@@ -219,7 +219,7 @@ html(lang="en")
                             .c-card__content
                               h3.c-card__title 大港開唱獨家直播
                               p.c-card__desc 
-                            a.c-card__btn-more.o-btn-more(href="##") MORE      
+                            a.o-btn-more.c-card__btn-more(href="##") MORE      
 
         section.l-about
           .container 
@@ -242,7 +242,8 @@ html(lang="en")
                   .l-about__content(data-aos="fade-up")
                     h3.l-about__title.u-title 「人生」與「音樂」
                     p.l-about__desc.u-text-desc 大港舉辦在高雄港邊，獨特的海港地景和人文風情，常勾起人生中各種酸甜苦辣的回憶。大港因此找來有著豐富人生歷程的知名藝人及業界前輩演出，或是與新一代的樂團或藝人一起合作，交融出出代之間的化學變化，往往成為當年度為人津津樂道的經典現場...
-                  a.l-about__btn-more.o-btn-more(href="##" data-aos="fade-up") MORE
+                  .l-about__btn-more(data-aos="fade-up")
+                    a.o-btn-more(href="##") MORE
 
     include includes/footer.pug
 

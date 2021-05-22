@@ -2,44 +2,6 @@
 @import './utility.sass'
 @import './component.sass'
 
-*
-  position: relative
-  -webkit-font-smoothing: antialiased
-  box-sizing: border-box
-  &::selection
-    background: $color-main
-    color: #fff
-  &::-moz-selection
-    background: $color-main
-    color: #fff
-
-body
-  margin: 0
-  background-image: url('../img/bg-dots.png')
-  background-color: $color-gray-mid
-  font-family: $font-noto-sans
-  font-size: 1.6rem
-  font-weight: 400
-  letter-spacing: 0.1rem
-  line-height: 1.7
-  color: $color-gray-light
-  transition: background-color 0.8s
-  &.is-news-active
-    background-color: $color-main
-    background-image: none
-
-.hover-mobile
-  position: fixed
-  +size(100%, 100vh)
-  left: 0
-  top: 0
-  overflow: auto
-  z-index: -9999
-  &__block
-    display: inline-block
-    +size(100%, 98vh)
-
-
 /* ----------------------------------- */
 /* ------ Layout ------ */
 /* ----------------------------------- */
@@ -146,30 +108,30 @@ section
     transition: 0.3s
     &:hover
       filter: grayscale(0)
-    &.artist01
+    &.--artist01
       bottom: -4rem
-    &.artist02, &.artist03
+    &.--artist02, &.--artist03
       max-width: 56rem
-    &.artist04
+    &.--artist04
       right: -10rem
       top: -6rem
   &__title
     position: absolute
     white-space: nowrap
     z-index: 20
-    &.title01
+    &.--title01
       right: -20%
       top: 20%
-    &.title02
+    &.--title02
       left: 10%
       bottom: -8%
-    &.title03
+    &.--title03
       left: 10%
       top: -24%
-    &.title04
+    &.--title04
       left: 10%
       bottom: -8%
-    &.title05
+    &.--title05
       right: 10%
       top: -10%
   &__glitch-wrap
@@ -229,9 +191,9 @@ section
       background-color: $color-sub
       color: $color-gray
       box-shadow: 0 0 4px 0 rgba($color-gray-light, 0.8)
-    &.pre
+    &.--pre
       border-radius: 0 2rem 2rem 0
-    &.next
+    &.--next
       margin-left: auto
       border-radius: 2rem 0 0 2rem
     
@@ -351,9 +313,9 @@ section
     &:not(:last-child)
       margin-right: 2.4rem
   &__btn:hover &
-    &__text-btn.en
+    &__text-btn.--en
       opacity: 0
-    &__text-btn.zh
+    &__text-btn.--zh
       color: $color-sub
       opacity: 1
   // 調整高亮
@@ -364,7 +326,7 @@ section
     white-space: nowrap
     text-align: center
     transition: 0.3s
-    &.zh
+    &.--zh
       position: absolute
       left: 50%
       top: 50%
@@ -426,10 +388,10 @@ section
       align-items: flex-start
       margin-top: -4rem
     &__artist
-      &.artist04
+      &.--artist04
         right: -6rem
     &__title
-      &.title01
+      &.--title01
         right: 10%
         top: -20%
 
@@ -494,17 +456,17 @@ section
     &__wrap:nth-child(5)
       margin-top: 0
     &__artist
-      &.artist01
+      &.--artist01
         left: 10vw
         bottom: 0
-      &.artist02
+      &.--artist02
         left: -10vw
-      &.artist03
+      &.--artist03
         top: 14vw
-      &.artist04
+      &.--artist04
         right: -10vw
         top: 0
-      &.artist05
+      &.--artist05
         top: 10vw
 
   /* -- news -- */

@@ -13,6 +13,43 @@ $font-roboto: 'Roboto','Arial', sans-serif
 html
   font-size: calc(16px * 10 / 16)
 
+*
+  position: relative
+  -webkit-font-smoothing: antialiased
+  box-sizing: border-box
+  &::selection
+    background: $color-main
+    color: #fff
+  &::-moz-selection
+    background: $color-main
+    color: #fff
+
+body
+  margin: 0
+  background-image: url('../img/bg-dots.png')
+  background-color: $color-gray-mid
+  font-family: $font-noto-sans
+  font-size: 1.6rem
+  font-weight: 400
+  letter-spacing: 0.1rem
+  line-height: 1.7
+  color: $color-gray-light
+  transition: background-color 0.8s
+  &.is-news-active
+    background-color: $color-main
+    background-image: none
+
+.u-hover-mobile
+  position: fixed
+  +size(100%, 100vh)
+  left: 0
+  top: 0
+  overflow: auto
+  z-index: -9999
+  &__block
+    display: inline-block
+    +size(100%, 98vh)
+
 /* ----------------------------------- */
 /* ------ Labels ------ */
 /* ----------------------------------- */
@@ -76,9 +113,9 @@ i
   font-size: 1.5rem
   font-weight: 900
   line-height: 1.25
-  &.en
+  &.--en
     font-family: $font-roboto
-  &.zh
+  &.--zh
     font-family: $font-noto-sans
 .u-text-copyright
   font-size: 1.4rem
