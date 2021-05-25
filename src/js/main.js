@@ -10,11 +10,11 @@ function isMobile() {
 if (!isMobile()) {
   let explorer = navigator.userAgent
   if (explorer.indexOf('Firefox') >= 0) {
-    document.write('<script async src="js/smooth-scrolling-chrome.js"></script>')
+    $('body').append('<script async src="js/smooth-scrolling-chrome.js"></script>')
   } else if (explorer.indexOf('Chrome') >= 0) {
-    document.write('<script async src="js/smooth-scrolling-chrome.js"></script>')
+    $('body').append('<script async src="js/smooth-scrolling-chrome.js"></script>')
   } else if (explorer.indexOf('Safari') >= 0) {
-    document.write('<script async src="js/smooth-scrolling-safari.js"></script>')
+    $('body').append('<script async src="js/smooth-scrolling-safari.js"></script>')
   }
 }
 // -- Hover Mobile
