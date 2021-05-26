@@ -146,22 +146,16 @@ $(function() {
 $(function() {
 
   // -- anime.js
-  let shapePoints = [
-    { points: '1500.08226 188 1283 780.934362 0 846.020306 111.931394 0' },
-    { points: '1500 0 1283 869.477229 96.6496463 741 0 188' },
-    { points: '1500.08226 94.0370968 1455.02864 791.163534 49.3561018 897.504525 244 50' }
+  let shapePath = [
+    { d: 'M112.715,18.281,1497.056,197.043,1280.964,806.872,10.731,847.574Z' },
+    { d: 'M.892,184.042,1499.634,1.633,1293.258,873.754,90.746,758.554Z' },
+    { d: 'M218.751,23.581,1472.309,69.5,1430.2,768,30.486,870.39Z' }
   ]
   function shapeAni(index) {
-    anime({
-      targets: '#banner-shape',
-      points: [
-        { value: shapePoints[index].points }
-      ],
-      duration: 1600,
-      // direction: 'alternate',
-      easing: 'easeOutQuad',
-      autoplay: true,
-      // loop: true
+    gsap.to('#banner-shape', { 
+      attr: { d: shapePath[index].d },
+      duration: 1.6,
+      ease: 'power1.out'
     })
   }
 
