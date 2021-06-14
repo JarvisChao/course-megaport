@@ -203,6 +203,13 @@ $(function() {
           spaceBetween: 15
         }
       },
+      on: {
+        init: function() {
+          $("img.js-lazy").lazyload({
+            rootMargin: '500px 0px',
+          })
+        }
+      },
       navigation: {
         prevEl: '.l-news__btn-swiper.--pre',
         nextEl: '.l-news__btn-swiper.--next',

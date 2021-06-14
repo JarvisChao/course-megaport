@@ -178,6 +178,9 @@ section
     transform: translateY(-50%)
     z-index: 10
   &__btn-swiper
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
     padding: 2rem
     background-color: $color-gray-light
     font-size: 1.8rem
@@ -192,8 +195,10 @@ section
       color: $color-gray
       box-shadow: 0 0 4px 0 rgba($color-gray-light, 0.8)
     &.--pre
+      left: 0
       border-radius: 0 2rem 2rem 0
     &.--next
+      right: 0
       margin-left: auto
       border-radius: 2rem 0 0 2rem
     
