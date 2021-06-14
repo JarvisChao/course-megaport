@@ -145,6 +145,16 @@ $(function() {
 /* ----------------------------------- */
 $(function() {
 
+  // https://png-pixel.com/
+  $("img.js-lazy").attr("src", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAADCAQAAAAe/WZNAAAAEElEQVR42mPUkWQAA0YMBgANxQDTMpXnvgAAAABJRU5ErkJggg==")
+  let lazyLoadImgs = new LazyLoad({
+    elements_selector: 'img.js-lazy',
+    threshold: 500,
+    callback_loaded: function() {
+      AOS.refresh()
+    }
+  })
+
   // -- anime.js
   let shapePath = [
     { d: 'M112.715,18.281,1497.056,197.043,1280.964,806.872,10.731,847.574Z' },
@@ -205,9 +215,7 @@ $(function() {
       },
       on: {
         init: function() {
-          $("img.js-lazy").lazyload({
-            rootMargin: '500px 0px',
-          })
+          lazyLoadImgs.update()
         }
       },
       navigation: {
