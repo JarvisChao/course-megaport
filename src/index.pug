@@ -28,7 +28,7 @@ html(lang="en")
         .l-header__swiper-box
           svg.l-header__svg-mask
             defs
-              path#banner-shape(d="M112.715,18.281,1497.056,197.043,1280.964,806.872,10.731,847.574Z")
+              path#banner-shape(d="M218.751,23.581,1472.309,69.5,1430.2,768,30.486,870.39Z")
 
           .swiper-container.l-header__swiper
             .swiper-wrapper
@@ -36,22 +36,22 @@ html(lang="en")
                 //- viewBox 設定成共同最大值
                 svg(viewBox="0 0 1500 900")
                   //- 設定 fill 支援 safari 黑背景
-                  mask#banner-shape-mask(fill="white")
+                  mask#banner-shape-mask01(fill="white")
                     use(xlink:href="#banner-shape")
-                  g(mask="url(#banner-shape-mask)")
+                  g(mask="url(#banner-shape-mask01)")
                     //- 設定 width height 屬性以支援 ios12 及以下版本
                     image.l-header__img(xlink:href="img/banner/banner-img01.jpg" width="100%" height="100%")
               .swiper-slide
                 svg(viewBox="0 0 1500 900")
-                  mask#banner-shape-mask(fill="white")
+                  mask#banner-shape-mask02(fill="white")
                     use(xlink:href="#banner-shape")
-                  g(mask="url(#banner-shape-mask)")
+                  g(mask="url(#banner-shape-mask02)")
                     image.l-header__img(xlink:href="img/banner/banner-img02.jpg" width="100%" height="100%")
               .swiper-slide
                 svg(viewBox="0 0 1500 900")
-                  mask#banner-shape-mask(fill="white")
+                  mask#banner-shape-mask03(fill="white")
                     use(xlink:href="#banner-shape")
-                  g(mask="url(#banner-shape-mask)")
+                  g(mask="url(#banner-shape-mask03)")
                     image.l-header__img(xlink:href="img/banner/banner-img03.jpg" width="100%" height="100%")
 
       main.main
@@ -231,7 +231,7 @@ html(lang="en")
             .row
               .col-md-7.order-md-0.order-2(data-aos="fade-right")
                 .l-about__img-mask
-                  .l-about__img.js-lazy(uk-parallax="bgy: -100")
+                  .l-about__img(uk-parallax="bgy: -100")
               .col-md-5.order-md-0.order-1
                 .l-about__content-wrap
                   .l-about__content(data-aos="fade-up")

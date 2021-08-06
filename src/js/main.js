@@ -43,6 +43,56 @@ $(function() {
   })
 })
 
+// -- navbar
+$(function () {
+  if (!$('#app').hasClass('is-home')) {
+    $('.c-navbar').addClass('is-fixed')
+  }
+  let initScrollY = 0
+  $(window).scroll(function() {
+    if ($('.c-navbar').hasClass('is-fixed')) {
+      let firstScrollY = this.scrollY || this.pageYoffset
+      // 首次向上滾
+      // initScrollY -> 0
+      // firstScrollY -> 1
+      // 第二次向上滾
+      // initScrollY -> 1
+      // firstScrollY -> 2
+      console.log('init', initScrollY)
+      console.log('first', firstScrollY)
+      if (initScrollY < firstScrollY) {
+        $('.c-navbar').addClass('is-scrolldown')
+      } else {
+        $('.c-navbar').removeClass('is-scrolldown')
+      }
+      initScrollY = firstScrollY
+      // initScrollY -> 1
+    }
+
+    if ($('#app').hasClass('is-home')) {
+      if ($(this).scrollTop() > $('.l-header').outerHeight() / 2) {
+        $('.c-navbar').addClass('is-fixed')
+      } else {
+        $('.c-navbar').removeClass('is-fixed')
+      }
+    }
+  })
+  let debounce
+  $(window).on('resize load', function() {
+    let self = this
+    // 防止持續執行（防抖）
+    if (debounce) clearTimeout(debounce)
+    debounce = setTimeout(function() {
+      console.log('change!!!')
+      if (self.matchMedia("(max-width: 767.98px)").matches) {
+        $('.c-navbar').addClass('is-burger')
+      } else {
+        $('.c-navbar').removeClass('is-burger')
+      }
+    }, 100)
+  })
+})
+
 // -- burger
 $(function() {
   let isOpened = false
@@ -63,47 +113,6 @@ $(function() {
         overflow: 'hidden'
       })
       isOpened = false
-    }
-  })
-  $(window).on('resize load', function() {
-    let self = this
-    // 防止持續執行（防抖）
-    let debounce = null
-    if (debounce) clearTimeout(debounce)
-    debounce = setTimeout(function() {
-      if (self.matchMedia("(max-width: 767.98px)").matches) {
-        $('.c-navbar').addClass('is-burger')
-      } else {
-        $('.c-navbar').removeClass('is-burger')
-      }
-    }, 1000)
-  })
-})
-
-// -- navbar
-$(function () {
-  if (!$('#app').hasClass('is-home')) {
-    $('.c-navbar').addClass('is-fixed')
-  }
-  let lastScrollY = 0
-  $(window).scroll(function() {
-    let firstScrollY = this.scrollY || this.pageYOffset
-    if ($('.c-navbar').hasClass('is-fixed')) {
-      // 向上滾動
-      if (firstScrollY > lastScrollY) {
-        $('.c-navbar').addClass('is-scrolling')
-      } else {
-        $('.c-navbar').removeClass('is-scrolling')
-      }
-    }
-    lastScrollY = firstScrollY
-
-    if ($('#app').hasClass('is-home')) {
-      if ($(this).scrollTop() > $('.l-header').outerHeight() / 2) {
-        $('.c-navbar').addClass('is-fixed')
-      } else {
-        $('.c-navbar').removeClass('is-fixed')
-      }
     }
   })
 })
@@ -149,6 +158,7 @@ $(function() {
   $("img.js-lazy").attr("src", "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAQAAABHvi1JAAACNUlEQVR42u3TMQEAAAgDINc/mLE0gZ8ndCA9BRwiCAgCgoAgIAgIAoKAICAICAIIAoKAICAICAKCgCAgCAgCggCCgCAgCAgCgoAgIAgIAoIAgoAgIAgIAoKAICAICAKCgCCAICAICAKCgCAgCAgCgoAggCAgCAgCgoAgIAgIAoKAICAIIAgIAoKAICAICAKCgCAgCCAICAKCgCAgCAgCgoAgIAgIAggCgoAgIAgIAoKAICAICAKCCAKCgCAgCAgCgoAgIAgIAoIAgoAgIAgIAoKAICAICAKCgCCAICAICAKCgCAgCAgCgoAggCAgCAgCgoAgIAgIAoKAICAIIAgIAoKAICAICAKCgCAgCCAICAKCgCAgCAgCgoAgIAgIAggCgoAgIAgIAoKAICAICAIIAoKAICAICAKCgCAgCAgCggCCgCAgCAgCgoAgIAgIAoKAIIKAICAICAKCgCAgCAgCgoAggCAgCAgCgoAgIAgIAoKAICAIIAgIAoKAICAICAKCgCAgCCAICAKCgCAgCAgCgoAgIAgIAggCgoAgIAgIAoKAICAICAIIAoKAICAICAKCgCAgCAgCggCCgCAgCAgCgoAgIAgIAoIAgoAgIAgIAoKAICAICAKCgCCAICAICAKCgCAgCAgCgoAgIIggIAgIAoKAICAICAKCgCAgCCAICAKCgCAgCAgCgoAgIAgIAggCgoAgIAgIAoKAICAICAIIAoKAICAICAKCgCAgCAgCggCCgCDwZwF2ixVTTYF0mAAAAABJRU5ErkJggg==")
   let lazyLoadImgs = new LazyLoad({
     elements_selector: 'img.js-lazy',
+    // 設定距離可視區(視窗)底部多遠觸發
     threshold: 500,
     callback_loaded: function() {
       AOS.refresh()
@@ -171,11 +181,12 @@ $(function() {
 
   // swiper
   if (new Swiper() !== undefined) {
-    const headerSwiper = new Swiper('.l-header__swiper', {
+    let headerSwiper = new Swiper('.l-header__swiper', {
       effect: 'fade',
       fadeEffect: {
         crossFade: true
       },
+      // 緩慢施放
       longSwipesRatio: 0.1,
       loop: true,
       speed: 1600,
@@ -186,9 +197,7 @@ $(function() {
       on: {
         slideChange: function () {
           // alert(this.realIndex)
-          let shapeIndex = this.realIndex + 1
-          if (this.realIndex + 1 > 2) shapeIndex = 0
-          shapeAni(shapeIndex)
+          shapeAni(this.realIndex)
         },
       },
     })
