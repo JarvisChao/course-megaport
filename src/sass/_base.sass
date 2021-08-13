@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;900&family=Roboto:wght@700;900&display=swap')
+  
+$color-main: #ef8322
+$color-sub: #96e881
+$color-gray: #292929
+$color-gray-mid: #9b9b9b
+$color-gray-light: #f5f5f5
+$font-noto-sans: 'Noto Sans TC', '微軟正黑體', sans-serif
+$font-roboto: 'Roboto','Arial', sans-serif
+
+=size($w, $h: $w)
+  width: $w
+  height: $h
+
+*
+  position: relative
+  -webkit-font-smoothing: antialiased
+  box-sizing: border-box
+  &::selection
+    background-color: $color-main
+    color: #fff
+  &::-moz-selection
+    background-color: $color-main
+    color: #fff
+
+
+html
+  font-size: calc(16px * 10 / 16)
+
+@media (max-width: 1199.98px)
+  html
+    font-size: calc(15px * 10 / 16)
+
+@media (max-width: 1024px)
+  html
+    font-size: calc(14px * 10 / 16)
+
+  
+body
+  margin: 0
+  background-image: url('../img/bg-dots.png')
+  background-color: $color-gray-mid
+  font-family: $font-noto-sans
+  font-size: 1.6rem
+  font-weight: 400
+  letter-spacing: 0.1rem
+  line-height: 1.7
+  color: $color-gray-light
+  transition: background-color 0.8s
+  &.is-news-active
+    background-image: none
+    background-color: $color-main
+
+  
+.u-hover-mobile
+  position: fixed
+  +size(100%, 100vh)
+  left: 0
+  top: 0
+  overflow: auto
+  z-index: -9999
+  &__block
+    display: inline-block
+    +size(100%, 98vh)
+
+/* ----------------------------------- */
+/* ------ Labels ------ */
+/* ----------------------------------- */
+a
+  display: block
+  text-decoration: none
+  color: inherit
+  &:hover
+    color: inherit
+img
+  max-width: 100%
+ul
+  list-style: none
+  padding: 0
+  margin: 0

@@ -1,0 +1,44 @@
+.o-burger
+  display: none
+  cursor: pointer
+  z-index: 999
+  &:not(.is-opened):hover &
+    &__line
+      background-color: $color-main
+    &__line:nth-child(1)
+      width: 3rem
+    &__line:nth-child(2)
+      width: 5rem
+    &__line:nth-child(3)
+      width: 3rem
+  &__wrap
+    transition: 0.7s
+  &__line
+    +size(3.6rem, 4px)
+    margin-top: 0.8rem
+    background-color: $color-gray-light
+    transition: 0.7s
+    &:first-child
+      margin-top: 0
+.o-burger
+  &.is-opened
+    position: fixed
+    right: 6vw
+    top: 3rem
+    margin-top: 0
+  &.is-opened &
+    &__line
+      width: 4rem
+    &__line:nth-child(1)
+      transform: translateY(1.2rem) rotate(135deg)
+    &__line:nth-child(2)
+      width: 0
+    &__line:nth-child(3)
+      transform: translateY(-1.2rem) rotate(-135deg)
+  &.is-opened:hover &
+    &__wrap
+      transform: rotate(90deg)
+
+@media (max-width: 767.98px)
+  .o-burger
+    display: inline-block

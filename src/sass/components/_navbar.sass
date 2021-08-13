@@ -1,0 +1,149 @@
+.c-navbar
+  position: absolute
+  left: 0
+  top: 0
+  padding: 5rem 5vw
+  z-index: 99999
+  &__logo-wrap
+    max-width: 24rem
+  &__body
+    display: inline-block
+    margin-top: 7rem
+  &__btn-wrap:hover &
+    &__btn
+      transform: rotateX(-180deg)
+  &__btn
+    transform-style: preserve-3d
+    padding: 1rem 0
+    transition: 0.5s
+  // 調整高亮
+  &__btn.is-active &
+    &__text-btn
+      color: $color-sub
+  &__text-btn
+    font-size: 1.9rem
+    font-weight: 900
+    line-height: 1.5
+    backface-visibility: hidden
+    &.--en
+      font-family: $font-roboto
+      z-index: 2
+    &.--zh
+      position: absolute
+      left: 0
+      top: 50%
+      transform: translateY(-50%) rotateX(-180deg)
+      font-family: $font-noto-sans
+      color: $color-main
+      white-space: nowrap
+
+  &__link-box
+    display: flex
+    margin-top: 3rem
+  &__link-wrap
+    margin-right: 1rem
+  &__link-wrap:hover &
+    &__link
+      color: $color-main
+  // 等同
+  // .c-navbar__link-wrap:hover .c-navbar
+  //   &__link
+  //     color: $color-main
+  &__link
+    font-size: 2.4rem
+    transition: 0.3s
+
+.c-navbar
+  // 先做這個
+  &.is-fixed
+    display: flex
+    align-items: center
+    position: fixed
+    width: 100%
+    left: 0
+    top: 0
+    padding: 2.4rem 4vw
+    transform: translateY(0)
+    background-color: $color-gray
+    box-shadow: 0 0 10px $color-main
+    transition: transform 0.8s
+    &.is-scrolldown
+      &:not(.is-opened), &:not(.is-burger)
+        transform: translateY(-100%)
+        
+  &.is-fixed:not(.is-burger) &
+    &__body
+      margin-left: auto
+      margin-top: 0
+    &__menu
+      display: flex
+      align-items: center
+    &__btn-box
+      display: flex
+    &__btn-wrap
+      margin-bottom: 0
+      margin-left: 2vw
+    &__text-btn.--zh
+      left: 50%
+      transform: translate(-50%, -50%) rotateX(-180deg)
+    &__link-box
+      justify-content: flex-end
+      margin-left: 2vw
+      margin-top: 0
+
+@media (max-width: 767.98px)
+  // burger mode
+  .c-navbar
+    &__burger
+      margin-left: 0.5rem
+      margin-top: 2rem
+    &__body
+      position: fixed
+      left: 0
+      top: 0
+      +size(100%, 0)
+      margin-top: 0
+      background-color: rgba($color-gray, 0.8)
+      overflow: hidden
+      transition: height 0.7s 0.7s
+    &__menu
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      +size(100%, auto)
+      min-height: 100%
+      transform: translateY(-1rem)
+      transition: transform 0.7s, opacity 0.7s
+      opacity: 0
+    &__btn-box
+      text-align: center
+    &__text-btn
+      font-size: 2.8rem
+      &.--zh
+        left: 50%
+        transform: translate(-50%, -50%) rotateX(-180deg)
+    &__link
+      font-size: 2.8rem
+
+  .c-navbar
+    &.is-fixed &
+      &__burger
+        margin-left: auto
+        margin-top: 0
+
+  .c-navbar
+    &.is-opened &
+      &__body
+        height: 100vh
+        transition: 0.7s
+      &__menu
+        transform: translateY(0)
+        opacity: 1
+        transition: transform 0.7s 0.7s, opacity 0.7s 0.7s
+
+@media (max-width: 575.98px)
+  .c-navbar
+    padding: 3rem 6vw
+    &__logo-wrap
+      max-width: 20rem

@@ -1,0 +1,156 @@
+.l-lineup
+  padding-top: 6rem
+  &::after
+    content: ''
+    display: block
+    // 控制 sticky 空間
+    +size(100%, 20rem)
+  &__blockade
+    top: -10%
+  &__sticky
+    position: sticky
+    position: -webkit-sticky
+    top: 6rem
+  // 第二順位
+  &__title-section
+    margin-bottom: 4rem
+  &__box 
+    margin-top: -18rem
+  &__wrap
+    // important 因為 parallax 插件會影響
+    display: flex !important
+    align-items: start
+    position: relative !important
+    margin-top: 18rem
+    pointer-events: auto
+    &:nth-child(1)
+      justify-content: flex-end
+      align-items: flex-end
+      z-index: 1
+    &:nth-child(2)
+      justify-content: center
+    &:nth-child(4)
+      justify-content: flex-end
+    &:nth-child(5)
+      justify-content: flex-end
+      align-items: flex-end
+
+  &__artist
+    max-width: 45rem
+    filter: grayscale(1)
+    transition: 0.3s
+    &:hover
+      filter: grayscale(0)
+    &.--artist01
+      bottom: -4rem
+    &.--artist02, &.--artist03
+      max-width: 56rem
+    &.--artist04
+      right: -10rem
+      top: -6rem
+
+  &__title
+    position: absolute
+    white-space: nowrap
+    z-index: 20
+    &.--title01
+      right: -20%
+      top: 20%
+    &.--title02
+      left: 10%
+      bottom: -8%
+    &.--title03
+      left: 10%
+      top: -24%
+    &.--title04
+      left: 10%
+      bottom: -8%
+    &.--title05
+      right: 10%
+      top: -10%
+  
+  &__glitch-wrap
+    position: absolute
+    width: 100%
+    left: 0
+    top: 0
+    // 調整圖片色塊
+    &::after
+      content: ''
+      display: block
+      position: absolute
+      +size(100%)
+      left: 0
+      top: 0
+      background-color: $color-main
+      mix-blend-mode: multiply
+      z-index: 10
+    &:first-child::after
+      background-color: $color-sub
+      
+  &__img, &__glitch-wrap:nth-child(2)
+    // 調整重疊效果
+    mix-blend-mode: lighten
+    z-index: 10
+
+@media (max-width: 1024px) and (orientation: portrait)
+  .l-lineup
+    padding-top: 10vw
+    &__sticky
+      top: 10vw
+
+
+@media (max-width: 991.98px)
+  .l-lineup
+    &__box
+      margin: -18rem -4vw 0
+      padding: 0 4vw
+      overflow: hidden
+    &__wrap:nth-child(5)
+      align-items: flex-start
+      margin-top: -4rem
+    &__artist
+      &.--artist04
+        right: -6rem
+    &__title
+      &.--title01
+        right: 10%
+        top: -20%
+
+@media (max-width: 767.98px)
+  .l-lineup
+    padding-top: 10vw
+    &::after
+      height: 10rem
+    &__sticky
+      top: 10vw
+
+@media (max-width: 575.98px)
+  .l-lineup
+    &::after
+      height: 15rem
+    &__blockade
+      top: -5%
+    &__title-section
+      margin-bottom: 12vw
+    &__box
+      margin-top: -10vw
+      // 把 overflow 吃掉的補回來
+      padding-bottom: 10vw
+    &__wrap
+      margin-top: 10vw
+    &__wrap:nth-child(5)
+      margin-top: 0
+    &__artist
+      &.--artist01
+        left: 10vw
+        bottom: 0
+      &.--artist02
+        left: -10vw
+      &.--artist03
+        top: 14vw
+      &.--artist04
+        right: -10vw
+        top: 0
+      &.--artist05
+        top: 10vw

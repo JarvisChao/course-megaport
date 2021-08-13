@@ -1,0 +1,45 @@
+.c-blockade
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  padding: 20rem 0
+  pointer-events: none
+  overflow: hidden
+  z-index: 9999
+  &__line:nth-child(1)
+    transform: rotate(-10deg)
+  &__line:nth-child(2)
+    transform: rotate(10deg)
+  &__line:nth-child(3)
+    transform: rotate(-5deg)
+  &__line:nth-child(4)
+    transform: rotate(5deg)
+  &__text
+    font-size: 7rem
+    font-weight: 700
+    color: $color-main
+    display: inline-block
+    padding: 0 10rem 0.8rem
+    background-color: $color-gray
+    white-space: nowrap
+    transition: transform 1s cubic-bezier(.23, .83, .7, 1)
+
+@media (max-width: 1024px) and (orientation: portrait)
+  .c-blockade__line:nth-child(3)
+    transform: rotate(-5deg) translateX(-20%)
+
+@media (max-width: 767.98px)
+  .c-blockade
+    &__line:nth-child(3)
+      transform: rotate(-5deg) translateX(-50%)
+    &__text
+      font-size: 5.5rem
+      transition: 1s
+
+@media (max-width: 575.98px)
+  .c-blockade
+    &__line:nth-child(3)
+      transform: rotate(-5deg) translateX(-110%)
+    &__text
+      font-size: 4rem

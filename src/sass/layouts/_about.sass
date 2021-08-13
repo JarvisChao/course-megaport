@@ -1,0 +1,72 @@
+.l-about
+  padding-top: 14rem
+  &::after
+    content: ''
+    display: block
+    position: absolute
+    right: 0
+    top: 16rem
+    +size(60%, 8rem)
+    transform-origin: right top
+    transform: skew(-35deg)
+    background-image: linear-gradient(to left, $color-gray-light 0%, $color-gray-light 50%, transparent, 50%, transparent 100%)
+    background-size: 14% 100%
+  &__container
+    max-width: calc(1560px + 8vw)
+    padding-left: 0
+    margin-left: -4vw
+  &__title-section
+    margin-bottom: 10rem
+  &__img-mask
+    height: 100%
+    transform-origin: right bottom
+    transform: skew(35deg)
+    overflow: hidden
+  &__img
+    +size(100%)
+    transform-origin: right bottom
+    transform: skew(-35deg)
+    background-image: url('../img/about/about.jpg')
+    background-size: cover
+    background-position: center center
+    transition: background 1s cubic-bezier(.23, .83, .7, 1)
+  &__content-wrap
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    padding: 4rem 0 10rem 2vw
+  &__content:first-child
+    margin-left: -16rem
+    margin-bottom: 6rem
+  &__title
+    margin-bottom: 3rem
+  &__btn-more
+    margin-top: 6rem
+
+@media (max-width: 767.98px)
+  .l-about
+    &__container
+      margin-left: auto
+      // 還原 bootstrap 樣式
+      padding-left: var(--bs-gutter-x, .75rem)
+    &__img-mask
+      height: 60vw
+      margin-left: -6vw
+    &__content:first-child
+      margin-left: 0
+    &__content-wrap
+      padding: 0
+
+@media (max-width: 575.98px)
+  .l-about
+    padding-top: 14vw
+    &::after
+      top: 16vw
+      +size(40%, 6rem)
+      background-size: 24% 100%
+    &__title-section
+      margin-bottom: 12vw
+    &__content:first-child
+      margin-bottom: 10vw
+    &__title
+      margin-bottom: 6vw

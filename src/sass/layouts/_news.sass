@@ -1,0 +1,46 @@
+.l-news
+  padding-top: 12rem
+  &__title-section
+    margin-bottom: 8rem
+    text-align: center
+  &__swiper
+    // 避免上下陰影被吃掉
+    padding: 10px
+  &__swiper-slide
+    height: auto
+  &__btn-swiper-wrap
+    position: absolute
+    left: -4vw
+    right: -4vw
+    top: 50%
+    transform: translateY(-50%)
+    z-index: 10
+  &__btn-swiper
+    position: absolute
+    top: 50%
+    transform: translateY(-50%)
+    padding: 2rem
+    background-color: $color-gray-light
+    font-size: 1.8rem
+    color: $color-gray-mid
+    transition: 0.3s
+    &:hover
+      background-color: $color-gray
+      color: $color-sub
+      box-shadow: 0 0 4px rgba(#000, 0.8)
+    &:active
+      background-color: $color-sub
+      color: $color-gray
+      box-shadow: 0 0 4px rgba($color-gray-light, 0.8)
+    &.--pre
+      left: 0
+      border-radius: 0 2rem 2rem 0
+    &.--next
+      right: 0
+      border-radius: 2rem 0 0 2rem
+
+@media (max-width: 575.98px)
+  .l-news
+    padding-top: 14vw
+    &__title-section
+      margin-bottom: 10vw
