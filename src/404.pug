@@ -1,8 +1,8 @@
 doctype html
 html(lang="en")
   head
-    include includes/config.pug
-    include includes/head.pug
+    include includes/_config.pug
+    include includes/_head.pug
     
     meta(property="og:title" content="地圖導覽｜" + title)
     title 地圖導覽｜#{title}
@@ -13,7 +13,7 @@ html(lang="en")
       .hover-mobile
         .hover-mobile__block
 
-      include includes/navbar.pug
+      include includes/_navbar.pug
 
       header.l-header-inner(data-aos="fade-down")
         .c-blockade.l-header-inner__blockade
@@ -35,6 +35,6 @@ html(lang="en")
               .col-md-12
                 h3.l-error__title.u-title 糟糕！網頁發生錯誤，請點擊其他連結瀏覽
 
-    include includes/footer.pug
+    include includes/_footer.pug
 
     script(src="js/main.min.js")

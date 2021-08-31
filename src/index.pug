@@ -1,8 +1,8 @@
 doctype html
 html(lang="en")
   head
-    include includes/config.pug
-    include includes/head.pug
+    include includes/_config.pug
+    include includes/_head.pug
     
     meta(property="og:title" content=title)
     title #{title}
@@ -13,7 +13,7 @@ html(lang="en")
       .u-hover-mobile
         .u-hover-mobile__block
 
-      include includes/navbar.pug
+      include includes/_navbar.pug
 
       header.l-header(data-aos="fade")
         //- input-element 滑鼠進入指定區塊內才生效
@@ -243,7 +243,7 @@ html(lang="en")
                   .l-about__btn-more(data-aos="fade-up")
                     a.o-btn-more(href="##") MORE
 
-    include includes/footer.pug
+    include includes/_footer.pug
 
     script(src="js/gsap.min.js")
     script(src="js/swiper-bundle.min.js")
