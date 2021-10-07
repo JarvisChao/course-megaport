@@ -47,27 +47,7 @@ $(function () {
   if (!$('#app').hasClass('is-home')) {
     $('.c-navbar').addClass('is-fixed')
   }
-  let initScrollY = 0
   $(window).scroll(function() {
-    if ($('.c-navbar').hasClass('is-fixed')) {
-      let firstScrollY = this.scrollY || this.pageYoffset
-      // 首次向上滾
-      // initScrollY -> 0
-      // firstScrollY -> 1
-      // 第二次向上滾
-      // initScrollY -> 1
-      // firstScrollY -> 2
-      console.log('init', initScrollY)
-      console.log('first', firstScrollY)
-      if (initScrollY < firstScrollY) {
-        $('.c-navbar').addClass('is-scrolldown')
-      } else {
-        $('.c-navbar').removeClass('is-scrolldown')
-      }
-      initScrollY = firstScrollY
-      // initScrollY -> 1
-    }
-
     if ($('#app').hasClass('is-home')) {
       if ($(this).scrollTop() > $('.l-header').outerHeight() / 2) {
         $('.c-navbar').addClass('is-fixed')
@@ -137,7 +117,7 @@ $(function() {
   let gotop = false
   $('.o-gotop').click(function() {
     if (gotop === false) {
-      $('html, body').stop().animate({
+      $('html, body').animate({
         scrollTop: 0
       }, 300)
       gotop = true
