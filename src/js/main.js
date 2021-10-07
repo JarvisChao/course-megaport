@@ -33,11 +33,10 @@ $(function() {
 //-- Btn Tag
 // 抓取檔名
 $(function() {
-  let url = location.href
+  let pathname = location.pathname
   $('a').each(function() {
-    let aHref = $(this).attr('href').split('/')
-    let aValue = aHref[aHref.length - 1] || ' '
-    if (url.indexOf(aValue) > -1 && aValue !== '##') {
+    let aHref = $(this).attr('href')
+    if (pathname.indexOf(aHref) > -1) {
       $(this).addClass('is-active')
     }
   })
