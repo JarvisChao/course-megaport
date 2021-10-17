@@ -3,13 +3,14 @@ html(lang="en")
   head
     include includes/_config.pug
     include includes/_head.pug
-    
+
     meta(property="og:title" content=title)
     title #{title}
-    
+
   body
     #app.is-home
 
+      //- 支援手機 hover 效果
       .u-hover-mobile
         .u-hover-mobile__block
 
@@ -74,7 +75,7 @@ html(lang="en")
                   .l-lineup__title-section(data-aos="fade-up")
                     h2.u-title-section LINEUP
                     h2.u-subtitle-section MEGAPORT FESTIVAL
-                    
+
               .row.l-lineup__box.js-parallax(data-input-element=".l-lineup")
                 .col-sm-5.l-lineup__wrap(data-depth="0.1")
                   article.l-lineup__artist.--artist01
@@ -222,10 +223,10 @@ html(lang="en")
                             .c-card__content
                               h3.c-card__title 大港線上直播 來囉！
                               p.c-card__desc 沒買到大港票的朋朋，線上直播來啦 . 大港開唱與LINE TODAY獨家合作 #南霸天、 #女神龍...
-                            a.o-btn-more.c-card__btn-more(href="##") MORE      
+                            a.o-btn-more.c-card__btn-more(href="##") MORE
 
         section.l-about
-          .container 
+          .container
             .row
               .col-md-12
                 .l-about__title-section(data-aos="fade-right")
@@ -248,8 +249,9 @@ html(lang="en")
                   .l-about__btn-more(data-aos="fade-up")
                     a.o-btn-more(href="##") MORE
 
-    include includes/_footer.pug
+      include includes/_footer.pug
 
+    include includes/_scripts.pug
     script(src="js/gsap.min.js")
     script(src="js/swiper-bundle.min.js")
     script(src="js/parallax.min.js")

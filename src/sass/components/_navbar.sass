@@ -18,9 +18,9 @@
     transition: 0.5s
   // 調整高亮
   &__btn.is-active &
-    &__text-btn
+    &__text
       color: $color-sub
-  &__text-btn
+  &__text
     font-size: 1.9rem
     font-weight: 900
     line-height: 1.5
@@ -43,13 +43,13 @@
   &__link-wrap
     margin-right: 1rem
   &__link-wrap:hover &
-    &__link
+    &__icon
       color: $color-main
   // 等同
   // .c-navbar__link-wrap:hover .c-navbar
-  //   &__link
+  //   &__icon
   //     color: $color-main
-  &__link
+  &__icon
     font-size: 2.4rem
     transition: 0.3s
 
@@ -65,7 +65,7 @@
     padding: 2.4rem 4vw
     background-color: $color-gray
     box-shadow: 0 0 10px $color-main
-        
+
   &.is-fixed:not(.is-burger) &
     &__body
       margin-left: auto
@@ -78,7 +78,7 @@
     &__btn-wrap
       margin-bottom: 0
       margin-left: 2vw
-    &__text-btn.--zh
+    &__text.--zh
       left: 50%
       transform: translate(-50%, -50%) rotateX(-180deg)
     &__link-box
@@ -113,12 +113,12 @@
       opacity: 0
     &__btn-box
       text-align: center
-    &__text-btn
+    &__text
       font-size: 2.8rem
       &.--zh
         left: 50%
         transform: translate(-50%, -50%) rotateX(-180deg)
-    &__link
+    &__icon
       font-size: 2.8rem
 
   .c-navbar

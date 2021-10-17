@@ -10,11 +10,11 @@
   &__sticky
     position: sticky
     position: -webkit-sticky
-    top: 6rem
+    top: 10rem
   // 第二順位
   &__title-section
     margin-bottom: 4rem
-  &__box 
+  &__box
     margin-top: -18rem
   &__wrap
     // important 因為 parallax 插件會影響
@@ -68,7 +68,7 @@
     &.--title05
       right: 10%
       top: -10%
-  
+
   &__glitch-wrap
     position: absolute
     width: 100%
@@ -87,7 +87,7 @@
       z-index: 10
     &:first-child::after
       background-color: $color-sub
-      
+
   &__img, &__glitch-wrap:nth-child(2)
     // 調整重疊效果
     mix-blend-mode: lighten
@@ -97,7 +97,7 @@
   .l-lineup
     padding-top: 10vw
     &__sticky
-      top: 10vw
+      top: 14vw
 
 
 @media (max-width: 991.98px)
@@ -119,11 +119,8 @@
 
 @media (max-width: 767.98px)
   .l-lineup
-    padding-top: 10vw
     &::after
       height: 10rem
-    &__sticky
-      top: 10vw
 
 @media (max-width: 575.98px)
   .l-lineup

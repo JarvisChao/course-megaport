@@ -119,7 +119,7 @@ $(function() {
     if (gotop === false) {
       $('html, body').animate({
         scrollTop: 0
-      }, 300)
+      }, 1000)
       gotop = true
       setTimeout(function() {
         gotop = false
@@ -151,7 +151,7 @@ $(function() {
     { d: 'M188.265 0L1441.82 45.919L1399.71 744.419L0 846.809L188.265 0Z' }
   ]
   function shapeAni(index) {
-    gsap.to('#banner-shape', { 
+    gsap.to('#banner-shape', {
       attr: { d: shapePath[index].d },
       duration: 1.6,
       ease: 'power1.out'
