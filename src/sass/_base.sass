@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;900&family=Roboto:wght@700;900&display=swap')
 
-$color-main: #ef8322
-$color-sub: #96e881
+$color-primary: #ef8322
+$color-secondary: #96e881
 $color-gray: #292929
 $color-gray-mid: #9b9b9b
 $color-gray-light: #f5f5f5
@@ -17,15 +17,16 @@ $font-roboto: 'Roboto','Arial', sans-serif
   -webkit-font-smoothing: antialiased
   box-sizing: border-box
   &::selection
-    background-color: $color-main
+    background-color: $color-primary
     color: #fff
   &::-moz-selection
-    background-color: $color-main
+    background-color: $color-primary
     color: #fff
 
 
 html
   font-size: calc(16px * 10 / 16)
+  // 防止 Bootstrap 預設影響 GoTop
   scroll-behavior: auto !important
 
 @media (max-width: 1199.98px)
@@ -50,7 +51,7 @@ body
   transition: background-color 0.8s
   &.is-news-active
     background-image: none
-    background-color: $color-main
+    background-color: $color-primary
 
 
 .u-hover-mobile

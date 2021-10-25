@@ -15,7 +15,7 @@
     flex-direction: column
     align-items: center
     padding: 4rem 4vw
-    background-color: $color-main
+    background-color: $color-primary
   &__btn-box
     display: flex
     justify-content: center
@@ -29,12 +29,12 @@
     &__text.--en
       opacity: 0
     &__text.--zh
-      color: $color-sub
+      color: $color-secondary
       opacity: 1
   // 調整高亮
   &__btn.is-active &
     &__text
-      color: $color-sub
+      color: $color-secondary
   &__text
     white-space: nowrap
     text-align: center
@@ -52,7 +52,7 @@
   &__link-wrap
     transition: 0.3s
     &:hover
-      color: $color-sub
+      color: $color-secondary
     &:not(:last-child)
       margin-right: 1rem
 
