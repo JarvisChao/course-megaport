@@ -7,14 +7,8 @@
     // 避免上下陰影被吃掉
     padding: 10px
   &__swiper-slide
+    // 為了保持 flex stretch 特性，需取消插件預設 100%
     height: auto
-  &__btn-swiper-wrap
-    position: absolute
-    left: -4vw
-    right: -4vw
-    top: 50%
-    transform: translateY(-50%)
-    z-index: 10
   &__btn-swiper
     position: absolute
     top: 50%
@@ -23,6 +17,7 @@
     background-color: $color-gray-light
     font-size: 1.8rem
     color: $color-gray-mid
+    z-index: 10
     transition: 0.3s
     &:hover
       background-color: $color-gray
@@ -33,10 +28,10 @@
       color: $color-gray
       box-shadow: 0 0 4px rgba($color-gray-light, 0.8)
     &.--pre
-      left: 0
+      left: -4vw
       border-radius: 0 2rem 2rem 0
     &.--next
-      right: 0
+      right: -4vw
       border-radius: 2rem 0 0 2rem
 
 @media (max-width: 575.98px)
