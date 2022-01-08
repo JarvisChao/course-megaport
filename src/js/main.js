@@ -77,28 +77,26 @@ $(function () {
 });
 
 // -- burger
-$(function () {
-  let isOpened = false;
-  $('.o-burger').click(function () {
-    if (isOpened === false) {
-      $('.o-burger').addClass('is-opened');
-      $('.c-navbar').addClass('is-opened');
-      setTimeout(function () {
-        $('.c-navbar__body').css({
-          overflow: 'auto',
-        });
-      }, 1000);
-      isOpened = true;
-    } else if (isOpened === true) {
-      $('.o-burger').removeClass('is-opened');
-      $('.c-navbar').removeClass('is-opened');
+let isOpened = false;
+function handleBurger() {
+  if (isOpened === false) {
+    $('.o-burger').addClass('is-opened');
+    $('.c-navbar').addClass('is-opened');
+    setTimeout(function () {
       $('.c-navbar__body').css({
-        overflow: 'hidden',
+        overflow: 'auto',
       });
-      isOpened = false;
-    }
-  });
-});
+    }, 1000);
+    isOpened = true;
+  } else if (isOpened === true) {
+    $('.o-burger').removeClass('is-opened');
+    $('.c-navbar').removeClass('is-opened');
+    $('.c-navbar__body').css({
+      overflow: 'hidden',
+    });
+    isOpened = false;
+  }
+}
 
 // 滾動至 news 時改變背景顏色
 $(function () {
@@ -144,6 +142,7 @@ $(function () {
     'src',
     'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAQAAABHvi1JAAACNUlEQVR42u3TMQEAAAgDINc/mLE0gZ8ndCA9BRwiCAgCgoAgIAgIAoKAICAICAIIAoKAICAICAKCgCAgCAgCggCCgCAgCAgCgoAgIAgIAoIAgoAgIAgIAoKAICAICAKCgCCAICAICAKCgCAgCAgCgoAggCAgCAgCgoAgIAgIAoKAICAIIAgIAoKAICAICAKCgCAgCCAICAKCgCAgCAgCgoAgIAgIAggCgoAgIAgIAoKAICAICAKCCAKCgCAgCAgCgoAgIAgIAoIAgoAgIAgIAoKAICAICAKCgCCAICAICAKCgCAgCAgCgoAggCAgCAgCgoAgIAgIAoKAICAIIAgIAoKAICAICAKCgCAgCCAICAKCgCAgCAgCgoAgIAgIAggCgoAgIAgIAoKAICAICAIIAoKAICAICAKCgCAgCAgCggCCgCAgCAgCgoAgIAgIAoKAIIKAICAICAKCgCAgCAgCgoAggCAgCAgCgoAgIAgIAoKAICAIIAgIAoKAICAICAKCgCAgCCAICAKCgCAgCAgCgoAgIAgIAggCgoAgIAgIAoKAICAICAIIAoKAICAICAKCgCAgCAgCggCCgCAgCAgCgoAgIAgIAoIAgoAgIAgIAoKAICAICAKCgCCAICAICAKCgCAgCAgCgoAgIIggIAgIAoKAICAICAKCgCAgCCAICAKCgCAgCAgCgoAgIAgIAggCgoAgIAgIAoKAICAICAIIAoKAICAICAKCgCAgCAgCggCCgCDwZwF2ixVTTYF0mAAAAABJRU5ErkJggg=='
   );
+  // https://github.com/verlok/vanilla-lazyload
   let lazyLoadImgs = new LazyLoad({
     elements_selector: 'img.js-lazy',
     // 設定距離可視區(視窗)底部多遠觸發
