@@ -13,11 +13,11 @@ function isMobile() {
 }
 if (!isMobile()) {
   let explorer = navigator.userAgent
-  if (explorer.indexOf('Firefox') >= 0) {
+  if (explorer.indexOf('Firefox') > -1) {
     $('body').append('<script async src="js/smooth-scrolling-chrome.js"></script>')
-  } else if (explorer.indexOf('Chrome') >= 0) {
+  } else if (explorer.indexOf('Chrome') > -1) {
     $('body').append('<script async src="js/smooth-scrolling-chrome.js"></script>')
-  } else if (explorer.indexOf('Safari') >= 0) {
+  } else if (explorer.indexOf('Safari') > -1) {
     $('body').append('<script async src="js/smooth-scrolling-safari.js"></script>')
   }
 }
@@ -156,7 +156,7 @@ $(function () {
     { d: 'M188.265 0L1441.82 45.919L1399.71 744.419L0 846.809L188.265 0Z' },
   ];
   function shapeAni(index) {
-    gsap.to('#banner-shape', {
+    gsap.to('#banner-shape path', {
       attr: { d: shapePath[index].d },
       duration: 1.6,
       ease: 'power1.out',
