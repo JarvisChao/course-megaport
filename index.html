@@ -72,38 +72,31 @@
         <div class="l-header__swiper-box">
           <svg class="l-header__svg-mask">
             <defs>
-              <path id="banner-shape" d="M188.265 0L1441.82 45.919L1399.71 744.419L0 846.809L188.265 0Z"></path>
+              <mask id="banner-shape" fill="white">
+                <path d="M101.984 0L1486.33 178.762L1270.23 788.591L0 829.293L101.984 0Z"></path>
+              </mask>
             </defs>
           </svg>
           <div class="swiper-container l-header__swiper">
             <div class="swiper-wrapper">
               <div class="swiper-slide">
                 <svg viewBox="0 0 1500 900">
-                  <mask id="banner-shape-mask01" fill="white">
-                    <use xlink:href="#banner-shape"></use>
-                  </mask>
-                  <g mask="url(#banner-shape-mask01)">
+                  <g mask="url(#banner-shape)">
                     <image class="l-header__img" xlink:href="img/banner/banner-img01.jpg" width="100%" height="100%"></image>
                   </g>
                 </svg>
               </div>
               <div class="swiper-slide">
                 <svg viewBox="0 0 1500 900">
-                  <mask id="banner-shape-mask02" fill="white">
-                    <use xlink:href="#banner-shape"></use>
-                  </mask>
-                  <g mask="url(#banner-shape-mask02)">
-                    <image class="l-header__img" xlink:href="img/banner/banner-img02.jpg" width="100%" height="100%"></image>
+                  <g mask="url(#banner-shape)">
+                    <image class="l-header__img" xlink:href="img/banner/banner-img01.jpg" width="100%" height="100%"></image>
                   </g>
                 </svg>
               </div>
               <div class="swiper-slide">
                 <svg viewBox="0 0 1500 900">
-                  <mask id="banner-shape-mask03" fill="white">
-                    <use xlink:href="#banner-shape"></use>
-                  </mask>
-                  <g mask="url(#banner-shape-mask03)">
-                    <image class="l-header__img" xlink:href="img/banner/banner-img03.jpg" width="100%" height="100%"></image>
+                  <g mask="url(#banner-shape)">
+                    <image class="l-header__img" xlink:href="img/banner/banner-img01.jpg" width="100%" height="100%"></image>
                   </g>
                 </svg>
               </div>
@@ -380,6 +373,9 @@
         </div>
       </footer>
     </div>
+    <script src="js/parallax.min.js"></script>
+    <script src="js/gsap.min.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="js/lazyload.min.js"></script>
@@ -392,9 +388,6 @@
       })
     </script>
     <script src="js/uikit.min.js"></script>
-    <script src="js/gsap.min.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
-    <script src="js/parallax.min.js"></script>
     <script src="js/main.min.js"></script>
   </body>
 </html>
