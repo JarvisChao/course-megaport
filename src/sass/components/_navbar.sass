@@ -25,6 +25,7 @@
     font-weight: 900
     line-height: 1.5
     backface-visibility: hidden
+    -webkit-backface-visibility: hidden
     &.--en
       font-family: $font-en
       z-index: 2
@@ -54,7 +55,6 @@
     transition: 0.3s
 
 .c-navbar
-  // 先做這個
   &.is-fixed
     display: flex
     align-items: center
@@ -66,7 +66,7 @@
     background-color: $color-gray
     box-shadow: 0 0 10px $color-primary
 
-  &.is-fixed:not(.is-burger) &
+  &.is-fixed &
     &__body
       margin-left: auto
       margin-top: 0
@@ -109,10 +109,14 @@
       +size(100%, auto)
       min-height: 100%
       transform: translateY(-1rem)
+      padding: 5rem 0
       transition: transform 0.7s, opacity 0.7s
       opacity: 0
     &__btn-box
+      display: block !important
       text-align: center
+    &__btn-wrap
+      margin-left: 0 !important
     &__text
       font-size: 2.8rem
       &.--zh
@@ -120,6 +124,9 @@
         transform: translate(-50%, -50%) rotateX(-180deg)
     &__icon
       font-size: 2.8rem
+    &__link-box
+      margin-left: 0 !important
+      margin-top: 3rem !important
 
   .c-navbar
     &.is-fixed &

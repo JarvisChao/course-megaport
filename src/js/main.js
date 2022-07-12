@@ -13,26 +13,10 @@ function isMobile() {
 }
 if (!isMobile()) {
   let explorer = navigator.userAgent
-  if (explorer.indexOf('Firefox') > -1) {
+  if (explorer.indexOf('Firefox') > -1 || explorer.indexOf('Chrome') > -1) {
     $('body').append('<script async src="js/smooth-scrolling-chrome.js"></script>')
-  } else if (explorer.indexOf('Chrome') > -1) {
-    $('body').append('<script async src="js/smooth-scrolling-chrome.js"></script>')
-  } else if (explorer.indexOf('Safari') > -1) {
-    $('body').append('<script async src="js/smooth-scrolling-safari.js"></script>')
   }
 }
-// -- Hover Mobile
-$(function () {
-  if (isMobile()) {
-    $('.u-hover-mobile').css({
-      display: 'block',
-    })
-  } else {
-    $('.u-hover-mobile').css({
-      display: 'none',
-    })
-  }
-})
 
 //-- Btn Tag
 // 抓取檔名
@@ -59,20 +43,6 @@ $(function () {
         $('.c-navbar').removeClass('is-fixed')
       }
     }
-  })
-  let debounce;
-  $(window).on('resize load', function () {
-    let self = this;
-    // 防止持續執行（防抖）
-    if (debounce) clearTimeout(debounce)
-    debounce = setTimeout(function () {
-      console.log('change!!!')
-      if (self.matchMedia('(max-width: 767.98px)').matches) {
-        $('.c-navbar').addClass('is-burger')
-      } else {
-        $('.c-navbar').removeClass('is-burger')
-      }
-    }, 100)
   })
 })
 
@@ -150,25 +120,25 @@ $(function () {
   })
 
   // -- gsap.js
-  let shapePath = [
-    { d: 'M101.984 0L1486.33 178.762L1270.23 788.591L0 829.293L101.984 0Z' },
-    { d: 'M0 182.409L1498.74 0L1292.37 872.121L89.854 756.921L0 182.409Z' },
-    { d: 'M188.265 0L1441.82 45.919L1399.71 744.419L0 846.809L188.265 0Z' },
-  ];
-  function shapeAni(index) {
-    gsap.to('#banner-shape path', {
-      attr: { d: shapePath[index].d },
-      duration: 1.6,
-      ease: 'power1.out',
-    })
-  }
+  // let shapePath = [
+  //   { d: 'M101.984 0L1486.33 178.762L1270.23 788.591L0 829.293L101.984 0Z' },
+  //   { d: 'M0 182.409L1498.74 0L1292.37 872.121L89.854 756.921L0 182.409Z' },
+  //   { d: 'M188.265 0L1441.82 45.919L1399.71 744.419L0 846.809L188.265 0Z' },
+  // ];
+  // function shapeAni(index) {
+  //   gsap.to('#banner-shape path', {
+  //     attr: { d: shapePath[index].d },
+  //     duration: 1.6,
+  //     ease: 'power1.out',
+  //   })
+  // }
 
   // swiper
   if (new Swiper() !== undefined) {
     let headerSwiper = new Swiper('.l-header__swiper', {
       effect: 'fade',
       fadeEffect: {
-        crossFade: true,
+        // crossFade: true,
       },
       // 緩慢施放
       longSwipesRatio: 0.1,
@@ -178,12 +148,12 @@ $(function () {
         delay: 3000,
         disableOnInteraction: false,
       },
-      on: {
-        slideChange: function () {
-          // alert(this.realIndex)
-          shapeAni(this.realIndex)
-        },
-      },
+      // on: {
+      //   slideChange: function () {
+      //     // alert(this.realIndex)
+      //     shapeAni(this.realIndex)
+      //   },
+      // },
     })
 
     let swiperNews = new Swiper('.l-news__swiper', {

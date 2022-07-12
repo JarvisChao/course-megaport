@@ -82,13 +82,14 @@
       +size(100%)
       left: 0
       top: 0
-      background-color: $color-primary
       mix-blend-mode: multiply
       z-index: 10
-    &:first-child::after
+    &.--primary::after
+      background-color: $color-primary
+    &.--secondary::after
       background-color: $color-secondary
 
-  &__img-main, &__glitch-wrap:nth-child(2)
+  &__img-main, &__glitch-wrap.--secondary
     // 調整重疊效果
     mix-blend-mode: lighten
     z-index: 10

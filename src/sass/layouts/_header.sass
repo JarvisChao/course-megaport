@@ -12,22 +12,32 @@
     pointer-events: none
     z-index: 20
   &__slogan
+    font-size: 16rem
+    font-weight: 900
+    letter-spacing: 0.4rem
+    line-height: 1.2
+    color: $color-gray-light
     &::after
       content: ''
       display: block
       position: absolute
-      +size(7rem)
-      left: 68%
-      bottom: 54%
+      +size(6rem)
+      left: 80%
+      bottom: 50%
       border-radius: 50%
-      border: 8px solid $color-gray-light
+      border: 10px solid $color-gray-light
     &:first-child
       position: absolute
       left: 0
       top: 0
       color: $color-primary
+      filter: blur(0.7rem)
       &::after
         border-color: $color-primary
+  &__subslogan
+    display: block
+    font-size: 14rem
+
   &__swiper-box
     width: 100%
     max-width: 1400px
@@ -103,9 +113,13 @@
 
 @media (max-width: 991.98px)
   .l-header
-    &__slogan::after
-      +size(5rem)
-      border: 7px solid $color-gray-light
+    &__slogan
+      font-size: 12rem
+      &::after
+        +size(4.5rem)
+        border: 8px solid $color-gray-light
+    &__subslogan
+      font-size: 10rem
 
 @media (max-width: 767.98px)
   .l-header
@@ -118,9 +132,13 @@
     &__slogan-wrap
       right: 6vw
       top: 30vw
-    &__slogan::after
-      +size(3.6rem)
-      border: 5px solid $color-gray-light
+    &__slogan
+      font-size: 6.5rem
+      &::after
+        +size(2.8rem)
+        border: 5px solid $color-gray-light
+    &__subslogan
+      font-size: 5.5rem
 
   /* -- header inner -- */
   .l-header-inner
