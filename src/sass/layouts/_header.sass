@@ -59,10 +59,48 @@
     transform: scale(1)
     transition: transform 10s
 
+  +media(ipad)
+    &__swiper-box
+      padding-right: 2vw
+      padding-left: 10vw
+    &__slogan::after
+      +size(6.4rem)
+
+  +media(ipadPro)
+    height: 55vh
+    align-items: flex-end
+
+  +media(md)
+    &__slogan
+      font-size: 12rem
+      &::after
+        +size(4.5rem)
+        border: 8px solid $color-gray-light
+    &__subslogan
+      font-size: 10rem
+
+  +media(sm)
+    height: 64vh
+
+  +media(xs)
+    &__swiper-box
+      padding-left: 6vw
+    &__slogan-wrap
+      right: 6vw
+      top: 30vw
+    &__slogan
+      font-size: 6.5rem
+      &::after
+        +size(2.8rem)
+        border: 5px solid $color-gray-light
+    &__subslogan
+      font-size: 5.5rem
+
 .swiper-slide-active, .swiper-slide-duplicate-active
   .l-header
     &__img
       transform: scale(1.1)
+
 
 /* -- header inner -- */
 .l-header-inner
@@ -93,55 +131,11 @@
   &__blockade
     top: -35rem
 
-@media (max-width: 1024px)
-  .l-header
-    &__swiper-box
-      padding-right: 2vw
-      padding-left: 10vw
-    &__slogan::after
-      +size(6.4rem)
-
-@media (max-width: 1024px) and (orientation: portrait)
-  .l-header
-    height: 55vh
-    align-items: flex-end
-
-  /* -- header-inner -- */
-  .l-header-inner
+  +media(ipadPro)
     &__blockade
       top: -50rem
 
-@media (max-width: 991.98px)
-  .l-header
-    &__slogan
-      font-size: 12rem
-      &::after
-        +size(4.5rem)
-        border: 8px solid $color-gray-light
-    &__subslogan
-      font-size: 10rem
-
-@media (max-width: 767.98px)
-  .l-header
-    height: 64vh
-
-@media (max-width: 575.98px)
-  .l-header
-    &__swiper-box
-      padding-left: 6vw
-    &__slogan-wrap
-      right: 6vw
-      top: 30vw
-    &__slogan
-      font-size: 6.5rem
-      &::after
-        +size(2.8rem)
-        border: 5px solid $color-gray-light
-    &__subslogan
-      font-size: 5.5rem
-
-  /* -- header inner -- */
-  .l-header-inner
+  +media(xs)
     margin-bottom: 12vw
     &__blockade
       top: -38rem

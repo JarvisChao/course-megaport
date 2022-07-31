@@ -54,7 +54,6 @@
     font-size: 2.4rem
     transition: 0.3s
 
-.c-navbar
   &.is-fixed
     display: flex
     align-items: center
@@ -65,7 +64,6 @@
     padding: 2.4rem 4vw
     background-color: $color-gray
     box-shadow: 0 0 10px $color-primary
-
   &.is-fixed &
     &__body
       margin-left: auto
@@ -86,9 +84,8 @@
       margin-left: 2vw
       margin-top: 0
 
-@media (max-width: 767.98px)
-  // burger mode
-  .c-navbar
+  +media(sm)
+    // burger mode
     &__burger
       margin-left: 0.5rem
       margin-top: 2rem
@@ -128,13 +125,11 @@
       margin-left: 0 !important
       margin-top: 3rem !important
 
-  .c-navbar
     &.is-fixed &
       &__burger
         margin-left: auto
         margin-top: 0
 
-  .c-navbar
     &.is-opened &
       &__body
         height: 100vh
@@ -144,8 +139,7 @@
         opacity: 1
         transition: transform 0.7s 0.7s, opacity 0.7s 0.7s
 
-@media (max-width: 575.98px)
-  .c-navbar
+  +media(xs)
     padding: 3rem 6vw
     &__logo-wrap
       max-width: 20rem

@@ -43,8 +43,7 @@
     letter-spacing: 0.12rem
     line-height: 1.7
 
-@media (max-width: 767.98px)
-  .l-about
+  +media(sm)
     &__container
       margin-left: auto
       // 還原 bootstrap 樣式
@@ -57,8 +56,7 @@
     &__content-wrap
       padding: 0
 
-@media (max-width: 575.98px)
-  .l-about
+  +media(xs)
     padding-top: 14vw
     &::before
       top: 16vw

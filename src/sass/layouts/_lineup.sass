@@ -94,15 +94,12 @@
     mix-blend-mode: lighten
     z-index: 10
 
-@media (max-width: 1024px) and (orientation: portrait)
-  .l-lineup
+  +media(ipadPro)
     padding-top: 10vw
     &__sticky
       top: 14vw
 
-
-@media (max-width: 991.98px)
-  .l-lineup
+  +media(md)
     &__box
       margin: -18rem -4vw 0
       padding: 0 4vw
@@ -118,13 +115,11 @@
         right: 10%
         top: -20%
 
-@media (max-width: 767.98px)
-  .l-lineup
+  +media(sm)
     &::after
       height: 10rem
 
-@media (max-width: 575.98px)
-  .l-lineup
+  +media(xs)
     &::after
       height: 15rem
     &__blockade
