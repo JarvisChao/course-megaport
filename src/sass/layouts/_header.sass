@@ -38,11 +38,11 @@
     display: block
     font-size: 14rem
 
-  &__swiper-box
+  &__swiper-area
     width: 100%
     max-width: 1400px
     padding-right: 6vw
-  &__swiper
+  &__swiper-container
     transform: scale(1)
     transition: 0.3s cubic-bezier(.6,.58,.59,1.58)
     &:hover
@@ -60,7 +60,7 @@
     transition: transform 10s
 
   +media(ipad)
-    &__swiper-box
+    &__swiper-area
       padding-right: 2vw
       padding-left: 10vw
     &__slogan::after
@@ -83,7 +83,7 @@
     height: 64vh
 
   +media(xs)
-    &__swiper-box
+    &__swiper-area
       padding-left: 6vw
     &__slogan-wrap
       right: 6vw
