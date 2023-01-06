@@ -9,72 +9,38 @@ html(lang="en")
 
   body
     #app.is-home
-
+      include mixins/_blockade.pug
       include includes/_navbar.pug
-
+      
       header.l-header(data-aos="fade")
-        //- input-element 滑鼠進入指定區塊內才生效
-        h1.l-header__slogan-wrap.js-parallax(data-input-element=".l-header" data-aos="fade-up")
-          span.l-header__slogan(data-depth="-0.2") 人生
-            span.l-header__subslogan 音樂祭
-          span.l-header__slogan(data-depth="-0.1") 人生
-            span.l-header__subslogan 音樂祭
-
-        .l-header__swiper-area
-          svg.l-header__svg-mask
-            defs
-              //- 設定 fill 支援 safari 黑背景
-              mask#banner-shape1(fill="white")
-                path(d="M101.984 0L1486.33 178.762L1270.23 788.591L0 829.293L101.984 0Z")
-              mask#banner-shape2(fill="white")
-                path(d="M0 182.409L1498.74 0L1292.37 872.121L89.854 756.921L0 182.409Z")
-              mask#banner-shape3(fill="white")
-                path(d="M188.265 0L1441.82 45.919L1399.71 744.419L0 846.809L188.265 0Z")
-
-          .swiper-container.l-header__swiper
-            .swiper-wrapper
-              .swiper-slide
-                //- viewBox 設定成共同最大值
-                svg(viewBox="0 0 1500 900")
-                  //- svg群組
-                  g(mask="url(#banner-shape1)")
-                    //- 設定 width height 屬性以支援 ios12 及以下版本
-                    image.l-header__img(xlink:href="img/banner/banner-img01.jpg" width="100%" height="100%")
-              .swiper-slide
-                svg(viewBox="0 0 1500 900")
-                  g(mask="url(#banner-shape2)")
-                    image.l-header__img(xlink:href="img/banner/banner-img02.jpg" width="100%" height="100%")
-              .swiper-slide
-                svg(viewBox="0 0 1500 900")
-                  g(mask="url(#banner-shape3)")
-                    image.l-header__img(xlink:href="img/banner/banner-img03.jpg" width="100%" height="100%")
+        .swiper-container.l-header__swiper
+          .swiper-wrapper
+            .swiper-slide.l-header__slide
+              .l-header__img-mask
+                img.u-object-fit(src="img/banner/banner-img01.jpg" alt="大港開唱")
+            .swiper-slide.l-header__slide
+              .l-header__img-mask
+                img.u-object-fit(src="img/banner/banner-img02.jpg" alt="大港開唱")
+            .swiper-slide.l-header__slide
+              .l-header__img-mask
+                img.u-object-fit(src="img/banner/banner-img03.jpg" alt="大港開唱")
 
       main.l-main
-        section.l-lineup
-          .c-blockade.l-lineup__blockade
-            .c-blockade__line
-              //- viewport 完成位置 / easing 延遲 / x 初始位置,可視位置,結束位置
-              .c-blockade__text(uk-parallax="viewport: 0.9; x: 70vw,0,-110vw") 台灣最生猛海派的音樂祭 - 大港開唱
-            .c-blockade__line
-              .c-blockade__text(uk-parallax="viewport: 0.8; x: -50vw,0,100vw") 台灣最生猛海派的音樂祭 - 大港開唱
-            .c-blockade__line
-              .c-blockade__text(uk-parallax="viewport: 0.8; easing: 1.5; x: 100vw,-40vw,-60vw") 台灣最生猛海派的音樂祭 - 大港開唱
-            .c-blockade__line
-              .c-blockade__text(uk-parallax="viewport: 0.7; x: -100vw,50vw,90vw") 台灣最生猛海派的音樂祭 - 大港開唱
+        section.l-lineup.u-pb-0.u-gradient
+          +blockade('l-lineup__blockade')
 
           .l-lineup__sticky
             .container
-              .row
-                .col-12
-                  .l-lineup__title-section(data-aos="fade-up")
-                    h2.u-title-section LINEUP
-                      span.u-subtitle-section MEGAPORT FESTIVAL
+              .u-mb-100(data-aos="fade-up")
+                h2.u-title-xl.u-color-secondary LINEUP
+                  span.u-text-lg MEGAPORT FESTIVAL
 
-              .row.l-lineup__box.js-parallax(data-input-element=".l-lineup")
+              //- input-element 滑鼠進入指定區塊內才生效
+              .row.--grid.l-lineup__box.js-parallax(data-input-element=".l-lineup__box")
                 .col-sm-5.l-lineup__wrap(data-depth="0.1")
                   article.l-lineup__artist.--artist01
                     a(href="##" data-aos="fade-up")
-                      h3.u-title.--lg.l-lineup__title.--title01 9m88
+                      h3.u-title-md.u-mb-10 9m88
                       //- scalar(10) 設置加速度 / friction(0-1) 設置過渡
                       .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                         .l-lineup__glitch-wrap.--primary(data-depth="-0.2")
@@ -87,7 +53,7 @@ html(lang="en")
                 .col-sm-7.l-lineup__wrap(data-depth="-0.1")
                   article.l-lineup__artist.--artist02
                     a(href="##" data-aos="fade-up")
-                      h3.u-title.--lg.l-lineup__title.--title02 恆月三途
+                      h3.u-title-md.u-mb-10 恆月三途
                       .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                         .l-lineup__glitch-wrap.--primary(data-depth="-0.2")
                           img.l-lineup__img.js-lazy(data-src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單")
@@ -99,7 +65,6 @@ html(lang="en")
                 .col-lg-4.col-sm-7.l-lineup__wrap(data-depth="-0.2")
                   article.l-lineup__artist.--artist03
                     a(href="##" data-aos="fade-up")
-                      h3.u-title.--lg.l-lineup__title.--title03 Beyound Cure
                       .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                         .l-lineup__glitch-wrap.--primary(data-depth="-0.2")
                           img.l-lineup__img.js-lazy(data-src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單")
@@ -107,11 +72,11 @@ html(lang="en")
                           img.l-lineup__img.js-lazy(data-src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單")
                         .l-lineup__img-main
                           img.l-lineup__img.js-lazy(data-src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單")
+                      h3.u-title-md.u-mt-10 Beyound Cure
 
                 .col-lg-4.col-sm-5.l-lineup__wrap(data-depth="0.2")
                   article.l-lineup__artist.--artist04
                     a(href="##" data-aos="fade-up")
-                      h3.u-title.--lg.l-lineup__title.--title04 Dudu King
                       .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                         .l-lineup__glitch-wrap.--primary(data-depth="-0.2")
                           img.l-lineup__img.js-lazy(data-src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單")
@@ -119,11 +84,11 @@ html(lang="en")
                           img.l-lineup__img.js-lazy(data-src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單")
                         .l-lineup__img-main
                           img.l-lineup__img.js-lazy(data-src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單")
+                      h3.u-title-md.u-mt-10 Dudu King
 
-                .col-lg-4.col-sm-5.offset-lg-0.offset-sm-5.l-lineup__wrap(data-depth="-0.1")
+                .col-lg-4.col-sm-5.offset-lg-0.offset-sm-4.l-lineup__wrap(data-depth="-0.2")
                   article.l-lineup__artist.--artist05
                     a(href="##" data-aos="fade-up")
-                      h3.u-title.--lg.l-lineup__title.--title05 Da Wang
                       .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                         .l-lineup__glitch-wrap.--primary(data-depth="-0.2")
                           img.l-lineup__img.js-lazy(data-src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單")
@@ -131,127 +96,111 @@ html(lang="en")
                           img.l-lineup__img.js-lazy(data-src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單")
                         .l-lineup__img-main
                           img.l-lineup__img.js-lazy(data-src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單")
+                      h3.u-title-md.u-mt-10 Da Wang
 
         section.l-news
-          .container
-            .row
-              .col-12
-                .l-news__title-section(data-aos="fade-up")
-                  h2.u-title-section NEWS
-                    span.u-subtitle-section MEGAPORT FESTIVAL
+          .l-news__btn-swiper.--prev
+            i.fas.fa-arrow-left
+          .l-news__btn-swiper.--next
+            i.fas.fa-arrow-right
 
-          .container-fluid
-            .l-news__btn-swiper.--pre
-              i.fas.fa-arrow-left
-            .l-news__btn-swiper.--next
-              i.fas.fa-arrow-right
+          .container
+            .u-mb-100.u-text-center(data-aos="fade-up")
+              h2.u-title-xl.u-color-secondary NEWS
+                span.u-text-lg MEGAPORT FESTIVAL
+                
+            .swiper-container.l-news__swiper(data-aos="fade-up")
+              .swiper-wrapper.l-news__swiper-wrapper
+                .swiper-slide.l-news__swiper-slide
+                  article.c-card
+                    span.u-text-lg.u-fw-900.c-card__date 2021.04.12
+                    .c-card__wrap
+                      a.c-card__img-mask(href="##")
+                        img.u-object-fit.--abs.js-lazy(data-src="img/news/news01.jpg", alt="大港開唱最新消息")
+                      .u-mt-30.u-mb-30
+                        h3.u-text-md.u-mb-10 大港 防疫公告！
+                        p 【入場需先填寫 Line 實聯制問卷才能兌換手環】 如何填寫實聯制...
+                      .o-btn.--right.u-mt-auto
+                        a.o-btn__link(href="##") MORE
+                .swiper-slide.l-news__swiper-slide
+                  article.c-card
+                    span.u-text-lg.u-fw-900.c-card__date 2021.05.10
+                    .c-card__wrap
+                      a.c-card__img-mask(href="##")
+                        img.u-object-fit.--abs.js-lazy(data-src="img/news/news02.jpg", alt="大港開唱最新消息")
+                      .u-mt-30.u-mb-30
+                        h3.u-text-md.u-mb-10 金牌台啤x大港開唱 聯名限定上市
+                        p Untitled Document 為在地音樂乾一杯！ 金牌台啤x大港開唱聯名啤酒限定上市 高雄最具代表性的大型音樂...
+                      .o-btn.--right.u-mt-auto
+                        a.o-btn__link(href="##") MORE
+                .swiper-slide.l-news__swiper-slide
+                  article.c-card
+                    span.u-text-lg.u-fw-900.c-card__date 2021.05.24
+                    .c-card__wrap
+                      a.c-card__img-mask(href="##")
+                        img.u-object-fit.--abs.js-lazy(data-src="img/news/news03.jpg", alt="大港開唱最新消息")
+                      .u-mt-30.u-mb-30
+                        h3.u-text-md.u-mb-10 大港開唱 x MegaFun
+                        p ✧ 好耍 ✧趣味 ✧足歡喜 大港娛樂特區MegaFun全方位手冊 . ** MEGADIVE 孤枝大夫 ** 輕鬆享受人體衝浪支...
+                      .o-btn.--right.u-mt-auto
+                        a.o-btn__link(href="##") MORE
+                .swiper-slide.l-news__swiper-slide
+                  article.c-card
+                    span.u-text-lg.u-fw-900.c-card__date 2021.06.17
+                    .c-card__wrap
+                      a.c-card__img-mask(href="##")
+                        img.u-object-fit.--abs.js-lazy(data-src="img/news/news04.jpg", alt="大港開唱最新消息")
+                      .u-mt-30.u-mb-30
+                        h3.u-text-md.u-mb-10 大港帥口罩
+                        p 想要這個大港口罩嗎？填寫實聯制問卷就送給你 #只送不賣 #有大港單雙日票券者才可兌換...
+                      .o-btn.--right.u-mt-auto
+                        a.o-btn__link(href="##") MORE
+                .swiper-slide.l-news__swiper-slide
+                  article.c-card
+                    span.u-text-lg.u-fw-900.c-card__date 2021.06.22
+                    .c-card__wrap
+                      a.c-card__img-mask(href="##")
+                        img.u-object-fit.--abs.js-lazy(data-src="img/news/news05.jpg", alt="大港開唱最新消息")
+                      .u-mt-30.u-mb-30
+                        h3.u-text-md.u-mb-10 官方周邊 正式公佈！
+                        p 敲破碗的大港周邊這不就來了嗎 . 定番款大港毛巾必收 漁夫帽門簾與工作衫首次登場 超搶眼...
+                      .o-btn.--right.u-mt-auto
+                        a.o-btn__link(href="##") MORE
+                .swiper-slide.l-news__swiper-slide
+                  article.c-card
+                    span.u-text-lg.u-fw-900.c-card__date 2021.07.10
+                    .c-card__wrap
+                      a.c-card__img-mask(href="##")
+                        img.u-object-fit.--abs.js-lazy(data-src="img/news/news06.jpg", alt="大港開唱最新消息")
+                      .u-mt-30.u-mb-30
+                        h3.u-text-md.u-mb-10 大港線上直播 來囉！
+                        p 沒買到大港票的朋朋，線上直播來啦 . 大港開唱與LINE TODAY獨家合作 #南霸天、 #女神龍...
+                      .o-btn.--right.u-mt-auto
+                        a.o-btn__link(href="##") MORE
+
+        .l-about.u-gradient
+          section.u-pb-0
             .container
+              .u-mb-100(data-aos="fade-right")
+                h2.u-title-xl.u-color-secondary ABOUT
+                  span.u-text-lg MEGAPORT FESTIVAL
+
+          section.u-pl-0.u-pt-0
+            .container.--left
               .row
-                .col-12
-                  .swiper-container.l-news__swiper(data-aos="fade-up")
-                    .swiper-wrapper
-                      .swiper-slide.l-news__swiper-slide
-                        article.c-card
-                          .c-card__img-mask
-                            img.js-lazy(data-src="img/news/news01.jpg", alt="大港開唱最新消息")
-                          .c-card__body
-                            .c-card__date-wrap
-                              .c-card__date 2021
-                              .c-card__date 04.12
-                            .c-card__content
-                              h3.u-title-item.c-card__title 大港 防疫公告！
-                              p.c-card__desc 【入場需先填寫 Line 實聯制問卷才能兌換手環】 如何填寫實聯制...
-                            .o-btn.--right.c-card__btn
-                              a.o-btn__btn(href="##") MORE
-                      .swiper-slide.l-news__swiper-slide
-                        article.c-card
-                          .c-card__img-mask
-                            img.js-lazy(data-src="img/news/news02.jpg", alt="大港開唱最新消息")
-                          .c-card__body
-                            .c-card__date-wrap
-                              .c-card__date 2021
-                              .c-card__date 05.10
-                            .c-card__content
-                              h3.u-title-item.c-card__title 金牌台啤x大港開唱 聯名限定上市
-                              p.c-card__desc Untitled Document 為在地音樂乾一杯！ 金牌台啤x大港開唱聯名啤酒限定上市 高雄最具代表性的大型音樂...
-                            .o-btn.--right.c-card__btn
-                              a.o-btn__btn(href="##") MORE
-                      .swiper-slide.l-news__swiper-slide
-                        article.c-card
-                          .c-card__img-mask
-                            img.js-lazy(data-src="img/news/news03.jpg", alt="大港開唱最新消息")
-                          .c-card__body
-                            .c-card__date-wrap
-                              .c-card__date 2021
-                              .c-card__date 05.24
-                            .c-card__content
-                              h3.u-title-item.c-card__title 大港開唱 x MegaFun
-                              p.c-card__desc ✧ 好耍 ✧趣味 ✧足歡喜 大港娛樂特區MegaFun全方位手冊 . ** MEGADIVE 孤枝大夫 ** 輕鬆享受人體衝浪支...
-                            .o-btn.--right.c-card__btn
-                              a.o-btn__btn(href="##") MORE
-                      .swiper-slide.l-news__swiper-slide
-                        article.c-card
-                          .c-card__img-mask
-                            img.js-lazy(data-src="img/news/news04.jpg", alt="大港開唱最新消息")
-                          .c-card__body
-                            .c-card__date-wrap
-                              .c-card__date 2021
-                              .c-card__date 06.17
-                            .c-card__content
-                              h3.u-title-item.c-card__title 大港帥口罩
-                              p.c-card__desc 想要這個大港口罩嗎？填寫實聯制問卷就送給你 #只送不賣 #有大港單雙日票券者才可兌換...
-                            .o-btn.--right.c-card__btn
-                              a.o-btn__btn(href="##") MORE
-                      .swiper-slide.l-news__swiper-slide
-                        article.c-card
-                          .c-card__img-mask
-                            img.js-lazy(data-src="img/news/news05.jpg", alt="大港開唱最新消息")
-                          .c-card__body
-                            .c-card__date-wrap
-                              .c-card__date 2021
-                              .c-card__date 06.22
-                            .c-card__content
-                              h3.u-title-item.c-card__title 官方周邊 正式公佈！
-                              p.c-card__desc 敲破碗的大港周邊這不就來了嗎 . 定番款大港毛巾必收 漁夫帽門簾與工作衫首次登場 超搶眼...
-                            .o-btn.--right.c-card__btn
-                              a.o-btn__btn(href="##") MORE
-                      .swiper-slide.l-news__swiper-slide
-                        article.c-card
-                          .c-card__img-mask
-                            img.js-lazy(data-src="img/news/news06.jpg", alt="大港開唱最新消息")
-                          .c-card__body
-                            .c-card__date-wrap
-                              .c-card__date 2021
-                              .c-card__date 07.10
-                            .c-card__content
-                              h3.u-title-item.c-card__title 大港線上直播 來囉！
-                              p.c-card__desc 沒買到大港票的朋朋，線上直播來啦 . 大港開唱與LINE TODAY獨家合作 #南霸天、 #女神龍...
-                            .o-btn.--right.c-card__btn
-                              a.o-btn__btn(href="##") MORE
-
-        section.l-about
-          .container
-            .row
-              .col-12
-                .l-about__title-section(data-aos="fade-right")
-                  h2.u-title-section ABOUT
-                    span.u-subtitle-section MEGAPORT FESTIVAL
-
-          .container.l-about__container
-            .row
-              .col-md-7.order-md-0.order-2(data-aos="fade-right")
-                .l-about__img-mask
-                  .l-about__img(uk-parallax="bgy: -200")
-              .col-md-5.order-md-0.order-1
-                .l-about__content-wrap
-                  .l-about__content(data-aos="fade-up")
-                    h3.u-title.l-about__title 2021年即將邁入第十二屆的《大港開唱》
-                    p.l-about__desc 每年三月於高雄舉辦的大型音樂祭典，受到全台灣及日本香港年輕觀眾的喜愛，近年已成為台灣最具指標性的大型戶外音樂祭活動。
-                  .l-about__content(data-aos="fade-up")
-                    h3.u-title.l-about__title 「人生」與「音樂」
-                    p.l-about__desc 大港舉辦在高雄港邊，獨特的海港地景和人文風情，常勾起人生中各種酸甜苦辣的回憶。大港因此找來有著豐富人生歷程的知名藝人及業界前輩演出，或是與新一代的樂團或藝人一起合作，交融出出代之間的化學變化，往往成為當年度為人津津樂道的經典現場...
-                  .o-btn.--right.--mt(data-aos="fade-up")
-                    a.o-btn__btn(href="##") MORE
+                .col-md-7.order-md-0.order-2(data-aos="fade-right")
+                  .l-about__img-mask
+                    .l-about__img(uk-parallax="bgy: -200")
+                .col-md-5.order-md-0.order-1
+                  .l-about__content-wrap
+                    .l-about__content.u-mb-60(data-aos="fade-up")
+                      h3.u-title.u-mb-20 2022 年即將邁入第十三屆的《大港開唱》
+                      p.u-fw-500 每年三月於高雄舉辦的大型音樂祭典，受到全台灣及日本香港年輕觀眾的喜愛，近年已成為台灣最具指標性的大型戶外音樂祭活動。
+                    .l-about__content(data-aos="fade-up")
+                      h3.u-title.u-mb-20 「人生」與「音樂」
+                      p.u-fw-500 大港舉辦在高雄港邊，獨特的海港地景和人文風情，常勾起人生中各種酸甜苦辣的回憶。也因如此，大港總是邀請有著豐富人生歷程的知名藝人及業界前輩演出，也會與新一代的樂團或藝人一起合作演出，交融出世代之間的化學效應，往往成為當年度為人津津樂道的經典現場...
+                    .o-btn.--right.u-mt-60(data-aos="fade-up")
+                      a.o-btn__link(href="##") MORE
 
       include includes/_footer.pug
 

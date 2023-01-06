@@ -1,40 +1,150 @@
-h1, h2, h3
-  font-weight: 500
-h1, h2, h3, p
-  margin: 0
-i
-  font-size: 2.4rem
-.u-title-section
+.u-inline
+  display: inline
+.u-inline-block
+  display: inline-block
+
+.u-object-fit
+  +size(100%)
+  object-fit: cover
+  object-position: center center
+  &.--abs
+    position: absolute
+    left: 0
+    top: 0
+  &.--right
+    object-position: right center
+  &.--bottom
+    object-position: center bottom
+
+.u-w-full
+  width: 100%
+.u-h-full
+  height: 100%
+
+.u-px-0
+  padding-left: 0 !important
+  padding-right: 0 !important
+.u-pl-0
+  padding-left: 0 !important
+.u-pr-0
+  padding-right: 0 !important
+.u-pt-0
+  padding-top: 0 !important
+.u-pb-0
+  padding-bottom: 0 !important
+.u-ml-auto
+  margin-left: auto
+.u-mt-auto
+  margin-top: auto
+
+.u-pt-120
+  padding-top: var(--space-120)
+
+.u-pb-120
+  padding-bottom: var(--space-120)
+
+.u-mt-120
+  margin-top: var(--space-120)
+.u-mt-100
+  margin-top: var(--space-100)
+.u-mt-60
+  margin-top: var(--space-60)
+.u-mt-40
+  margin-top: var(--space-40)
+.u-mt-30
+  margin-top: var(--space-30)
+.u-mt-20
+  margin-top: var(--space-20)
+.u-mt-10
+  margin-top: var(--space-10)
+
+.u-mb-120
+  margin-bottom: var(--space-120)
+.u-mb-100
+  margin-bottom: var(--space-100)
+.u-mb-60
+  margin-bottom: var(--space-60)
+.u-mb-40
+  margin-bottom: var(--space-40)
+.u-mb-30
+  margin-bottom: var(--space-30)
+.u-mb-20
+  margin-bottom: var(--space-20)
+.u-mb-10
+  margin-bottom: var(--space-10)
+
+.u-ff-en
   font-family: $font-en
-  font-size: 7rem
+.u-fw-400
+  font-weight: 400
+.u-fw-500
+  font-weight: 500
+.u-fw-700
+  font-weight: 700
+.u-fw-900
   font-weight: 900
-  letter-spacing: 0
-  color: $color-secondary
-.u-subtitle-section
-  display: block
-  font-size: 2rem
+
+[class^="u-title"]
+  font-weight: 900
 .u-title
   font-size: 3.2rem
-  font-weight: 900
   letter-spacing: 0.22rem
-  -webkit-text-stroke: 2px $color-gray-light
-  color: transparent
-  &.--lg
+  +media(sm)
+    font-size: 3rem
+  +media(xs)
+    font-size: 2.8rem
+  &-xl
+    font-size: 7rem
+    letter-spacing: -0.3rem
+    +media(xs)
+      font-size: 6.2rem
+  &-lg
     font-size: 5rem
     letter-spacing: 0
-.u-title-item
+    +media(xs)
+      font-size: 3.4rem
+  &-md
+    font-size: 2.4rem
+    +media(xs)
+      font-size: 2.2rem
+
+.u-text-lg
+  font-size: 2rem
+  font-weight: 900
+  letter-spacing: 0.05rem
+  +media(xs)
+    font-size: 1.8rem
+.u-text-md
   font-size: 1.8rem
   font-weight: 700
+  +media(xs)
+    font-size: 1.7rem
+.u-text-sm
+  font-size: 1.4rem
 
-+media(lg)
-  .u-title.--lg
-    font-size: 4.5rem
+.u-icon
+  font-size: 2.4rem
+  transition: color 0.3s
 
-+media(xs)
-  .u-title-section
-    font-size: 5rem
-  .u-subtitle-section
-    font-size: 1.6rem
-  .u-title
-    font-size: 2.8rem
-    -webkit-text-stroke: 1.5px $color-gray-light
+.u-color-primary
+  color: $color-primary
+.u-color-secondary
+  color: $color-secondary
+.u-color-gray
+  color: $color-gray
+.u-color-gray-mid
+  color: $color-gray-mid
+.u-color-gray-light
+  color: $color-gray-light
+.u-color-white
+  color: $color-white
+
+.u-text-center
+  text-align: center
+.u-text-left
+  text-align: left
+.u-text-right
+  text-align: right
+
+.u-gradient
+  background-image: linear-gradient(to bottom, $color-gray 0%, transparent 70%)

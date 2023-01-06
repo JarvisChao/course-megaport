@@ -1,5 +1,4 @@
 .o-burger
-  display: none
   cursor: pointer
   z-index: 999
   &:not(.is-opened):hover &
@@ -12,32 +11,48 @@
     &__line:nth-child(3)
       width: 3rem
   &__wrap
+    display: flex
+    flex-direction: column
+    align-items: flex-end
     transition: 0.7s
   &__line
-    +size(3.6rem, 4px)
+    +size(3.6rem, 2px)
     margin-top: 0.8rem
     background-color: $color-gray-light
-    transition: 0.7s
+    transition: width 0.7s, transform 0.7s
     &:first-child
       margin-top: 0
-.o-burger
-  &.is-opened
-    position: fixed
-    right: 6vw
-    top: 3rem
-    margin-top: 0
+
   &.is-opened &
     &__line
       width: 4rem
     &__line:nth-child(1)
-      transform: translateY(1.2rem) rotate(135deg)
+      transform: translateY(1rem) rotate(135deg)
     &__line:nth-child(2)
       width: 0
     &__line:nth-child(3)
-      transform: translateY(-1.2rem) rotate(-135deg)
+      transform: translateY(-1rem) rotate(-135deg)
   &.is-opened:hover &
     &__wrap
       transform: rotate(90deg)
 
-  +media(sm)
-    display: inline-block
+  +media(xs)
+    &:not(.is-opened):hover &
+      &__line:nth-child(1)
+        width: 2.5rem
+      &__line:nth-child(2)
+        width: 4rem
+      &__line:nth-child(3)
+        width: 2.5rem
+    &__line
+      width: 3rem
+      margin-top: 0.6rem
+    &.is-opened &
+      &__line
+        width: 3.6rem
+      &__line:nth-child(1)
+        transform: translateY(0.8rem) rotate(135deg)
+      &__line:nth-child(2)
+        width: 0
+      &__line:nth-child(3)
+        transform: translateY(-0.8rem) rotate(-135deg)

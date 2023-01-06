@@ -1,11 +1,8 @@
 .l-news
   padding-top: 12rem
-  &__title-section
-    margin-bottom: 8rem
-    text-align: center
   &__swiper
     // 避免上下陰影被吃掉
-    padding: 10px
+    padding: 1rem
   &__swiper-slide
     // 為了保持 flex stretch 特性，需取消插件預設 100%
     height: auto
@@ -27,14 +24,13 @@
       background-color: $color-secondary
       color: $color-gray
       box-shadow: 0 0 4px rgba($color-gray-light, 0.8)
-    &.--pre
-      left: -4vw
+    &.--prev
+      left: 0
       border-radius: 0 2rem 2rem 0
     &.--next
-      right: -4vw
+      right: 0
       border-radius: 2rem 0 0 2rem
-
   +media(xs)
-    padding-top: 14vw
-    &__title-section
-      margin-bottom: 10vw
+    &__swiper
+      padding: 1rem 2rem
+      

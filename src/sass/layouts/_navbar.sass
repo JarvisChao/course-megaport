@@ -1,0 +1,132 @@
+.l-navbar
+  display: flex
+  align-items: center
+  position: fixed
+  width: 100%
+  left: 0
+  top: 0
+  padding-left: 4vw
+  border-bottom: 1px solid $color-primary
+  background-color: $color-gray
+  box-shadow: 0 4px 60px $color-primary
+  z-index: 99999
+  &__logo-wrap
+    max-width: 20rem
+  &__burger
+    display: none
+  &__body
+    margin-left: auto
+  &__menu
+    display: flex
+  &__btn-box
+    display: flex
+  &__btn-box:hover &
+    &__btn
+      &::after
+        opacity: 0
+  &__btn
+    padding: 2.8rem 3vw
+    line-height: 1.2
+    color: $color-gray-mid
+    z-index: 10
+    transition: color 0.3s
+    &.--icon
+      display: flex
+      align-items: center
+      height: 100%
+      padding-left: 1.4vw
+      padding-right: 1.4vw
+      background-color: $color-gray-mid40
+      color: $color-gray-light
+      &::before, &::after
+        background-image: linear-gradient(to bottom, $color-secondary, transparent)
+    // 調整高亮
+    &.is-active
+      color: $color-gray-light
+      &::after
+        opacity: 1
+    &:hover
+      color: $color-gray-light !important
+      &::after
+        opacity: 1 !important
+    &::before, &::after
+      content: ''
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+    &::before
+      +size(1px, 100%)
+      background-image: linear-gradient(to bottom, $color-gray-mid, transparent)
+    &::after
+      +size(100%)
+      background-image: linear-gradient(to bottom, $color-primary, transparent)
+      opacity: 0
+      z-index: -1
+      transition: opacity 0.3s
+
+  +media(xxl)
+    &__btn
+      padding-left: 2.4vw
+      padding-right: 2.4vw
+
+  +media(xl)
+    padding: 2rem 4vw
+    // burger mode
+    &__burger
+      display: block
+      margin-left: auto
+    &__body
+      position: fixed
+      left: 0
+      top: 0
+      +size(100%, 0)
+      margin-top: 0
+      background-color: rgba($color-gray, 0.8)
+      overflow: hidden
+      transition: height 0.7s 0.7s
+    &__menu
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      width: 100%
+      min-height: 100%
+      transform: translateY(-1rem)
+      padding: 5rem 0
+      transition: transform 0.7s, opacity 0.7s
+      opacity: 0
+    &__btn-box.--icon
+      margin-top: 6rem
+    &__btn-wrap:first-child &__btn::before
+      display: none
+    &__btn.--icon
+      background-color: transparent
+      &::before
+        display: none
+    &.is-opened &
+      &__body
+        height: 100vh
+        transition: 0.7s
+      &__menu
+        transform: translateY(0)
+        opacity: 1
+        transition: transform 0.7s 0.7s, opacity 0.7s 0.7s
+
+  +media(sm)
+    &__btn-box
+      &:not(.--icon)
+        display: flex
+        flex-direction: column
+      &.--icon
+        margin-top: 2rem
+    &__btn
+      padding: 2rem 4vw
+      text-align: center
+      &::before
+        display: none
+
+  +media(xs)
+    padding: 1.5rem 6vw
+    &__logo-wrap
+      max-width: 14rem

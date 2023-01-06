@@ -2,52 +2,23 @@
 .c-card
   display: flex
   flex-direction: column
-  // 不允許
-  // align-items: flex-start
+  align-items: flex-start
   height: 100%
-  padding: 1.5rem
-  border-radius: 10px
-  background-color: $color-gray
-  transition: 0.3s
+  transition: filter 0.3s
   &:hover
-    box-shadow: 0 0 10px rgba($color-gray, 0.8)
-  &__body
+    filter: drop-shadow(0 0 4px rgba($color-gray, 0.8))
+  &__date
+    padding: 1rem 2.5rem
+    border-radius: 10px 10px 0 0
+    background-color: $color-gray
+    line-height: 1.2
+    color: $color-primary
+  &__wrap
     display: flex
     flex-direction: column
-    align-items: flex-start
     height: 100%
-    padding: 2rem 1rem
-  &__date-wrap
-    position: absolute
-    right: -1.5rem
-    top: -3.5rem
-    padding: 0.6rem 1.5rem 0.6rem 4rem
-    color: $color-gray
-    z-index: 10
-    &::after
-      content: ''
-      display: block
-      position: absolute
-      right: 0
-      bottom: 0
-      +size(100%)
-      border-left: 3rem solid transparent
-      border-bottom: 4.5rem solid $color-secondary
-      z-index: -1
-  &__date
-    font-size: 1.4rem
-    font-weight: 700
-    letter-spacing: 0.08rem
-    line-height: 1.2
-    color: $color-gray
-    text-align: right
-  &__content
-    margin-bottom: 3rem
-  &__title
-    margin-bottom: 1rem
-  &__btn
-    margin-top: auto
-
-/* -- uikit -- */
-.uk-sticky-placeholder
-  pointer-events: none
+    padding: 2.5rem
+    border-radius: 0 10px 10px 10px
+    background-color: $color-gray
+  &__img-mask
+    padding-bottom: 100%

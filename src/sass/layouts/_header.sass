@@ -1,106 +1,21 @@
 .l-header
-  display: flex
-  justify-content: flex-end
-  align-items: center
   +size(100%, 100vh)
-  background-image: linear-gradient(to bottom, $color-gray 65%, transparent)
-  overflow: hidden
-  &__slogan-wrap
-    position: absolute
-    right: 5vw
-    top: 5rem
-    pointer-events: none
-    z-index: 20
-  &__slogan
-    font-size: 16rem
-    font-weight: 900
-    letter-spacing: 0.4rem
-    line-height: 1.2
-    color: $color-gray-light
-    &::after
-      content: ''
-      display: block
-      position: absolute
-      +size(6rem)
-      left: 80%
-      bottom: 50%
-      border-radius: 50%
-      border: 10px solid $color-gray-light
-    &:first-child
-      position: absolute
-      left: 0
-      top: 0
-      color: $color-primary
-      filter: blur(0.7rem)
-      &::after
-        border-color: $color-primary
-  &__subslogan
-    display: block
-    font-size: 14rem
-
-  &__swiper-area
-    width: 100%
-    max-width: 1400px
-    padding-right: 6vw
   &__swiper
-    transform: scale(1)
-    transition: 0.3s cubic-bezier(.6,.58,.59,1.58)
-    &:hover
-      transform: scale(1.05)
-  &__svg-mask
-    position: absolute
-    width: 0
-    height: 0
-    overflow: hidden
-    pointer-events: none
-  &__img
-    +size(100%, auto)
+    +size(100%)
+  &__slide
+    width: 100% !important
+  &__slide.swiper-slide-active &,
+  &__slide.swiper-slide-duplicate-active &
+    &__img-mask
+      transform: scale(1.1)
+  &__img-mask
+    +size(100%)
     transform-origin: center center
     transform: scale(1)
-    transition: transform 10s
+    transition: transform 15s
 
-  +media(ipad)
-    &__swiper-area
-      padding-right: 2vw
-      padding-left: 10vw
-    &__slogan::after
-      +size(6.4rem)
-
-  +media(ipadPro)
-    height: 55vh
-    align-items: flex-end
-
-  +media(md)
-    &__slogan
-      font-size: 12rem
-      &::after
-        +size(4.5rem)
-        border: 8px solid $color-gray-light
-    &__subslogan
-      font-size: 10rem
-
-  +media(sm)
-    height: 64vh
-
-  +media(xs)
-    &__swiper-area
-      padding-left: 6vw
-    &__slogan-wrap
-      right: 6vw
-      top: 30vw
-    &__slogan
-      font-size: 6.5rem
-      &::after
-        +size(2.8rem)
-        border: 5px solid $color-gray-light
-    &__subslogan
-      font-size: 5.5rem
-
-.swiper-slide-active, .swiper-slide-duplicate-active
-  .l-header
-    &__img
-      transform: scale(1.1)
-
+  +media(xl)
+    height: 80vh
 
 /* -- header inner -- */
 .l-header-inner
@@ -109,18 +24,9 @@
   align-items: center
   +size(100%, 40vh)
   margin-top: 10rem
-  margin-bottom: 12rem
   background-image: url('../img/footer/footer-bg.jpg')
   background-size: cover
   background-position: cennter cennter
-  &::before
-    content: ''
-    display: block
-    position: absolute
-    left: 0
-    bottom: 100%
-    +size(100%, 10rem)
-    background-color: $color-primary
   &::after
     content: ''
     display: block
@@ -135,7 +41,10 @@
     &__blockade
       top: -50rem
 
+  +media(xl)
+    margin-top: 8.5rem
+
   +media(xs)
-    margin-bottom: 12vw
+    margin-top: 5.5rem
     &__blockade
       top: -38rem

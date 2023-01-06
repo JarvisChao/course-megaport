@@ -1,16 +1,13 @@
 .l-footer
-  margin-top: 12rem
   &__date-mask
-    display: flex
-    justify-content: center
-    align-items: center
     padding: 14rem 4vw
     background-image: url('../img/footer/footer-bg.jpg')
     background-size: cover
     background-position: center center
+    text-align: center
   &__img-date
-    max-width: 35rem
-  &__sitemap
+    max-width: 30rem
+  &__menu
     display: flex
     flex-direction: column
     align-items: center
@@ -20,30 +17,25 @@
     display: flex
     justify-content: center
     flex-wrap: wrap
-    margin-top: -1rem
+    margin-top: -0.5rem
   &__btn-wrap
-    margin-top: 1rem
+    margin-top: 0.5rem
     &:not(:last-child)
       margin-right: 2.4rem
+  // 調整高亮
+  &__btn.is-active
+    color: $color-secondary
   &__btn:hover &
     &__text.--en
       opacity: 0
     &__text.--zh
       color: $color-secondary
       opacity: 1
-  // 調整高亮
-  &__btn.is-active &
-    &__text
-      color: $color-secondary
   &__text
-    font-size: 1.5rem
-    font-weight: 900
-    line-height: 1.25
+    font-weight: 700
     text-align: center
     white-space: nowrap
-    transition: 0.3s
-    &.--en
-      font-family: $font-en
+    transition: color 0.3s, opacity 0.3s
     &.--zh
       position: absolute
       left: 50%
@@ -54,24 +46,14 @@
   &__link-box
     display: flex
     align-items: center
-    padding: 1.2rem 0 2rem
   &__link-wrap
-    transition: 0.3s
     &:hover
       color: $color-secondary
     &:not(:last-child)
       margin-right: 1rem
-  &__copyright
-    font-size: 1.4rem
-
-  +media(sm)
-    margin-top: 10vw
 
   +media(xs)
-    margin-top: 12vw
     &__date-mask
       padding: 20vw 4vw
     &__img-date
-      max-width: 30rem
-    &__btn-wrap:not(:last-child)
-      margin-right: 1.2rem
+      max-width: 24rem

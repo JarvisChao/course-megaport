@@ -1,0 +1,11 @@
+mixin blockade(customClass)
+  .c-blockade(class=customClass)
+    .c-blockade__line
+      //- end 結束動畫 / easing 延遲 / x 初始位置,可視位置,結束位置
+      span.c-blockade__text(uk-parallax="end: 20vh; x: 70vw,0,-110vw") 台灣最生猛海派的音樂祭 ——『 大港開唱 』
+    .c-blockade__line
+      span.c-blockade__text(uk-parallax="end: 20vh; x: -50vw,0,100vw") 台灣最生猛海派的音樂祭 ——『 大港開唱 』
+    .c-blockade__line
+      span.c-blockade__text(uk-parallax="end: 20vh; easing: 1.5; x: 100vw,-40vw,-60vw") 台灣最生猛海派的音樂祭 ——『 大港開唱 』
+    .c-blockade__line
+      span.c-blockade__text(uk-parallax="end: 20vh; x: -100vw,50vw,90vw") 台灣最生猛海派的音樂祭 ——『 大港開唱 』
