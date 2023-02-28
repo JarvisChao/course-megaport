@@ -2,14 +2,13 @@
 
 *
   position: relative
-  -webkit-font-smoothing: antialiased
   box-sizing: border-box
   &::selection
     background-color: $color-primary
-    color: #fff
+    color: $color-white
   &::-moz-selection
     background-color: $color-primary
-    color: #fff
+    color: $color-white
 
 
 html
@@ -28,6 +27,7 @@ body
   font-family: $font-primary
   font-size: 1.6rem
   font-weight: 400
+  -webkit-font-smoothing: antialiased
   letter-spacing: 0.1rem
   line-height: 1.7
   color: $color-gray-light
@@ -39,13 +39,10 @@ body
 /* ----------------------------------- */
 /* ------ Reset ------ */
 /* ----------------------------------- */
-h1, h2, h3, h4, p, button
-  margin: 0
-h1, h2, h3, h4
-  font-weight: 500
-span
-  display: block
-a
+a, area, button, input, label, select, summary, textarea
+  -ms-touch-action: manipulation
+  touch-action: manipulation
+a, button
   display: block
   text-decoration: none
   color: inherit
@@ -53,12 +50,29 @@ a
   &:hover
     text-decoration: none
     color: inherit
+button
+  padding: 0
+  border: none
+  background: none
 img
   max-width: 100%
 ul
   list-style: none
   padding: 0
   margin: 0
+
+h1, h2, h3, h4, p, button
+  margin: 0
+  font-family: inherit
+  font-size: inherit
+  font-weight: inherit
+  line-height: inherit
+  color: inherit
+h1, h2, h3, h4
+  font-weight: 500
+span
+  display: block
+  line-height: inherit
 
 /* ----------------------------------- */
 /* ------ Layouts ------ */
