@@ -4,6 +4,11 @@ html(lang="en")
     include includes/_config.pug
     include includes/_head.pug
 
+    //- FB 縮圖資訊
+    meta(property="og:url" content=`${baseUrl}/map.html`)
+    meta(property="og:image" content=`${baseUrl}/img/og/og.jpg`)
+    meta(property="og:description" content="輸入單一頁面的網頁描述")
+    meta(name="description" content="輸入單一頁面的網頁描述")
     meta(property="og:title" content="地圖導覽｜" + title)
     title 地圖導覽｜#{title}
 

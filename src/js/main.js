@@ -1,8 +1,7 @@
 /* ----------------------------------- */
 /* ------ Custom ------ */
 /* ----------------------------------- */
-//-- Detect Browser
-// 偵測瀏覽器加入對應 js 文件
+// 判斷是否為移動端
 function isMobile() {
   try {
     document.createEvent('TouchEvent');
@@ -12,6 +11,8 @@ function isMobile() {
   }
 }
 
+//-- Detect Browser
+// 偵測瀏覽器加入對應 js 文件
 const $body = document.body;
 if (!isMobile()) {
   const explorer = navigator.userAgent;
@@ -29,7 +30,7 @@ const pathname = location.pathname;
 const a = document.querySelectorAll('a');
 a.forEach(function(item) {
   const aHref = item.getAttribute('href');
-  if (pathname.indexOf(aHref) > -1) {
+  if (pathname.includes(aHref)) {
     item.classList.add('is-active');
   }
 });

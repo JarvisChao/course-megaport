@@ -4,6 +4,13 @@ html(lang="en")
     include includes/_config.pug
     include includes/_head.pug
 
+    //- FB 縮圖資訊
+    meta(property="og:url" content=baseUrl)
+    meta(property="og:image" content=`${baseUrl}/img/og/og.jpg`)
+    //- 網頁描述
+    meta(property="og:description" content=description)
+    meta(name="description" content=description)
+    //- 網頁標題
     meta(property="og:title" content=title)
     title #{title}
 
@@ -17,13 +24,13 @@ html(lang="en")
           .swiper-wrapper
             .swiper-slide.l-header__slide
               .l-header__img-mask
-                img.u-object-fit(src="img/banner/banner-img01.jpg" alt="大港開唱")
+                img.u-object-fit(src="img/banner/banner-img01.jpg" alt=title)
             .swiper-slide.l-header__slide
               .l-header__img-mask
-                img.u-object-fit(src="img/banner/banner-img02.jpg" alt="大港開唱")
+                img.u-object-fit(src="img/banner/banner-img02.jpg" alt=title)
             .swiper-slide.l-header__slide
               .l-header__img-mask
-                img.u-object-fit(src="img/banner/banner-img03.jpg" alt="大港開唱")
+                img.u-object-fit(src="img/banner/banner-img03.jpg" alt=title)
 
       main.l-main
         section.l-lineup.u-pb-0.u-gradient
@@ -38,64 +45,64 @@ html(lang="en")
               //- input-element 滑鼠進入指定區塊內才生效
               .row.--grid.l-lineup__box.js-parallax(data-input-element=".l-lineup__box")
                 .col-sm-5.l-lineup__wrap(data-depth="0.1")
-                  article.l-lineup__artist.--artist01
+                  article.l-lineup__artist
                     a(href="##" data-aos="fade-up")
                       h3.u-title-md.u-mb-10 9m88
                       //- scalar(10) 設置加速度 / friction(0-1) 設置過渡
                       .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                         .l-lineup__glitch-wrap.--primary(data-depth="-0.2")
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup01.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup01.jpg", alt="大港開唱藝人名單")
                         .l-lineup__glitch-wrap.--secondary(data-depth="0.2")
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup01.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup01.jpg", alt="大港開唱藝人名單")
                         .l-lineup__img-main
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup01.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup01.jpg", alt="大港開唱藝人名單")
 
                 .col-sm-7.l-lineup__wrap(data-depth="-0.1")
-                  article.l-lineup__artist.--artist02
+                  article.l-lineup__artist.--lg
                     a(href="##" data-aos="fade-up")
                       h3.u-title-md.u-mb-10 恆月三途
                       .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                         .l-lineup__glitch-wrap.--primary(data-depth="-0.2")
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單")
                         .l-lineup__glitch-wrap.--secondary(data-depth="0.2")
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單")
                         .l-lineup__img-main
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單")
 
                 .col-lg-4.col-sm-7.l-lineup__wrap(data-depth="-0.2")
-                  article.l-lineup__artist.--artist03
+                  article.l-lineup__artist.--lg
                     a(href="##" data-aos="fade-up")
                       .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                         .l-lineup__glitch-wrap.--primary(data-depth="-0.2")
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單")
                         .l-lineup__glitch-wrap.--secondary(data-depth="0.2")
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單")
                         .l-lineup__img-main
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單")
                       h3.u-title-md.u-mt-10 Beyound Cure
 
                 .col-lg-4.col-sm-5.l-lineup__wrap(data-depth="0.2")
-                  article.l-lineup__artist.--artist04
+                  article.l-lineup__artist
                     a(href="##" data-aos="fade-up")
                       .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                         .l-lineup__glitch-wrap.--primary(data-depth="-0.2")
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單")
                         .l-lineup__glitch-wrap.--secondary(data-depth="0.2")
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單")
                         .l-lineup__img-main
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單")
                       h3.u-title-md.u-mt-10 Dudu King
 
                 .col-lg-4.col-sm-5.offset-lg-0.offset-sm-4.l-lineup__wrap(data-depth="-0.2")
-                  article.l-lineup__artist.--artist05
+                  article.l-lineup__artist
                     a(href="##" data-aos="fade-up")
                       .l-lineup__img-mask.js-parallax(data-scalar-y="0" data-friction-x="0.4")
                         .l-lineup__glitch-wrap.--primary(data-depth="-0.2")
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單")
                         .l-lineup__glitch-wrap.--secondary(data-depth="0.2")
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單")
                         .l-lineup__img-main
-                          img.l-lineup__img.js-lazy(data-src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單")
+                          img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單")
                       h3.u-title-md.u-mt-10 Da Wang
 
         section.l-news

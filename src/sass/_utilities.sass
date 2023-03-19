@@ -84,7 +84,8 @@
 .u-fw-900
   font-weight: 900
 
-[class^="u-title"]
+// class 裡只要有 u-title 字眼就符合 (符合：.c-card.u-title-lg)
+[class*="u-title"]
   font-weight: 900
 .u-title
   font-size: 3.2rem
@@ -96,6 +97,7 @@
   &-xl
     font-size: 7rem
     letter-spacing: -0.3rem
+    line-height: 1.3
     +media(xs)
       font-size: 6.2rem
   &-lg
