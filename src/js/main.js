@@ -35,23 +35,6 @@ a.forEach(function(item) {
   }
 });
 
-//-- Navbar
-const $app = document.querySelector('#app');
-const $navbar = document.querySelector('.l-navbar');
-const $header = document.querySelector('.l-header');
-if (!$app.classList.contains('is-home')) {
-  $navbar.classList.add('is-fixed');
-}
-window.addEventListener('scroll', function() {
-  if ($app.classList.contains('is-home')) {
-    if (this.scrollTop > $header.offsetHeight / 2) {
-      $navbar.classList.add('is-fixed');
-    } else {
-      $navbar.classList.remove('is-fixed');
-    }
-  }
-});
-
 //-- Burger
 let isOpened = false;
 const $burger = document.querySelector('.o-burger');
