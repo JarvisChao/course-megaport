@@ -18,7 +18,7 @@ if (!isMobile()) {
   const explorer = navigator.userAgent;
   if (explorer.indexOf('Firefox') > -1 || explorer.indexOf('Chrome') > -1) {
     const script = document.createElement('script');
-    script.src = 'js/smooth-scrolling-chrome.js';
+    script.src = 'js/SmoothScroll.min.js';
     script.async = true;
     $body.appendChild(script);
   }
@@ -37,8 +37,9 @@ a.forEach(function(item) {
 
 //-- Burger
 let isOpened = false;
-const $burger = document.querySelector('.o-burger');
+const $navbar = document.querySelector('.l-navbar');
 const $navbarBody = document.querySelector('.l-navbar__body');
+const $burger = document.querySelector('.o-burger');
 function handleBurger() {
   if (!isOpened) {
     $burger.classList.add('is-opened');
