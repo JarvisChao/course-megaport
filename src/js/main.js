@@ -11,18 +11,30 @@ function isMobile() {
   }
 }
 
-//-- Detect Browser
-// 偵測瀏覽器加入對應 js 文件
-const $body = document.body;
-if (!isMobile()) {
-  const explorer = navigator.userAgent;
-  if (explorer.indexOf('Firefox') > -1 || explorer.indexOf('Chrome') > -1) {
-    const script = document.createElement('script');
-    script.src = 'js/SmoothScroll.min.js';
-    script.async = true;
-    $body.appendChild(script);
-  }
+const lenis = new Lenis({
+  duration: 1
+});
+// lenis.on('scroll', function(e) {
+//   console.log(e);
+// });
+function raf(time) {
+  lenis.raf(time);
+  requestAnimationFrame(raf);
 }
+requestAnimationFrame(raf);
+
+// //-- Detect Browser
+// // 偵測瀏覽器加入對應 js 文件
+// const $body = document.body;
+// if (!isMobile()) {
+//   const explorer = navigator.userAgent;
+//   if (explorer.indexOf('Firefox') > -1 || explorer.indexOf('Chrome') > -1) {
+//     const script = document.createElement('script');
+//     script.src = 'js/SmoothScroll.min.js';
+//     script.async = true;
+//     $body.appendChild(script);
+//   }
+// }
 
 //-- Btn Tag
 // 抓取檔名
@@ -37,6 +49,7 @@ a.forEach(function(item) {
 
 //-- Burger
 let isOpened = false;
+const $body = document.body;
 const $navbar = document.querySelector('.l-navbar');
 const $navbarBody = document.querySelector('.l-navbar__body');
 const $burger = document.querySelector('.o-burger');
