@@ -12,7 +12,7 @@ function isMobile() {
 }
 
 const lenis = new Lenis({
-  duration: 1
+  duration: 1.2
 });
 // lenis.on('scroll', function(e) {
 //   console.log(e);
