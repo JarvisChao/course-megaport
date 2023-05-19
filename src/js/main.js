@@ -11,12 +11,7 @@ function isMobile() {
   }
 }
 
-const lenis = new Lenis({
-  duration: 1.2
-});
-// lenis.on('scroll', function(e) {
-//   console.log(e);
-// });
+const lenis = new Lenis();
 function raf(time) {
   lenis.raf(time);
   requestAnimationFrame(raf);
