@@ -21,11 +21,11 @@
   position: relative
   box-sizing: border-box
   &::selection
-    background-color: $color-primary
-    color: $color-white
+    background-color: var(--color-primary)
+    color: var(--color-white)
   &::-moz-selection
-    background-color: $color-primary
-    color: $color-white
+    background-color: var(--color-primary)
+    color: var(--color-white)
 
 
 html
@@ -40,18 +40,18 @@ html
 body
   margin: 0
   background-image: url('../img/bg-dots.png')
-  background-color: $color-gray-mid
-  font-family: $font-primary
+  background-color: var(--color-gray-mid)
+  font-family: var(--font-primary)
   font-size: 1.6rem
   font-weight: 400
   -webkit-font-smoothing: antialiased
   letter-spacing: 0.1rem
   line-height: 1.7
-  color: $color-gray-light
+  color: var(--color-gray-light)
   transition: background-color 0.8s
   &.is-news-active
     background-image: none
-    background-color: $color-primary
+    background-color: var(--color-primary)
 
 /* ----------------------------------- */
 /* ------ Reset ------ */

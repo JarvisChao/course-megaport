@@ -6,9 +6,9 @@
   left: 0
   top: 0
   padding-left: 4vw
-  border-bottom: 1px solid $color-primary
-  background-color: $color-black
-  box-shadow: 0 4px 60px $color-primary
+  border-bottom: 1px solid var(--color-primary)
+  background-color: var(--color-black)
+  box-shadow: 0 4px 60px var(--color-primary)
   z-index: 99999
   &__logo-wrap
     max-width: 20rem
@@ -27,7 +27,7 @@
   &__btn
     padding: 2.8rem 3vw
     line-height: 1.2
-    color: $color-gray-mid
+    color: var(--color-gray-mid)
     z-index: 10
     transition: color 0.3s
     &.--icon
@@ -36,17 +36,17 @@
       height: 100%
       padding-left: 1.4vw
       padding-right: 1.4vw
-      background-color: $color-gray-mid40
-      color: $color-gray-light
+      background-color: var(--color-gray-mid40)
+      color: var(--color-gray-light)
       &::before, &::after
-        background-image: linear-gradient(to bottom, $color-secondary, transparent)
+        background-image: linear-gradient(to bottom, var(--color-secondary), transparent)
     // 調整當前頁面樣式
     &.is-active
-      color: $color-gray-light
+      color: var(--color-gray-light)
       &::after
         opacity: 1
     &:hover
-      color: $color-gray-light !important
+      color: var(--color-gray-light) !important
       &::after
         opacity: 1 !important
     &::before, &::after
@@ -57,10 +57,10 @@
       top: 0
     &::before
       +size(1px, 100%)
-      background-image: linear-gradient(to bottom, $color-gray-mid, transparent)
+      background-image: linear-gradient(to bottom, var(--color-gray-mid), transparent)
     &::after
       +size(100%)
-      background-image: linear-gradient(to bottom, $color-primary, transparent)
+      background-image: linear-gradient(to bottom, var(--color-primary), transparent)
       opacity: 0
       z-index: -1
       transition: opacity 0.3s
@@ -82,7 +82,7 @@
       top: 0
       +size(100%, 0)
       margin-top: 0
-      background-color: $color-black80
+      background-color: var(--color-black80)
       overflow: hidden
       transition: height 0.7s 0.7s
     &__menu
