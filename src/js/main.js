@@ -163,7 +163,7 @@ if (new Swiper() !== undefined) {
     slidesPerView: 1,
     spaceBetween: 4,
     breakpoints: {
-      1366: {
+      1400: {
         slidesPerView: 4,
         spaceBetween: 30,
       },
