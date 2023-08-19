@@ -9,7 +9,7 @@
   &__sticky
     position: sticky
     position: -webkit-sticky
-    top: 12rem
+    top: var(--space-120)
   &__wrap
     // important 因為 parallax 插件會影響
     display: flex !important
@@ -33,15 +33,18 @@
     &.--lg
       max-width: 56rem
 
-  &__glitch-wrap, &__img-main
-    width: 100%
+
+  &__img-mask, &__glitch-mask
     padding-bottom: 66.7%
 
-  &__glitch-wrap
+  &__glitch-mask
     position: absolute
     width: 100%
     left: 0
     top: 0
+    // 調整重疊效果
+    mix-blend-mode: lighten
+
     // 調整圖片色塊
     &::after
       content: ''
@@ -57,7 +60,6 @@
     &.--secondary::after
       background-color: var(--color-secondary)
 
-  &__img-main, &__glitch-wrap.--secondary
-    // 調整重疊效果
-    mix-blend-mode: lighten
-    z-index: 10
+  +media(lg)
+    &__blockade
+      top: -20%

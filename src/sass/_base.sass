@@ -12,13 +12,13 @@
 
 
 html
-  font-size: calc(16px * 10 / 16)
+  font-size: calc(16px / 1.6)
   // 防止 Bootstrap 預設影響 GoTop
   scroll-behavior: auto !important
   +media(lg)
-    font-size: calc(15px * 10 / 16)
+    font-size: calc(15px / 1.6)
   +media(ipad)
-    font-size: calc(14px * 10 / 16)
+    font-size: calc(14px / 1.6)
 
 body
   margin: 0
@@ -39,7 +39,7 @@ body
 /* ----------------------------------- */
 /* ------ Reset ------ */
 /* ----------------------------------- */
-a, area, button, input, label, select, summary, textarea
+a, button, input, label, select, textarea
   -ms-touch-action: manipulation
   touch-action: manipulation
 a, button
@@ -61,14 +61,14 @@ ul
   padding: 0
   margin: 0
 
-h1, h2, h3, h4, p, button
+h1, h2, h3, h4, h5, h6, p, button
   margin: 0
   font-family: inherit
   font-size: inherit
   font-weight: inherit
   line-height: inherit
   color: inherit
-h1, h2, h3, h4
+h1, h2, h3, h4, h5, h6
   font-weight: 500
 
 span
@@ -79,16 +79,16 @@ span
 /* ------ Layouts ------ */
 /* ----------------------------------- */
 section
-  padding: 12rem 4vw
+  padding: var(--space-120) 4vw
 
 .container
-  max-width: 1560px
+  max-width: 156rem
   &.--left
-    max-width: calc(1560px + 8vw)
+    max-width: calc(156rem + 8vw)
     padding-left: 0
     margin-left: 0
 .row
   &.--gutter
-    --bs-gutter-x: 3rem
-    --bs-gutter-y: 3rem
+    --bs-gutter-x: var(--space-30)
+    --bs-gutter-y: var(--space-30)
   

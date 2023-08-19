@@ -25,7 +25,7 @@
       &::after
         opacity: 0
   &__btn
-    padding: 2.8rem 3vw
+    padding: var(--space-30) 3vw
     line-height: 1.2
     color: var(--color-gray-mid)
     z-index: 10
@@ -71,7 +71,7 @@
       padding-right: 2.4vw
 
   +media(xl)
-    padding: 2rem 4vw
+    padding: var(--space-20) 4vw
     // burger mode
     &__burger
       display: block
@@ -93,11 +93,11 @@
       width: 100%
       min-height: 100%
       transform: translateY(-1rem)
-      padding: 5rem 0
+      padding: var(--space-60) 0
       transition: transform 0.7s, opacity 0.7s
       opacity: 0
     &__btn-box.--icon
-      margin-top: 6rem
+      margin-top: var(--space-60)
     &__btn-wrap:first-child &__btn::before
       display: none
     &__btn.--icon
@@ -118,15 +118,14 @@
       &:not(.--icon)
         display: flex
         flex-direction: column
-      &.--icon
-        margin-top: 2rem
     &__btn
-      padding: 2rem 4vw
+      padding: var(--space-20) 4vw
       text-align: center
       &::before
         display: none
 
   +media(xs)
-    padding: 1.5rem 6vw
+    padding-left: 6vw
+    padding-right: 6vw
     &__logo-wrap
       max-width: 14rem

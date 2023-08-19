@@ -23,7 +23,7 @@
   justify-content: center
   align-items: center
   +size(100%, 40vh)
-  margin-top: 10rem
+  margin-top: var(--space-100)
   background-image: url('../img/footer/footer-bg.jpg')
   background-size: cover
   background-position: cennter cennter
@@ -35,16 +35,19 @@
     background-color: var(--color-primary)
     mix-blend-mode: multiply
   &__blockade
-    top: -35rem
-
-  +media(ipadPro)
-    &__blockade
-      top: -50rem
+    top: auto
+    bottom: -30%
 
   +media(xl)
     margin-top: 8.5rem
+    &__blockade
+      bottom: -20%
+
+  +media(ipadPro)
+    &__blockade
+      bottom: 10%
 
   +media(xs)
     margin-top: 5.5rem
     &__blockade
-      top: -38rem
+      bottom: -20%

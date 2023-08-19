@@ -8,17 +8,28 @@
   &:hover
     filter: drop-shadow(0 0 4px var(--color-black80))
   &__date
-    padding: 1rem 2.5rem
-    border-radius: 10px 10px 0 0
+    padding: var(--space-10) var(--space-20)
+    border-radius: var(--space-10) var(--space-10) 0 0
     background-color: var(--color-black)
     line-height: 1.2
     color: var(--color-primary)
   &__wrap
+    flex-grow: 1
     display: flex
     flex-direction: column
-    height: 100%
-    padding: 2.5rem
-    border-radius: 0 10px 10px 10px
+    padding: var(--space-20) var(--space-20) 0
+    border-radius: var(--space-10)
+    border-top-left-radius: 0
     background-color: var(--color-black)
   &__img-mask
-    padding-bottom: 100%
+    --img-w-ratio: 1
+    --img-h-ratio: 1
+    padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio))
+  &__body
+    flex-grow: 1
+    display: flex
+    flex-direction: column
+    margin: var(--space-20) 0 var(--space-30)
+  &__desc
+    margin-top: var(--space-20)
+    margin-bottom: var(--space-40)

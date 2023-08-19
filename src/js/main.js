@@ -69,7 +69,7 @@ function handleBurger() {
 // 滾動至 news 時改變背景顏色
 const $news = document.querySelector('.l-news');
 window.addEventListener('scroll', function() {
-  if ($news !== undefined) {
+  if ($news !== null) {
     const newsTop = this.scrollY + $news.getBoundingClientRect().top;
     const start = newsTop - 100;
     const end = newsTop + $news.offsetHeight / 1.2;
@@ -134,7 +134,7 @@ const lazyLoad = new LazyLoad({
 // }
 
 //-- Swiper
-if (new Swiper() !== undefined) {
+if (window.Swiper !== undefined) {
   const headerSwiper = new Swiper('.l-header__swiper', {
     effect: 'fade',
     fadeEffect: {
@@ -160,7 +160,7 @@ if (new Swiper() !== undefined) {
     longSwipesRatio: 0.1,
     loop: true,
     speed: 1200,
-    slidesPerView: 1,
+    slidesPerView: 'auto',
     spaceBetween: 4,
     breakpoints: {
       1400: {
@@ -198,3 +198,22 @@ $parallaxes.forEach(function(item) {
     relativeInput: true,
   })
 });
+
+gsap.registerPlugin(ScrollTrigger);
+
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: '.c-blockade',
+    // 區塊位置、螢幕位置交會時觸發
+    start: 'top center',
+    end: 'bottom 20%',
+    scrub: true,
+  },
+  ease: 'none'
+});
+
+const $blockadeTexts = document.querySelectorAll('.c-blockade__text');
+tl.fromTo($blockadeTexts[0], { x: '70vw' }, { x: '-110vw' }, 'start');
+tl.fromTo($blockadeTexts[1], { x: '-50vw' }, { x: '100vw' }, 'start+=5%');
+tl.fromTo($blockadeTexts[2], { x: '100vw' }, { x: '-60vw' }, 'start+=5%');
+tl.fromTo($blockadeTexts[3], { x: '-100vw' }, { x: '90vw' }, 'start+=10%');
