@@ -35,7 +35,10 @@
 
 
   &__img-mask, &__glitch-mask
-    padding-bottom: 66.7%
+    --img-w-ratio: 3
+    --img-h-ratio: 2
+    padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio))
+    // padding-bottom: 66.7%
 
   &__glitch-mask
     position: absolute
