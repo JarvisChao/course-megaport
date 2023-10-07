@@ -133,61 +133,6 @@ const lazyLoad = new LazyLoad({
 //   })
 // }
 
-//-- Swiper
-if (window.Swiper !== undefined) {
-  const headerSwiper = new Swiper('.l-header__swiper', {
-    effect: 'fade',
-    fadeEffect: {
-      // crossFade: true,
-    },
-    // 緩慢施放
-    longSwipesRatio: 0.1,
-    loop: true,
-    speed: 1600,
-    autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-    },
-    // on: {
-    //   slideChange: function() {
-    //     // alert(this.realIndex)
-    //     shapeAni(this.realIndex)
-    //   },
-    // },
-  })
-
-  const newsSwiper = new Swiper('.l-news__swiper', {
-    longSwipesRatio: 0.1,
-    loop: true,
-    speed: 1200,
-    slidesPerView: 'auto',
-    spaceBetween: 4,
-    breakpoints: {
-      1400: {
-        slidesPerView: 4,
-        spaceBetween: 30,
-      },
-      1024: {
-        slidesPerView: 3,
-        spaceBetween: 20,
-      },
-      576: {
-        slidesPerView: 2,
-        spaceBetween: 15,
-      },
-    },
-    on: {
-      init: function() {
-        lazyLoad.update()
-      },
-    },
-    navigation: {
-      prevEl: '.l-news__btn-swiper.--prev',
-      nextEl: '.l-news__btn-swiper.--next',
-    },
-  })
-}
-
 //-- Parallax
 const $parallaxes = document.querySelectorAll('.js-parallax');
 $parallaxes.forEach(function(item) {
@@ -200,7 +145,6 @@ $parallaxes.forEach(function(item) {
 });
 
 gsap.registerPlugin(ScrollTrigger);
-
 const tl = gsap.timeline({
   scrollTrigger: {
     trigger: '.c-blockade',
