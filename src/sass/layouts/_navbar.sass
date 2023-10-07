@@ -1,6 +1,7 @@
 .l-navbar
   display: flex
   align-items: center
+  justify-content: space-between
   position: fixed
   width: 100%
   left: 0
@@ -10,12 +11,10 @@
   background-color: var(--color-black)
   box-shadow: 0 4px 60px var(--color-primary)
   z-index: 99999
-  &__logo-wrap
+  &__logo-mask
     max-width: 20rem
   &__burger
     display: none
-  &__body
-    margin-left: auto
   &__menu
     display: flex
   &__btn-box
@@ -114,18 +113,17 @@
         transition: transform 0.7s 0.7s, opacity 0.7s 0.7s
 
   +media(sm)
-    &__btn-box
-      &:not(.--icon)
-        display: flex
-        flex-direction: column
+    &__btn-box:not(.--icon)
+      display: flex
+      flex-direction: column
+      text-align: center
     &__btn
       padding: var(--space-20) 4vw
-      text-align: center
       &::before
         display: none
 
   +media(xs)
     padding-left: 6vw
     padding-right: 6vw
-    &__logo-wrap
+    &__logo-mask
       max-width: 14rem
