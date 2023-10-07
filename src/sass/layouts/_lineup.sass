@@ -10,12 +10,13 @@
     position: sticky
     position: -webkit-sticky
     top: var(--space-120)
+  &__box
+    // 解決 parallax 滑鼠不能 hover 效果
+    pointer-events: auto
   &__wrap
     // important 因為 parallax 插件會影響
     display: flex !important
-    align-items: start
     position: relative !important
-    pointer-events: auto
     &:first-child
       justify-content: flex-end
       align-items: flex-end
@@ -26,13 +27,24 @@
   &__artist
     width: 100%
     max-width: 45rem
-    filter: grayscale(1)
-    transition: 0.3s
+    filter: grayscale(100%)
+    transition: filter 0.3s
     &:hover
-      filter: grayscale(0)
+      filter: grayscale(0%)
     &.--lg
       max-width: 56rem
 
+  &__link
+    display: flex
+    flex-direction: column
+    &.--reverse
+      flex-direction: column-reverse
+  &__link.--reverse &__title
+    margin-top: var(--space-10)
+    margin-bottom: 0
+
+  &__title
+    margin-bottom: var(--space-10)
 
   &__img-mask, &__glitch-mask
     --img-w-ratio: 3

@@ -43,66 +43,54 @@ html(lang="en")
 
             //- input-element 滑鼠進入指定區塊內才生效
             .row.--gutter.l-lineup__box.js-parallax(data-input-element=".l-lineup__box")
-              .col-sm-5.l-lineup__wrap(data-depth="0.1")
-                article.l-lineup__artist
-                  a(href="##" data-aos="fade-up")
-                    h3.u-title-md.u-mb-10 9m88
+              mixin artistCard(options)
+                article.l-lineup__artist(class=`${options.size ? `--${options.size}` : ''}`)
+                  a.l-lineup__link(href="##" class=`${options.direction ? `--${options.direction}` : ''}` data-aos="fade-up")
+                    h3.u-title-md.l-lineup__title #{options.name}
                     //- scalar(10) 設置加速度 / friction(0-1) 設置過渡
                     .js-parallax(data-scalar-y="0" data-friction-x="0.4")
                       .l-lineup__img-mask
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup01.jpg", alt="大港開唱藝人名單 9m88")
+                        img.u-object-fit.--abs.js-lazy(data-src=options.img alt=`大港開唱藝人名單 ${options.name}`)
                       .l-lineup__glitch-mask.--primary(data-depth="-0.2")
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup01.jpg", alt="大港開唱藝人名單 9m88")
+                        img.u-object-fit.--abs.js-lazy(data-src=options.img alt=`大港開唱藝人名單 ${options.name}`)
                       .l-lineup__glitch-mask.--secondary(data-depth="0.2")
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup01.jpg", alt="大港開唱藝人名單 9m88")
+                        img.u-object-fit.--abs.js-lazy(data-src=options.img alt=`大港開唱藝人名單 ${options.name}`)
 
+              .col-sm-5.l-lineup__wrap(data-depth="0.1")
+                +artistCard({
+                  name: '9m88',
+                  img: 'img/lineup/lineup01.jpg',
+                  direction: '',
+                  size: ''
+                })
               .col-sm-7.l-lineup__wrap(data-depth="-0.1")
-                article.l-lineup__artist.--lg
-                  a(href="##" data-aos="fade-up")
-                    h3.u-title-md.u-mb-10 恆月三途
-                    .js-parallax(data-scalar-y="0" data-friction-x="0.4")
-                      .l-lineup__img-mask
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單 恆月三途")
-                      .l-lineup__glitch-mask.--primary(data-depth="-0.2")
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單 恆月三途")
-                      .l-lineup__glitch-mask.--secondary(data-depth="0.2")
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup02.jpg", alt="大港開唱藝人名單 恆月三途")
-
+                +artistCard({
+                  name: '恆月三途',
+                  img: 'img/lineup/lineup02.jpg',
+                  direction: '',
+                  size: 'lg'
+                })
               .col-lg-4.col-sm-7.l-lineup__wrap(data-depth="-0.2")
-                article.l-lineup__artist.--lg
-                  a(href="##" data-aos="fade-up")
-                    .js-parallax(data-scalar-y="0" data-friction-x="0.4")
-                      .l-lineup__img-mask
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單 Beyound Cure")
-                      .l-lineup__glitch-mask.--primary(data-depth="-0.2")
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單 Beyound Cure")
-                      .l-lineup__glitch-mask.--secondary(data-depth="0.2")
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup03.jpg", alt="大港開唱藝人名單 Beyound Cure")
-                    h3.u-title-md.u-mt-10 Beyound Cure
-
+                +artistCard({
+                  name: 'Beyound Cure',
+                  img: 'img/lineup/lineup03.jpg',
+                  direction: 'reverse',
+                  size: 'lg'
+                })
               .col-lg-4.col-sm-5.l-lineup__wrap(data-depth="0.2")
-                article.l-lineup__artist
-                  a(href="##" data-aos="fade-up")
-                    .js-parallax(data-scalar-y="0" data-friction-x="0.4")
-                      .l-lineup__img-mask
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單 Dudu King")
-                      .l-lineup__glitch-mask.--primary(data-depth="-0.2")
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單 Dudu King")
-                      .l-lineup__glitch-mask.--secondary(data-depth="0.2")
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup04.jpg", alt="大港開唱藝人名單 Dudu King")
-                    h3.u-title-md.u-mt-10 Dudu King
-
+                +artistCard({
+                  name: 'Dudu King',
+                  img: 'img/lineup/lineup04.jpg',
+                  direction: 'reverse',
+                  size: ''
+                })
               .col-lg-4.col-sm-5.offset-lg-0.offset-sm-4.l-lineup__wrap(data-depth="-0.2")
-                article.l-lineup__artist
-                  a(href="##" data-aos="fade-up")
-                    .js-parallax(data-scalar-y="0" data-friction-x="0.4")
-                      .l-lineup__img-mask
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單 Da Wang")
-                      .l-lineup__glitch-mask.--primary(data-depth="-0.2")
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單 Da Wang")
-                      .l-lineup__glitch-mask.--secondary(data-depth="0.2")
-                        img.u-object-fit.--abs.js-lazy(data-src="img/lineup/lineup05.jpg", alt="大港開唱藝人名單 Da Wang")
-                    h3.u-title-md.u-mt-10 Da Wang
+                +artistCard({
+                  name: 'Da Wang',
+                  img: 'img/lineup/lineup05.jpg',
+                  direction: 'reverse',
+                  size: ''
+                })
 
       section.l-news
         .l-news__btn-swiper.--prev
@@ -117,73 +105,66 @@ html(lang="en")
               
           .swiper-container.l-news__swiper(data-aos="fade-up")
             .swiper-wrapper
-              .swiper-slide.l-news__slide
-                article.c-card
-                  span.u-text-lg.u-fw-900.c-card__date 2021.04.12
-                  .c-card__wrap
-                    a.c-card__img-mask(href="##")
-                      img.u-object-fit.--abs.js-lazy(data-src="img/news/news01.jpg", alt="大港開唱最新消息")
-                    .c-card__body
-                      h3.u-text-md 大港 防疫公告！
-                      p.c-card__desc 【入場需先填寫 Line 實聯制問卷才能兌換手環】 如何填寫實聯制...
-                      .o-btn.--right.u-mt-auto
-                        a.o-btn__link(href="##") MORE
-              .swiper-slide.l-news__slide
-                article.c-card
-                  span.u-text-lg.u-fw-900.c-card__date 2021.05.10
-                  .c-card__wrap
-                    a.c-card__img-mask(href="##")
-                      img.u-object-fit.--abs.js-lazy(data-src="img/news/news02.jpg", alt="大港開唱最新消息")
-                    .c-card__body
-                      h3.u-text-md 金牌台啤x大港開唱 聯名限定上市
-                      p.c-card__desc Untitled Document 為在地音樂乾一杯！ 金牌台啤x大港開唱聯名啤酒限定上市 高雄最具代表性的大型音樂...
-                      .o-btn.--right.u-mt-auto
-                        a.o-btn__link(href="##") MORE
-              .swiper-slide.l-news__slide
-                article.c-card
-                  span.u-text-lg.u-fw-900.c-card__date 2021.05.24
-                  .c-card__wrap
-                    a.c-card__img-mask(href="##")
-                      img.u-object-fit.--abs.js-lazy(data-src="img/news/news03.jpg", alt="大港開唱最新消息")
-                    .c-card__body
-                      h3.u-text-md 大港開唱 x MegaFun
-                      p.c-card__desc ✧ 好耍 ✧趣味 ✧足歡喜 大港娛樂特區MegaFun全方位手冊 . ** MEGADIVE 孤枝大夫 ** 輕鬆享受人體衝浪支...
-                      .o-btn.--right.u-mt-auto
-                        a.o-btn__link(href="##") MORE
-              .swiper-slide.l-news__slide
-                article.c-card
-                  span.u-text-lg.u-fw-900.c-card__date 2021.06.17
-                  .c-card__wrap
-                    a.c-card__img-mask(href="##")
-                      img.u-object-fit.--abs.js-lazy(data-src="img/news/news04.jpg", alt="大港開唱最新消息")
-                    .c-card__body
-                      h3.u-text-md 大港帥口罩
-                      p.c-card__desc 想要這個大港口罩嗎？填寫實聯制問卷就送給你 #只送不賣 #有大港單雙日票券者才可兌換...
-                      .o-btn.--right.u-mt-auto
-                        a.o-btn__link(href="##") MORE
-              .swiper-slide.l-news__slide
-                article.c-card
-                  span.u-text-lg.u-fw-900.c-card__date 2021.06.22
-                  .c-card__wrap
-                    a.c-card__img-mask(href="##")
-                      img.u-object-fit.--abs.js-lazy(data-src="img/news/news05.jpg", alt="大港開唱最新消息")
-                    .c-card__body
-                      h3.u-text-md 官方周邊 正式公佈！
-                      p.c-card__desc 敲破碗的大港周邊這不就來了嗎 . 定番款大港毛巾必收 漁夫帽門簾與工作衫首次登場 超搶眼...
-                      .o-btn.--right.u-mt-auto
-                        a.o-btn__link(href="##") MORE
-              .swiper-slide.l-news__slide
-                article.c-card
-                  span.u-text-lg.u-fw-900.c-card__date 2021.07.10
-                  .c-card__wrap
-                    a.c-card__img-mask(href="##")
-                      img.u-object-fit.--abs.js-lazy(data-src="img/news/news06.jpg", alt="大港開唱最新消息")
-                    .c-card__body
-                      h3.u-text-md 大港線上直播 來囉！
-                      p.c-card__desc 沒買到大港票的朋朋，線上直播來啦 . 大港開唱與LINE TODAY獨家合作 #南霸天、 #女神龍...
-                      .o-btn.--right.u-mt-auto
-                        a.o-btn__link(href="##") MORE
-
+              mixin newsCardSlide(item)
+                .swiper-slide.l-news__slide
+                  article.c-card
+                    span.u-text-lg.u-fw-900.c-card__date #{item.date}
+                    .c-card__wrap
+                      a.c-card__img-mask(href=item.link)
+                        img.u-object-fit.--abs.js-lazy(data-src=item.img, alt=item.title)
+                      .c-card__body
+                        h3.u-text-md #{item.title}
+                        p.c-card__desc #{item.content}
+                        .o-btn.--right.u-mt-auto
+                          a.o-btn__link(href=item.link) MORE
+              -
+                const newsList = [
+                  {
+                    date: '2021.04.12',
+                    title: '大港 防疫公告！',
+                    content: '【入場需先填寫 Line 實聯制問卷才能兌換手環】 如何填寫實聯制...',
+                    img: 'img/news/news01.jpg',
+                    link: '##'
+                  },
+                  {
+                    date: '2021.05.10',
+                    title: '金牌台啤x大港開唱 聯名限定上市',
+                    content: 'Untitled Document 為在地音樂乾一杯！ 金牌台啤x大港開唱聯名啤酒限定上市 高雄最具代表性的大型音樂...',
+                    img: 'img/news/news02.jpg',
+                    link: '##'
+                  },
+                  {
+                    date: '2021.05.24',
+                    title: '大港開唱 x MegaFun',
+                    content: '✧ 好耍 ✧趣味 ✧足歡喜 大港娛樂特區MegaFun全方位手冊 . ** MEGADIVE 孤枝大夫 ** 輕鬆享受人體衝浪支...',
+                    img: 'img/news/news03.jpg',
+                    link: '##'
+                  },
+                  {
+                    date: '2021.06.17',
+                    title: '大港帥口罩',
+                    content: '想要這個大港口罩嗎？填寫實聯制問卷就送給你 #只送不賣 #有大港單雙日票券者才可兌換...',
+                    img: 'img/news/news04.jpg',
+                    link: '##'
+                  },
+                  {
+                    date: '2021.06.22',
+                    title: '官方周邊 正式公佈！',
+                    content: '敲破碗的大港周邊這不就來了嗎 . 定番款大港毛巾必收 漁夫帽門簾與工作衫首次登場 超搶眼...',
+                    img: 'img/news/news05.jpg',
+                    link: '##'
+                  },
+                  {
+                    date: '2021.07.10',
+                    title: '大港線上直播 來囉！',
+                    content: '沒買到大港票的朋朋，線上直播來啦 . 大港開唱與LINE TODAY獨家合作 #南霸天、 #女神龍...',
+                    img: 'img/news/news06.jpg',
+                    link: '##'
+                  }
+                ]
+              - for (let i = 0; i < newsList.length; i++)
+                +newsCardSlide(newsList[i])
+                
       .l-about.u-gradient
         section.u-pb-0
           .container
