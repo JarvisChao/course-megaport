@@ -9,7 +9,7 @@
     position: absolute
     top: 50%
     transform: translateY(-50%)
-    padding: var(--space-20)
+    padding: var(--spacing-20)
     background-color: var(--color-gray-light)
     font-size: 1.8rem
     color: var(--color-gray-mid)
@@ -18,20 +18,20 @@
     &:hover
       background-color: var(--color-black)
       color: var(--color-secondary)
-      box-shadow: 0 0 4px var(--color-black80)
+      box-shadow: 0 0 4px var(--color-black-80)
     &:active
       background-color: var(--color-secondary)
       color: var(--color-black)
-      box-shadow: 0 0 4px var(--color-gray-light80)
+      box-shadow: 0 0 4px var(--color-gray-light-80)
     &.--prev
       left: 0
-      border-radius: 0 var(--space-20) var(--space-20) 0
+      border-radius: 0 var(--spacing-20) var(--spacing-20) 0
     &.--next
       right: 0
-      border-radius: var(--space-20) 0 0 var(--space-20)
+      border-radius: var(--spacing-20) 0 0 var(--spacing-20)
   +media(xs)
     &__swiper
-      padding: 1rem var(--space-20)
+      padding: 1rem var(--spacing-20)
     &__slide
       width: 100% !important
       

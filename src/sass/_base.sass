@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;900&family=Roboto:wght@700;900&display=swap')
   
-*
+*, *::before, *::after
   position: relative
   box-sizing: border-box
   &::selection
@@ -79,7 +79,7 @@ span
 /* ------ Layouts ------ */
 /* ----------------------------------- */
 section
-  padding: var(--space-120) 4vw
+  padding: var(--spacing-120) 4vw
 
 .container
   max-width: 156rem
@@ -89,6 +89,6 @@ section
     margin-left: 0
 .row
   &.--gutter
-    --bs-gutter-x: var(--space-30)
-    --bs-gutter-y: var(--space-30)
+    --bs-gutter-x: var(--spacing-30)
+    --bs-gutter-y: var(--spacing-30)
   

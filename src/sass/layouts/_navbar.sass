@@ -24,7 +24,7 @@
       &::after
         opacity: 0
   &__btn
-    padding: var(--space-30) 3vw
+    padding: var(--spacing-30) 3vw
     line-height: 1.2
     color: var(--color-gray-mid)
     z-index: 10
@@ -35,7 +35,7 @@
       height: 100%
       padding-left: 1.4vw
       padding-right: 1.4vw
-      background-color: var(--color-gray-mid40)
+      background-color: var(--color-gray-mid-40)
       color: var(--color-gray-light)
       &::before, &::after
         background-image: linear-gradient(to bottom, var(--color-secondary), transparent)
@@ -70,7 +70,7 @@
       padding-right: 2.4vw
 
   +media(xl)
-    padding: var(--space-20) 4vw
+    padding: var(--spacing-20) 4vw
     // burger mode
     &__burger
       display: block
@@ -81,7 +81,7 @@
       top: 0
       +size(100%, 0)
       margin-top: 0
-      background-color: var(--color-black80)
+      background-color: var(--color-black-80)
       overflow: hidden
       transition: height 0.7s 0.7s
     &__menu
@@ -92,11 +92,11 @@
       width: 100%
       min-height: 100%
       transform: translateY(-1rem)
-      padding: var(--space-60) 0
+      padding: var(--spacing-60) 0
       transition: transform 0.7s, opacity 0.7s
       opacity: 0
     &__btn-box.--icon
-      margin-top: var(--space-60)
+      margin-top: var(--spacing-60)
     &__btn-wrap:first-child &__btn::before
       display: none
     &__btn.--icon
@@ -118,7 +118,7 @@
       flex-direction: column
       text-align: center
     &__btn
-      padding: var(--space-20) 4vw
+      padding: var(--spacing-20) 4vw
       &::before
         display: none
 
