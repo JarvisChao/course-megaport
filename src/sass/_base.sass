@@ -84,11 +84,14 @@ section
   padding: var(--section-spacing-y) var(--section-spacing-x)
 
 .container
-  max-width: 156rem
+  --container-width: 156rem
+  max-width: var(--container-width)
   &.--left
-    max-width: calc(156rem + 8vw)
+    // 因為少了預設的 padding-left，內容會多出來，所以要減掉 container 預設 padding
+    // 畫面一半 + container 最大寬的一半 - container 預設 padding
+    max-width: calc(50vw + var(--container-width) / 2 - calc(var(--bs-gutter-x) * .5))
     padding-left: 0
-    margin-left: 0
+    margin-left: calc(-1 * var(--section-spacing-x))
 .row
   &.--gap
     --bs-gutter-x: var(--spacing-24)
