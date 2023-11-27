@@ -42,7 +42,7 @@ html(lang="en")
                 span.u-text-lg MEGAPORT FESTIVAL
 
             //- input-element 滑鼠進入指定區塊內才生效
-            .row.--gutter.l-lineup__box.js-parallax(data-input-element=".l-lineup__box")
+            .row.--gap.l-lineup__box.js-parallax(data-input-element=".l-lineup__box")
               mixin artistCard(options)
                 article.l-lineup__artist(class=`${options.size ? `--${options.size}` : ''}`)
                   a.l-lineup__link(href="##" class=`${options.direction ? `--${options.direction}` : ''}` data-aos="fade-up")

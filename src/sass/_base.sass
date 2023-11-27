@@ -79,7 +79,9 @@ span
 /* ------ Layouts ------ */
 /* ----------------------------------- */
 section
-  padding: var(--spacing-120) 4vw
+  --section-spacing-x: 4vw
+  --section-spacing-y: var(--spacing-120)
+  padding: var(--section-spacing-y) var(--section-spacing-x)
 
 .container
   max-width: 156rem
@@ -88,7 +90,7 @@ section
     padding-left: 0
     margin-left: 0
 .row
-  &.--gutter
+  &.--gap
     --bs-gutter-x: var(--spacing-24)
     --bs-gutter-y: var(--spacing-24)
   
