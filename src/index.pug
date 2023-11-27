@@ -19,7 +19,7 @@ html(lang="en")
     include includes/_navbar.pug
     
     header.l-header(data-aos="fade")
-      .swiper-container.l-header__swiper
+      .swiper.l-header__swiper
         .swiper-wrapper
           .swiper-slide.l-header__slide
             .l-header__img-mask
@@ -103,7 +103,7 @@ html(lang="en")
             h2.u-title-xl.u-color-secondary NEWS
               span.u-text-lg MEGAPORT FESTIVAL
               
-          .swiper-container.l-news__swiper(data-aos="fade-up")
+          .swiper.l-news__swiper(data-aos="fade-up")
             .swiper-wrapper
               mixin newsCardSlide(item)
                 .swiper-slide.l-news__slide
