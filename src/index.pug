@@ -49,11 +49,11 @@ html(lang="en")
                     h3.u-title-md.l-lineup__title #{options.name}
                     //- scalar(10) 設置加速度 / friction(0-1) 設置過渡
                     .js-parallax(data-scalar-y="0" data-friction-x="0.4")
-                      .l-lineup__img-mask
+                      .u-img-ratio.l-lineup__img-mask
                         img.u-object-fit.--abs.js-lazy(data-src=options.img alt=`大港開唱藝人名單 ${options.name}`)
-                      .l-lineup__glitch-mask.--primary(data-depth="-0.2")
+                      .u-img-ratio.l-lineup__glitch-mask.--primary(data-depth="-0.2")
                         img.u-object-fit.--abs.js-lazy(data-src=options.img alt=`大港開唱藝人名單 ${options.name}`)
-                      .l-lineup__glitch-mask.--secondary(data-depth="0.2")
+                      .u-img-ratio.l-lineup__glitch-mask.--secondary(data-depth="0.2")
                         img.u-object-fit.--abs.js-lazy(data-src=options.img alt=`大港開唱藝人名單 ${options.name}`)
 
               .col-sm-5.l-lineup__wrap(data-depth="0.1")
@@ -110,7 +110,7 @@ html(lang="en")
                   article.c-card
                     span.u-text-lg.u-fw-900.c-card__date #{item.date}
                     .c-card__wrap
-                      a.c-card__img-mask(href=item.link)
+                      a.u-img-ratio.c-card__img-mask(href=item.link)
                         img.u-object-fit.--abs.js-lazy(data-src=item.img, alt=item.title)
                       .c-card__body
                         h3.u-text-md #{item.title}

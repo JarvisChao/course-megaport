@@ -3,6 +3,12 @@
 .u-inline-block
   display: inline-block
 
+.u-img-ratio
+  --img-w-ratio: 3
+  --img-h-ratio: 2
+  padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio))
+  // padding-bottom: 66.7%
+
 .u-object-fit
   +size(100%)
   object-fit: cover
