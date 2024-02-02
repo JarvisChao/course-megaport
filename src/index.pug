@@ -38,7 +38,7 @@ html(lang="en")
         .l-lineup__sticky
           .container
             .u-mb-80(data-aos="fade-up")
-              h2.u-title-xl.u-color-secondary LINEUP
+              h2.u-text-4xl.u-color-secondary LINEUP
                 span.u-text-lg MEGAPORT FESTIVAL
 
             //- input-element 滑鼠進入指定區塊內才生效
@@ -46,7 +46,7 @@ html(lang="en")
               mixin artistCard(options)
                 article.l-lineup__artist(class=`${options.size ? `--${options.size}` : ''}`)
                   a.l-lineup__link(href="##" class=`${options.direction ? `--${options.direction}` : ''}` data-aos="fade-up")
-                    h3.u-title-md.l-lineup__title #{options.name}
+                    h3.u-text-xl.l-lineup__title #{options.name}
                     //- scalar(10) 設置加速度 / friction(0-1) 設置過渡
                     .js-parallax(data-scalar-y="0" data-friction-x="0.4")
                       .u-img-ratio.l-lineup__img-mask
@@ -100,7 +100,7 @@ html(lang="en")
 
         .container
           .u-mb-80.u-text-center(data-aos="fade-up")
-            h2.u-title-xl.u-color-secondary NEWS
+            h2.u-text-4xl.u-color-secondary NEWS
               span.u-text-lg MEGAPORT FESTIVAL
               
           .swiper.l-news__swiper(data-aos="fade-up")
@@ -168,7 +168,7 @@ html(lang="en")
       section.l-about.u-gradient
         .container
           .u-mb-80(data-aos="fade-right")
-            h2.u-title-xl.u-color-secondary ABOUT
+            h2.u-text-4xl.u-color-secondary ABOUT
               span.u-text-lg MEGAPORT FESTIVAL
 
         .container.--left
@@ -179,10 +179,10 @@ html(lang="en")
             .col-md-5.order-md-0.order-1
               .l-about__content-wrap
                 .l-about__content.u-mb-64(data-aos="fade-up")
-                  h3.u-title.u-mb-16 2022 年即將邁入第十三屆的《大港開唱》
+                  h3.u-text-2xl.u-mb-16 2022 年即將邁入第十三屆的《大港開唱》
                   p.u-fw-500 每年三月於高雄舉辦的大型音樂祭典，受到全台灣及日本香港年輕觀眾的喜愛，近年已成為台灣最具指標性的大型戶外音樂祭活動。
                 .l-about__content(data-aos="fade-up")
-                  h3.u-title.u-mb-16 「人生」與「音樂」
+                  h3.u-text-2xl.u-mb-16 「人生」與「音樂」
                   p.u-fw-500 大港舉辦在高雄港邊，獨特的海港地景和人文風情，常勾起人生中各種酸甜苦辣的回憶。也因如此，大港總是邀請有著豐富人生歷程的知名藝人及業界前輩演出，也會與新一代的樂團或藝人一起合作演出，交融出世代之間的化學效應，往往成為當年度為人津津樂道的經典現場...
                 .o-btn.--right.u-mt-64(data-aos="fade-up")
                   a.o-btn__link(href="##") MORE
