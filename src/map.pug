@@ -1,16 +1,15 @@
 doctype html
 html(lang="en")
   head
-    include includes/_config.pug
-    include includes/_head.pug
+    include includes/_settings.pug
+    - 
+      path = '/map.html'
+      pageTitle = '地圖導覽';
+      infoTitle = '地圖導覽後面的資訊標題';
+      description = '地圖導覽的網頁描述';
+      image = 'img/og/og-map.jpg';
 
-    //- FB 縮圖資訊
-    meta(property="og:url" content=`${baseUrl}/map.html`)
-    meta(property="og:image" content=`${baseUrl}/img/og/og.jpg`)
-    meta(property="og:description" content="輸入單一頁面的網頁描述")
-    meta(name="description" content="輸入單一頁面的網頁描述")
-    meta(property="og:title" content=`地圖導覽｜${title}`)
-    title 地圖導覽｜#{title}
+    include includes/_head.pug
 
   body
     include mixins/_blockade.pug
@@ -18,7 +17,6 @@ html(lang="en")
 
     header.l-header-inner(data-aos="fade-down")
       +blockade('l-header-inner__blockade')
-
       h2.u-text-3xl.l-header-inner__title MAP
 
     main.l-main

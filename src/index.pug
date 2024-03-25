@@ -1,18 +1,8 @@
 doctype html
 html(lang="en")
   head
-    include includes/_config.pug
+    include includes/_settings.pug
     include includes/_head.pug
-
-    //- FB 縮圖資訊
-    meta(property="og:url" content=baseUrl)
-    meta(property="og:image" content=`${baseUrl}/img/og/og.jpg`)
-    //- 網頁描述
-    meta(property="og:description" content=description)
-    meta(name="description" content=description)
-    //- 網頁標題
-    meta(property="og:title" content=title)
-    title #{title}
 
   body
     include mixins/_blockade.pug
@@ -94,9 +84,9 @@ html(lang="en")
 
       section.l-news
         .l-news__btn-swiper.--prev
-          i.fas.fa-arrow-left
+          iconify-icon.u-icon(icon="fa-solid:arrow-left")
         .l-news__btn-swiper.--next
-          i.fas.fa-arrow-right
+          iconify-icon.u-icon(icon="fa-solid:arrow-right")
 
         .container
           .u-mb-80.u-text-center(data-aos="fade-up")
@@ -223,19 +213,23 @@ html(lang="en")
           loop: true,
           speed: 1200,
           slidesPerView: 'auto',
-          spaceBetween: 4,
+          centeredSlides: true,
+          spaceBetween: 16,
           breakpoints: {
             1400: {
               slidesPerView: 4,
-              spaceBetween: 16,
+              centeredSlides: false,
+              spaceBetween: 32,
             },
             1024: {
               slidesPerView: 3,
-              spaceBetween: 8,
+              centeredSlides: false,
+              spaceBetween: 24,
             },
             576: {
               slidesPerView: 2,
-              spaceBetween: 4,
+              centeredSlides: false,
+              spaceBetween: 20,
             },
           },
           on: {

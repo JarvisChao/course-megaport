@@ -1,9 +1,10 @@
 .l-news
+  &__swiper
+    // 避免 card 上下陰影被吃掉
+    padding: 1rem 0
   &__slide
     // 為了保持 flex stretch 特性，需取消插件預設 100%
     height: auto
-    // 避免四邊陰影被吃掉
-    padding: 1rem
   &__btn-swiper
     position: absolute
     top: 50%
@@ -29,8 +30,6 @@
       right: 0
       border-radius: var(--spacing-16) 0 0 var(--spacing-16)
   +media(xs)
-    &__swiper
-      padding: 1rem var(--spacing-16)
     &__slide
-      width: 100% !important
+      width: 80% !important
       

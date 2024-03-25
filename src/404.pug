@@ -1,11 +1,12 @@
 doctype html
 html(lang="en")
   head
-    include includes/_config.pug
-    include includes/_head.pug
+    include includes/_settings.pug
+    - 
+      path = '/404.html'
+      pageTitle = '404 ERROR';
 
-    meta(property="og:title" content="404ERROR｜" + title)
-    title 404ERROR｜#{title}
+    include includes/_head.pug
 
   body
     include includes/_navbar.pug

@@ -126,7 +126,14 @@
 
 .u-icon
   font-size: 2.4rem
-  transition: color 0.3s
+  // iconify 上下不置中問題
+  vertical-align: text-bottom
+  &.--sm
+    font-size: 1.8rem
+  &.--md
+    font-size: 2.8rem
+  &.--lg
+    font-size: 4rem
 
 .u-color-primary
   color: var(--color-primary)

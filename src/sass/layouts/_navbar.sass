@@ -1,10 +1,11 @@
 .l-navbar
   display: flex
   align-items: center
-  justify-content: space-between
-  position: fixed
-  width: 100%
-  left: 0
+  // justify-content: space-between
+  position: sticky
+  position: -webkit-sticky
+  // position: fixed
+  // left: 0
   top: 0
   padding-left: 4vw
   border-bottom: 1px solid var(--color-primary)
@@ -15,30 +16,28 @@
     max-width: 20rem
   &__burger
     display: none
+  &__body
+    margin-left: auto
   &__menu
     display: flex
   &__btn-box
     display: flex
-  &__btn-box:hover &
-    &__btn
-      &::after
-        opacity: 0
+  &__btn-box.--icon &__btn
+    display: flex
+    align-items: center
+    height: 100%
+    padding-left: 1.4vw
+    padding-right: 1.4vw
+    background-color: var(--color-gray-mid-40)
+    color: var(--color-gray-light)
+    &::before, &::after
+      background-image: linear-gradient(to bottom, var(--color-secondary), transparent)
   &__btn
     padding: var(--spacing-24) 3vw
     line-height: 1.2
     color: var(--color-gray-mid)
     z-index: 10
     transition: color 0.3s
-    &.--icon
-      display: flex
-      align-items: center
-      height: 100%
-      padding-left: 1.4vw
-      padding-right: 1.4vw
-      background-color: var(--color-gray-mid-40)
-      color: var(--color-gray-light)
-      &::before, &::after
-        background-image: linear-gradient(to bottom, var(--color-secondary), transparent)
     // 調整當前頁面樣式
     &.is-active
       color: var(--color-gray-light)
@@ -71,10 +70,18 @@
 
   +media(xl)
     padding: var(--spacing-16) 4vw
+    justify-content: space-between
+    &.is-opened &
+      &__body
+        height: 100vh
+        transition: 0.7s
+      &__menu
+        transform: translateY(0)
+        opacity: 1
+        transition: transform 0.7s 0.7s, opacity 0.7s 0.7s
     // burger mode
     &__burger
       display: block
-      margin-left: auto
     &__body
       position: fixed
       left: 0
@@ -95,25 +102,17 @@
       padding: var(--spacing-64) 0
       transition: transform 0.7s, opacity 0.7s
       opacity: 0
-    &__btn-box.--icon
-      margin-top: var(--spacing-64)
     &__btn-wrap:first-child &__btn::before
       display: none
-    &__btn.--icon
+    &__btn-box.--icon
+      margin-top: var(--spacing-16)
+    &__btn-box.--icon &__btn
       background-color: transparent
       &::before
         display: none
-    &.is-opened &
-      &__body
-        height: 100vh
-        transition: 0.7s
-      &__menu
-        transform: translateY(0)
-        opacity: 1
-        transition: transform 0.7s 0.7s, opacity 0.7s 0.7s
 
   +media(sm)
-    &__btn-box:not(.--icon)
+    &__btn-box.--link
       display: flex
       flex-direction: column
       text-align: center
