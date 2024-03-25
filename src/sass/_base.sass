@@ -11,12 +11,23 @@
 
 html
   font-size: calc(16px / 1.6)
-  // 防止 Bootstrap 預設影響 GoTop
-  scroll-behavior: auto !important
   +media(lg)
     font-size: calc(15px / 1.6)
   +media(ipad)
     font-size: calc(14px / 1.6)
+
+html
+  &.lenis, &.lenis body
+    height: auto
+.lenis.lenis
+  &-smooth
+    scroll-behavior: auto !important
+  &-smooth [data-lenis-prevent]
+    overscroll-behavior: contain
+  &-stopped
+    overflow: hidden
+  &-scrolling iframe
+    pointer-events: none
 
 body
   margin: 0
