@@ -42,26 +42,21 @@ a.forEach(function(item) {
   }
 });
 
-//-- Burger
+// Navbar
 let isOpened = false;
 const $body = document.body;
 const $navbar = document.querySelector('.l-navbar');
-const $navbarBody = document.querySelector('.l-navbar__body');
 const $burger = document.querySelector('.o-burger');
-function handleBurger() {
+function toggleNavbar() {
   if (!isOpened) {
-    $burger.classList.add('is-opened');
-    $navbar.classList.add('is-opened');
     $body.style.overflow = 'hidden';
-    setTimeout(function() {
-      $navbarBody.style.overflow = 'auto';
-    }, 1000);
+    $navbar.classList.add('is-opened');
+    $burger.classList.add('is-opened');
     isOpened = true;
   } else {
-    $burger.classList.remove('is-opened');
-    $navbar.classList.remove('is-opened');
     $body.style.overflow = '';
-    $navbarBody.style.overflow = 'hidden';
+    $navbar.classList.remove('is-opened');
+    $burger.classList.remove('is-opened');
     isOpened = false;
   }
 }
