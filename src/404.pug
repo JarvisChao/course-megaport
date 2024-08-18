@@ -1,3 +1,5 @@
+include components/_Blockade.pug
+
 doctype html
 html(lang="en")
   head
@@ -12,24 +14,18 @@ html(lang="en")
     include layouts/_Navbar.pug
 
     header.l-header-inner(data-aos="fade-down")
-      .c-blockade.l-header-inner__blockade
-        .c-blockade__line
-          //- viewport 完成位置 / easing 延遲
-          .c-blockade__text(uk-parallax="viewport: 0.9; x: 70vw,0,-110vw") 台灣最生猛海派的音樂祭 - 大港開唱
-        .c-blockade__line
-          .c-blockade__text(uk-parallax="viewport: 0.8; x: -50vw,0,100vw") 台灣最生猛海派的音樂祭 - 大港開唱
-        .c-blockade__line
-          .c-blockade__text(uk-parallax="viewport: 0.8; easing: 1.5; x: 100vw,-40vw,-60vw") 台灣最生猛海派的音樂祭 - 大港開唱
-        .c-blockade__line
-          .c-blockade__text(uk-parallax="viewport: 0.7; x: -100vw,50vw,90vw") 台灣最生猛海派的音樂祭 - 大港開唱
-      h2.u-text-3xl.l-header-inner__title 404 ERROR
+      +Blockade({ text: '404 ERROR 找不到頁面' }).l-header-inner__blockade
+      h2.u-text-3xl 404 ERROR
 
     main.l-main
       section.l-error
         .container
           .row
             .col-md-12
-              h3.u-text-2xl.l-error__title 糟糕！網頁發生錯誤，請點擊其他連結瀏覽
+              h3.u-text-2xl.u-text-center 糟糕！網頁發生錯誤，請點擊其他連結瀏覽
 
     include layouts/_Footer.pug
+    
+    script(src="js/gsap.min.js")
+    script(src="js/ScrollTrigger.min.js")
     include layouts/_Scripts.pug

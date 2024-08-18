@@ -1,12 +1,18 @@
-//- mixin 才能傳值進去，include 不行
-mixin Blockade(customClass)
-  .c-blockade(class=customClass)
+mixin Blockade(options)
+  -
+    // Object.assign 用來合併預設值及傳進來的 options 值
+    const props = Object.assign({
+      // 預設值
+      text: '台灣最生猛海派的音樂祭 ——『 大港開唱 』'
+    }, options);
+
+  .c-blockade&attributes(attributes)
     .c-blockade__line
       //- end 結束動畫 / easing 延遲 / x 初始位置,可視位置,結束位置
-      span.c-blockade__text 台灣最生猛海派的音樂祭 ——『 大港開唱 』
+      span.c-blockade__text #{props.text}
     .c-blockade__line
-      span.c-blockade__text 台灣最生猛海派的音樂祭 ——『 大港開唱 』
+      span.c-blockade__text #{props.text}
     .c-blockade__line
-      span.c-blockade__text 台灣最生猛海派的音樂祭 ——『 大港開唱 』
+      span.c-blockade__text #{props.text}
     .c-blockade__line
-      span.c-blockade__text 台灣最生猛海派的音樂祭 ——『 大港開唱 』
+      span.c-blockade__text #{props.text}

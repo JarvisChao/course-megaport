@@ -1,11 +1,26 @@
-mixin Card(item)
+include ./_Btn.pug
+
+mixin Card(options)
+  -
+    // Object.assign 用來合併預設值及傳進來的 options 值
+    const props = Object.assign({
+      // 預設值
+      date: '',
+      title: '',
+      content: '',
+      img: '',
+      link: '##'
+    }, options);
+
   article.c-card
-    span.u-text-lg.u-fw-900.c-card__date #{item.date}
+    span.u-text-lg.u-fw-900.c-card__date #{props.date}
     .c-card__wrap
-      a.u-img-ratio.c-card__img-mask(href=item.link)
-        img.u-object-fit.--abs.js-lazy(data-src=item.img, alt=item.title)
+      a.u-img-ratio.c-card__img-mask(href=props.link)
+        img.u-object-fit.--abs.js-lazy(data-src=props.img, alt=props.title)
       .c-card__body
-        h3.u-text-md #{item.title}
-        p.c-card__desc #{item.content}
-        .o-btn.--right.u-mt-auto
-          a.o-btn__link(href=item.link) MORE
+        h3.u-text-md #{props.title}
+        p.c-card__desc #{props.content}
+        +Btn({
+          href: props.link,
+          position: 'right'
+        }).u-mt-auto MORE

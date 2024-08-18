@@ -1,7 +1,60 @@
 :root
+  // Layouts
+  --section-spacing-x: 4vw
+  --section-spacing-y: var(--spacing-120)
+  +media(sm)
+    --section-spacing-x: 2vw
+    
+  --container-width: 152rem
+  --container-width-sm: 136rem
+
+  // Spacing
+  --spacing-160: 16rem
+  --spacing-120: 12rem
+  --spacing-80: 8rem
+  --spacing-64: 6.4rem
+  --spacing-56: 5.6rem
+  --spacing-48: 4.8rem
+  --spacing-40: 4rem
+  --spacing-32: 3.2rem
+  --spacing-24: 2.4rem
+  --spacing-16: 1.6rem
+  --spacing-8: 0.8rem
+  +media(xs)
+    --spacing-160: 24vw
+    --spacing-120: 20vw
+    --spacing-80: 16vw
+    --spacing-64: 14vw
+    --spacing-56: 12vw
+    --spacing-48: 10vw
+    --spacing-40: 8vw
+    --spacing-32: 6vw
+    --spacing-24: 4vw
+    --spacing-16: 3vw
+    --spacing-12: 2vw
+
+  // Fonts
   --font-primary: 'Noto Sans TC', sans-serif
   --font-en: 'Roboto', 'Arial', sans-serif
 
+  --text-4xl: 6.4rem
+  --text-3xl: 3.6rem
+  --text-2xl: 2.8rem
+  --text-xl: 2.4rem
+  --text-lg: 2rem
+  --text-md: 1.8rem
+  --text-body: 1.6rem
+  --text-sm: 1.4rem
+  --text-xs: 1.2rem
+  +media(xs)
+    --text-4xl: 6.2rem
+    --text-3xl: 2.8rem
+    --text-2xl: 2.4rem
+    --text-xl: 2.2rem
+    --text-lg: 1.8rem
+    --text-md: 1.7rem
+
+  // Colors
   --color-primary: #ef8322
   --color-secondary: #96e881
   --color-secondary-mid: #B2E2A6
@@ -9,6 +62,7 @@
   --color-black: #292929
   --color-black-rgb: 41, 41, 41
   --color-black-80: rgba(var(--color-black-rgb), 0.8)
+  --color-black-20: rgba(var(--color-black-rgb), 0.2)
 
   --color-gray: #464646
   --color-gray-mid: #9b9b9b
@@ -22,25 +76,3 @@
   --color-white-rgb: 255, 255, 255
   --color-white-40: rgba(var(--color-white-rgb), 0.4)
 
-  // spacing
-  --spacing-160: 16rem
-  --spacing-120: 12rem
-  --spacing-80: 10rem
-  --spacing-64: 6.4rem
-  --spacing-56: 5.6rem
-  --spacing-48: 4.8rem
-  --spacing-40: 4rem
-  --spacing-24: 2.4rem
-  --spacing-16: 1.6rem
-  --spacing-8: 0.8rem
-  +media(xs)
-    --spacing-160: 24vw
-    --spacing-120: 20vw
-    --spacing-80: 16vw
-    --spacing-64: 14vw
-    --spacing-56: 12vw
-    --spacing-48: 10vw
-    --spacing-40: 8vw
-    --spacing-24: 4vw
-    --spacing-16: 3vw
-    --spacing-12: 2vw

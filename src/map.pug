@@ -1,3 +1,5 @@
+include components/_Blockade.pug
+
 doctype html
 html(lang="en")
   head
@@ -12,12 +14,11 @@ html(lang="en")
     include layouts/_Head.pug
 
   body
-    include components/_Blockade.pug
     include layouts/_Navbar.pug
 
     header.l-header-inner(data-aos="fade-down")
-      +blockade('l-header-inner__blockade')
-      h2.u-text-3xl.l-header-inner__title MAP
+      +Blockade.l-header-inner__blockade
+      h2.u-text-3xl MAP
 
     main.l-main
       section.l-map

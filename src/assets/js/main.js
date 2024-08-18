@@ -49,12 +49,14 @@ const $navbar = document.querySelector('.l-navbar');
 const $burger = document.querySelector('.o-burger');
 function toggleNavbar() {
   if (!isOpened) {
-    $body.style.overflow = 'hidden';
+    // $body.style.overflow = 'hidden';
+    lenis.stop();
     $navbar.classList.add('is-opened');
     $burger.classList.add('is-opened');
     isOpened = true;
   } else {
-    $body.style.overflow = '';
+    // $body.style.overflow = '';
+    lenis.start();
     $navbar.classList.remove('is-opened');
     $burger.classList.remove('is-opened');
     isOpened = false;
@@ -101,12 +103,12 @@ $lazyImgs.forEach(function(item) {
   // https://png-pixel.com/
   item.setAttribute(
     'src',
-    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAZAAAAEsCAQAAABHvi1JAAACNUlEQVR42u3TMQEAAAgDINc/mLE0gZ8ndCA9BRwiCAgCgoAgIAgIAoKAICAICAIIAoKAICAICAKCgCAgCAgCggCCgCAgCAgCgoAgIAgIAoIAgoAgIAgIAoKAICAICAKCgCCAICAICAKCgCAgCAgCgoAggCAgCAgCgoAgIAgIAoKAICAIIAgIAoKAICAICAKCgCAgCCAICAKCgCAgCAgCgoAgIAgIAggCgoAgIAgIAoKAICAICAKCCAKCgCAgCAgCgoAgIAgIAoIAgoAgIAgIAoKAICAICAKCgCCAICAICAKCgCAgCAgCgoAggCAgCAgCgoAgIAgIAoKAICAIIAgIAoKAICAICAKCgCAgCCAICAKCgCAgCAgCgoAgIAgIAggCgoAgIAgIAoKAICAICAIIAoKAICAICAKCgCAgCAgCggCCgCAgCAgCgoAgIAgIAoKAIIKAICAICAKCgCAgCAgCgoAggCAgCAgCgoAgIAgIAoKAICAIIAgIAoKAICAICAKCgCAgCCAICAKCgCAgCAgCgoAgIAgIAggCgoAgIAgIAoKAICAICAIIAoKAICAICAKCgCAgCAgCggCCgCAgCAgCgoAgIAgIAoIAgoAgIAgIAoKAICAICAKCgCCAICAICAKCgCAgCAgCgoAgIIggIAgIAoKAICAICAKCgCAgCCAICAKCgCAgCAgCgoAgIAgIAggCgoAgIAgIAoKAICAICAIIAoKAICAICAKCgCAgCAgCggCCgCDwZwF2ixVTTYF0mAAAAABJRU5ErkJggg=='
+    'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII='
   );
 });
 // https://github.com/verlok/vanilla-lazyload
 const lazyLoad = new LazyLoad({
-  elements_selector: 'img.js-lazy',
+  elements_selector: '.js-lazy',
   // 設定距離可視區(視窗)底部多遠觸發
   threshold: 500,
   callback_loaded: function() {
@@ -132,9 +134,9 @@ const lazyLoad = new LazyLoad({
 const $parallaxes = document.querySelectorAll('.js-parallax');
 $parallaxes.forEach(function(item) {
   new Parallax(item, {
-    // 滑鼠進入元素內才生效
+    // 滑鼠進入指定元素內才生效
     hoverOnly: true,
-    // 滑鼠相對於指定元素（預設為可視區）
+    // 滑鼠相對於指定元素（false 預設為可視區）
     relativeInput: true,
   })
 });
@@ -142,17 +144,16 @@ $parallaxes.forEach(function(item) {
 gsap.registerPlugin(ScrollTrigger);
 const tl = gsap.timeline({
   scrollTrigger: {
-    trigger: '.c-blockade',
-    // 區塊位置、螢幕位置交會時觸發
-    start: 'top center',
-    end: 'bottom 20%',
-    scrub: true,
+    trigger: '.c-blockade', // 觸發點
+    start: 'top center', // 觸發點上方、視窗中心交會時觸發
+    end: 'bottom 20%', // 觸發點底部、視窗 20% 處交會時結束
+    scrub: true, // 隨滑鼠滾動
   },
   ease: 'none'
 });
 
 const $blockadeTexts = document.querySelectorAll('.c-blockade__text');
-tl.fromTo($blockadeTexts[0], { x: '70vw' }, { x: '-110vw' }, 'start');
-tl.fromTo($blockadeTexts[1], { x: '-50vw' }, { x: '100vw' }, 'start+=5%');
-tl.fromTo($blockadeTexts[2], { x: '100vw' }, { x: '-60vw' }, 'start+=5%');
-tl.fromTo($blockadeTexts[3], { x: '-100vw' }, { x: '90vw' }, 'start+=10%');
+tl.fromTo($blockadeTexts[0], { x: '70vw' }, { x: '-110vw' }, 'startLabel');
+tl.fromTo($blockadeTexts[1], { x: '-50vw' }, { x: '100vw' }, 'startLabel+=5%');
+tl.fromTo($blockadeTexts[2], { x: '100vw' }, { x: '-60vw' }, 'startLabel+=5%');
+tl.fromTo($blockadeTexts[3], { x: '-100vw' }, { x: '90vw' }, 'startLabel+=10%');

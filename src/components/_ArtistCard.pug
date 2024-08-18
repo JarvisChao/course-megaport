@@ -1,0 +1,28 @@
+mixin ArtistCard(options)
+  -
+    // Object.assign 用來合併預設值及傳進來的 options 值
+    const props = Object.assign({
+      // 預設值
+      name: '',
+      img: '',
+      direction: '', // reverse
+      size: '', // md, lg
+      link: '##'
+    }, options);
+
+    const classes = [
+      props.size ? `--size-${props.size}` : '',
+      props.direction ? `--${props.direction}` : ''
+    ];
+
+  article.c-artist-card(class=classes.join(' '))
+    a.c-artist-card__link(href=props.link data-aos="fade-up")
+      h3.u-text-xl.c-artist-card__title #{props.name}
+      //- scalar(10) 設置加速度 / friction(0-1) 設置過渡
+      .js-parallax(data-scalar-y="0" data-friction-x="0.4")
+        .u-img-ratio.c-artist-card__img-mask
+          img.u-object-fit.--abs.js-lazy(data-src=props.img alt=`大港開唱藝人名單 ${props.name}`)
+        .u-img-ratio.c-artist-card__glitch-mask.--primary(data-depth="-0.2")
+          img.u-object-fit.--abs.js-lazy(data-src=props.img alt=`大港開唱藝人名單 ${props.name}`)
+        .u-img-ratio.c-artist-card__glitch-mask.--secondary(data-depth="0.2")
+          img.u-object-fit.--abs.js-lazy(data-src=props.img alt=`大港開唱藝人名單 ${props.name}`)

@@ -1,3 +1,8 @@
+include components/_Blockade.pug
+include components/_ArtistCard.pug
+include components/_Card.pug
+include components/_Btn.pug
+
 doctype html
 html(lang="en")
   head
@@ -6,8 +11,6 @@ html(lang="en")
 
   body
     include layouts/_Navbar.pug
-    include components/_Blockade.pug
-    include components/_Card.pug
     
     header.l-header(data-aos="fade")
       .swiper.l-header__swiper
@@ -24,7 +27,7 @@ html(lang="en")
 
     main.l-main
       section.l-lineup.u-pb-0.u-gradient
-        +blockade('l-lineup__blockade')
+        +Blockade.l-lineup__blockade
 
         .l-lineup__sticky
           .container
@@ -33,54 +36,36 @@ html(lang="en")
                 span.u-text-lg MEGAPORT FESTIVAL
 
             //- input-element 滑鼠進入指定區塊內才生效
-            .row.--gap.l-lineup__box.js-parallax(data-input-element=".l-lineup__box")
-              mixin artistCard(options)
-                article.l-lineup__artist(class=`${options.size ? `--${options.size}` : ''}`)
-                  a.l-lineup__link(href="##" class=`${options.direction ? `--${options.direction}` : ''}` data-aos="fade-up")
-                    h3.u-text-xl.l-lineup__title #{options.name}
-                    //- scalar(10) 設置加速度 / friction(0-1) 設置過渡
-                    .js-parallax(data-scalar-y="0" data-friction-x="0.4")
-                      .u-img-ratio.l-lineup__img-mask
-                        img.u-object-fit.--abs.js-lazy(data-src=options.img alt=`大港開唱藝人名單 ${options.name}`)
-                      .u-img-ratio.l-lineup__glitch-mask.--primary(data-depth="-0.2")
-                        img.u-object-fit.--abs.js-lazy(data-src=options.img alt=`大港開唱藝人名單 ${options.name}`)
-                      .u-img-ratio.l-lineup__glitch-mask.--secondary(data-depth="0.2")
-                        img.u-object-fit.--abs.js-lazy(data-src=options.img alt=`大港開唱藝人名單 ${options.name}`)
-
+            .row.--gap.l-lineup__box.js-parallax(data-input-element=".l-lineup")
               .col-sm-5.l-lineup__wrap(data-depth="0.1")
-                +artistCard({
+                +ArtistCard({
                   name: '9m88',
-                  img: 'img/lineup/lineup01.jpg',
-                  direction: '',
-                  size: ''
+                  img: 'img/lineup/lineup01.jpg'
                 })
               .col-sm-7.l-lineup__wrap(data-depth="-0.1")
-                +artistCard({
+                +ArtistCard({
                   name: '恆月三途',
                   img: 'img/lineup/lineup02.jpg',
-                  direction: '',
                   size: 'lg'
                 })
               .col-lg-4.col-sm-7.l-lineup__wrap(data-depth="-0.2")
-                +artistCard({
+                +ArtistCard({
                   name: 'Beyound Cure',
                   img: 'img/lineup/lineup03.jpg',
                   direction: 'reverse',
                   size: 'lg'
                 })
               .col-lg-4.col-sm-5.l-lineup__wrap(data-depth="0.2")
-                +artistCard({
+                +ArtistCard({
                   name: 'Dudu King',
                   img: 'img/lineup/lineup04.jpg',
-                  direction: 'reverse',
-                  size: ''
+                  direction: 'reverse'
                 })
               .col-lg-4.col-sm-5.offset-lg-0.offset-sm-4.l-lineup__wrap(data-depth="-0.2")
-                +artistCard({
+                +ArtistCard({
                   name: 'Da Wang',
                   img: 'img/lineup/lineup05.jpg',
-                  direction: 'reverse',
-                  size: ''
+                  direction: 'reverse'
                 })
 
       section.l-news
@@ -103,47 +88,42 @@ html(lang="en")
                     title: '大港 防疫公告！',
                     content: '【入場需先填寫 Line 實聯制問卷才能兌換手環】 如何填寫實聯制...',
                     img: 'img/news/news01.jpg',
-                    link: '##'
+                    link: 'news.html'
                   },
                   {
                     date: '2021.05.10',
                     title: '金牌台啤x大港開唱 聯名限定上市',
                     content: 'Untitled Document 為在地音樂乾一杯！ 金牌台啤x大港開唱聯名啤酒限定上市 高雄最具代表性的大型音樂...',
                     img: 'img/news/news02.jpg',
-                    link: '##'
                   },
                   {
                     date: '2021.05.24',
                     title: '大港開唱 x MegaFun',
                     content: '✧ 好耍 ✧趣味 ✧足歡喜 大港娛樂特區MegaFun全方位手冊 . ** MEGADIVE 孤枝大夫 ** 輕鬆享受人體衝浪支...',
                     img: 'img/news/news03.jpg',
-                    link: '##'
                   },
                   {
                     date: '2021.06.17',
                     title: '大港帥口罩',
                     content: '想要這個大港口罩嗎？填寫實聯制問卷就送給你 #只送不賣 #有大港單雙日票券者才可兌換...',
                     img: 'img/news/news04.jpg',
-                    link: '##'
                   },
                   {
                     date: '2021.06.22',
                     title: '官方周邊 正式公佈！',
                     content: '敲破碗的大港周邊這不就來了嗎 . 定番款大港毛巾必收 漁夫帽門簾與工作衫首次登場 超搶眼...',
                     img: 'img/news/news05.jpg',
-                    link: '##'
                   },
                   {
                     date: '2021.07.10',
                     title: '大港線上直播 來囉！',
                     content: '沒買到大港票的朋朋，線上直播來啦 . 大港開唱與LINE TODAY獨家合作 #南霸天、 #女神龍...',
                     img: 'img/news/news06.jpg',
-                    link: '##'
                   }
                 ]
               - for (let i = 0; i < newsList.length; i++)
                 .swiper-slide.l-news__slide
-                  +card(newsList[i])
+                  +Card(newsList[i])
                 
       section.l-about.u-gradient
         .container
@@ -164,8 +144,10 @@ html(lang="en")
                 .l-about__content(data-aos="fade-up")
                   h3.u-text-2xl.u-mb-16 「人生」與「音樂」
                   p.u-fw-500 大港舉辦在高雄港邊，獨特的海港地景和人文風情，常勾起人生中各種酸甜苦辣的回憶。也因如此，大港總是邀請有著豐富人生歷程的知名藝人及業界前輩演出，也會與新一代的樂團或藝人一起合作演出，交融出世代之間的化學效應，往往成為當年度為人津津樂道的經典現場...
-                .o-btn.--right.u-mt-64(data-aos="fade-up")
-                  a.o-btn__link(href="##") MORE
+                +Btn({
+                  href: 'about.html',
+                  position: 'right'
+                }).u-mt-64(data-aos="fade-up") MORE
 
     include layouts/_Footer.pug
 
