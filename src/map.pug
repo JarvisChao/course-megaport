@@ -1,7 +1,7 @@
 doctype html
 html(lang="en")
   head
-    include includes/_settings.pug
+    include layouts/_Settings.pug
     - 
       path = '/map.html'
       pageTitle = '地圖導覽';
@@ -9,11 +9,11 @@ html(lang="en")
       description = '地圖導覽的網頁描述';
       image = 'img/og/og-map.jpg';
 
-    include includes/_head.pug
+    include layouts/_Head.pug
 
   body
-    include mixins/_blockade.pug
-    include includes/_navbar.pug
+    include components/_Blockade.pug
+    include layouts/_Navbar.pug
 
     header.l-header-inner(data-aos="fade-down")
       +blockade('l-header-inner__blockade')
@@ -25,8 +25,8 @@ html(lang="en")
           .l-map__wrap
             iframe.l-map__google(src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3682.9061297135568!2d120.27933465080466!3d22.619980285085497!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e047620e1c45b%3A0xe6d6d1bd1c764df2!2z6aeB5LqM6Jed6KGT54m55Y2A!5e0!3m2!1szh-TW!2stw!4v1621531731204!5m2!1szh-TW!2stw" allowfullscreen="" loading="lazy")
 
-    include includes/_footer.pug
+    include layouts/_Footer.pug
     
     script(src="js/gsap.min.js")
     script(src="js/ScrollTrigger.min.js")
-    include includes/_scripts.pug
+    include layouts/_Scripts.pug

@@ -1,12 +1,13 @@
 doctype html
 html(lang="en")
   head
-    include includes/_settings.pug
-    include includes/_head.pug
+    include layouts/_Settings.pug
+    include layouts/_Head.pug
 
   body
-    include mixins/_blockade.pug
-    include includes/_navbar.pug
+    include layouts/_Navbar.pug
+    include components/_Blockade.pug
+    include components/_Card.pug
     
     header.l-header(data-aos="fade")
       .swiper.l-header__swiper
@@ -95,18 +96,6 @@ html(lang="en")
               
           .swiper.l-news__swiper(data-aos="fade-up")
             .swiper-wrapper
-              mixin newsCardSlide(item)
-                .swiper-slide.l-news__slide
-                  article.c-card
-                    span.u-text-lg.u-fw-900.c-card__date #{item.date}
-                    .c-card__wrap
-                      a.u-img-ratio.c-card__img-mask(href=item.link)
-                        img.u-object-fit.--abs.js-lazy(data-src=item.img, alt=item.title)
-                      .c-card__body
-                        h3.u-text-md #{item.title}
-                        p.c-card__desc #{item.content}
-                        .o-btn.--right.u-mt-auto
-                          a.o-btn__link(href=item.link) MORE
               -
                 const newsList = [
                   {
@@ -153,7 +142,8 @@ html(lang="en")
                   }
                 ]
               - for (let i = 0; i < newsList.length; i++)
-                +newsCardSlide(newsList[i])
+                .swiper-slide.l-news__slide
+                  +card(newsList[i])
                 
       section.l-about.u-gradient
         .container
@@ -177,13 +167,13 @@ html(lang="en")
                 .o-btn.--right.u-mt-64(data-aos="fade-up")
                   a.o-btn__link(href="##") MORE
 
-    include includes/_footer.pug
+    include layouts/_Footer.pug
 
     script(src="js/parallax.min.js")
     script(src="js/gsap.min.js")
     script(src="js/ScrollTrigger.min.js")
     script(src="js/swiper-bundle.min.js")
-    include includes/_scripts.pug
+    include layouts/_Scripts.pug
     script.
       //-- Swiper
       if (window.Swiper !== undefined) {

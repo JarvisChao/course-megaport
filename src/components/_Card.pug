@@ -1,0 +1,11 @@
+mixin Card(item)
+  article.c-card
+    span.u-text-lg.u-fw-900.c-card__date #{item.date}
+    .c-card__wrap
+      a.u-img-ratio.c-card__img-mask(href=item.link)
+        img.u-object-fit.--abs.js-lazy(data-src=item.img, alt=item.title)
+      .c-card__body
+        h3.u-text-md #{item.title}
+        p.c-card__desc #{item.content}
+        .o-btn.--right.u-mt-auto
+          a.o-btn__link(href=item.link) MORE
