@@ -1,50 +1,134 @@
 .l-header
-  +size(100%, 100vh)
-  &__swiper
-    +size(100%)
-  &__slide
-    width: 100% !important
-  &__slide.swiper-slide-active &__img-mask
-    transform: scale(1.1)
-  &__img-mask
-    +size(100%)
-    transform-origin: center center
-    transform: scale(1)
-    transition: transform 15s
-
-  +media(xl)
-    height: 80vh
-
-/* -- header inner -- */
-.l-header-inner
   display: flex
-  justify-content: center
   align-items: center
-  +size(100%, 40vh)
-  background-image: url('../img/footer/footer-bg.jpg')
-  background-size: cover
-  background-position: center center
-  &::after
-    content: ''
-    display: block
-    position: absolute
-    +size(100%)
-    background-color: var(--color-primary)
-    mix-blend-mode: multiply
-  &__blockade
-    top: auto
-    bottom: -30%
-
+  // justify-content: space-between
+  position: sticky
+  position: -webkit-sticky
+  // position: fixed
+  // left: 0
+  top: 0
+  padding-left: 4vw
+  border-bottom: 1px solid var(--color-primary)
+  background-color: var(--color-black)
+  box-shadow: 0 4px 60px var(--color-primary)
+  z-index: 99999
+  &__logo-mask
+    max-width: 20rem
+  &__burger
+    display: none
+  &__nav
+    margin-left: auto
   +media(xl)
-    margin-top: 8.5rem
-    &__blockade
-      bottom: -20%
-
-  +media(ipad-portrait)
-    &__blockade
-      bottom: 10%
+    padding: var(--spacing-16) 4vw
+    justify-content: space-between
+    // burger mode
+    &__burger
+      display: block
 
   +media(xs)
-    margin-top: 5.5rem
-    &__blockade
-      bottom: -20%
+    padding-left: 6vw
+    padding-right: 6vw
+    &__logo-mask
+      max-width: 14rem
+
+// nav
+.c-nav
+  &__menu
+    display: flex
+  &__btn-box
+    display: flex
+  &__btn-box.--icon &__btn
+    display: flex
+    align-items: center
+    height: 100%
+    padding-left: 1.4vw
+    padding-right: 1.4vw
+    background-color: var(--color-gray-mid-40)
+    color: var(--color-gray-light)
+    &::before, &::after
+      background-image: linear-gradient(to bottom, var(--color-secondary), transparent)
+  &__btn
+    padding: var(--spacing-24) 3vw
+    line-height: 1.2
+    color: var(--color-gray-mid)
+    z-index: 10
+    transition: color 0.3s
+    // 調整當前頁面樣式
+    &.is-active
+      color: var(--color-gray-light)
+      &::after
+        opacity: 1
+    &:hover
+      color: var(--color-gray-light) !important
+      &::after
+        opacity: 1 !important
+    &::before, &::after
+      content: ''
+      display: block
+      position: absolute
+      left: 0
+      top: 0
+    &::before
+      +size(1px, 100%)
+      background-image: linear-gradient(to bottom, var(--color-gray-mid), transparent)
+    &::after
+      +size(100%)
+      background-image: linear-gradient(to bottom, var(--color-primary), transparent)
+      opacity: 0
+      z-index: -1
+      transition: opacity 0.3s
+
+  +media(xxl)
+    &__btn
+      padding-left: 2.4vw
+      padding-right: 2.4vw
+
+  +media(xl)
+    position: fixed
+    left: 0
+    top: 0
+    // 設高度 0 防止縮小時 opacity 過渡效果
+    +size(100%, 0)
+    background-color: var(--color-black-80)
+    opacity: 0
+    pointer-events: none
+    overflow: auto
+    transition: height 0s 1s, opacity 0.5s 0.5s
+    &.is-opened
+      height: 100%
+      opacity: 1
+      pointer-events: auto
+      transition: opacity 0.5s
+    &.is-opened &__menu
+      transform: translateY(0)
+      opacity: 1
+      transition: transform 0.5s 0.5s, opacity 0.5s 0.5s
+    &__menu
+      display: flex
+      flex-direction: column
+      justify-content: center
+      align-items: center
+      width: 100%
+      min-height: 100%
+      transform: translateY(-1rem)
+      padding: var(--spacing-64) 0
+      transition: transform 0.5s, opacity 0.5s
+      opacity: 0
+    &__btn-box.--icon
+      margin-top: var(--spacing-16)
+    &__btn-box.--icon &__btn
+      background-color: transparent
+      &::before
+        display: none
+    &__btn-wrap:first-child &__btn::before
+      display: none
+
+  +media(sm)
+    &__btn-box.--link
+      display: flex
+      flex-direction: column
+      text-align: center
+    &__btn
+      padding: var(--spacing-16) 4vw
+      &::before
+        display: none

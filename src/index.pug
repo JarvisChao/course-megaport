@@ -10,25 +10,25 @@ html(lang="en")
     include layouts/_Head.pug
 
   body
-    include layouts/_Navbar.pug
+    include layouts/_Header.pug
     
-    header.l-header(data-aos="fade")
-      .swiper.l-header__swiper
-        .swiper-wrapper
-          .swiper-slide.l-header__slide
-            .l-header__img-mask
-              img.u-object-fit(src="img/banner/banner-img01.jpg" alt=title)
-          .swiper-slide.l-header__slide
-            .l-header__img-mask
-              img.u-object-fit(src="img/banner/banner-img02.jpg" alt=title)
-          .swiper-slide.l-header__slide
-            .l-header__img-mask
-              img.u-object-fit(src="img/banner/banner-img03.jpg" alt=title)
 
     main.l-main
-      section.l-lineup.u-pb-0.u-gradient
-        +Blockade.l-lineup__blockade
+      .l-hero(data-aos="fade")
+        .swiper.l-hero__swiper
+          .swiper-wrapper
+            .swiper-slide.l-hero__slide
+              .l-hero__img-mask
+                img.u-object-fit(src="img/banner/banner-img01.jpg" alt=title)
+            .swiper-slide.l-hero__slide
+              .l-hero__img-mask
+                img.u-object-fit(src="img/banner/banner-img02.jpg" alt=title)
+            .swiper-slide.l-hero__slide
+              .l-hero__img-mask
+                img.u-object-fit(src="img/banner/banner-img03.jpg" alt=title)
 
+      section.l-lineup.u-pb-0.u-gradient(id="lineup")
+        +Blockade.l-lineup__blockade
         .l-lineup__sticky
           .container
             .u-mb-80(data-aos="fade-up")
@@ -68,7 +68,7 @@ html(lang="en")
                   direction: 'reverse'
                 })
 
-      section.l-news
+      section.l-news(id="news")
         .l-news__btn-swiper.--prev
           iconify-icon.u-icon(icon="fa-solid:arrow-left")
         .l-news__btn-swiper.--next
@@ -125,7 +125,7 @@ html(lang="en")
                 .swiper-slide.l-news__slide
                   +Card(newsList[i])
                 
-      section.l-about.u-gradient
+      section.l-about.u-gradient(id="about")
         .container
           .u-mb-80(data-aos="fade-right")
             h2.u-text-4xl.u-color-secondary ABOUT
@@ -159,7 +159,7 @@ html(lang="en")
     script.
       //-- Swiper
       if (window.Swiper !== undefined) {
-        const headerSwiper = new Swiper('.l-header__swiper', {
+        const headerSwiper = new Swiper('.l-hero__swiper', {
           effect: 'fade',
           fadeEffect: {
             // crossFade: true,

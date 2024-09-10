@@ -11,10 +11,10 @@ html(lang="en")
     include layouts/_Head.pug
 
   body
-    include layouts/_Navbar.pug
+    include layouts/_Header.pug
 
-    header.l-header-inner(data-aos="fade-down")
-      +Blockade({ text: '404 ERROR 找不到頁面' }).l-header-inner__blockade
+    .l-hero-inner(data-aos="fade-down")
+      +Blockade({ text: '404 ERROR 找不到頁面' }).l-hero-inner__blockade
       h2.u-text-3xl 404 ERROR
 
     main.l-main

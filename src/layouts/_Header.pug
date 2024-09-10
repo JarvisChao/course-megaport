@@ -1,0 +1,50 @@
+header.l-header
+  a.l-header__logo-mask(href="./")
+    img(src="img/logo/logo.svg", alt="大港開唱")
+
+  .l-header__burger
+    .o-burger(onclick="toggleNav()")
+      .o-burger__wrap
+        .o-burger__line
+        .o-burger__line
+        .o-burger__line
+
+  //- .c-nav 單純用來控制開合
+  nav.c-nav.l-header__nav(data-lenis-prevent)
+    .c-nav__menu
+      ul.c-nav__btn-box.--link
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="./#lineup")
+            span.u-ff-en.u-text-lg LINEUP
+            span 演出陣容
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="./#news")
+            span.u-ff-en.u-text-lg NEWS
+            span 最新消息
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="./#about")
+            span.u-ff-en.u-text-lg ABOUT
+            span 關於大港
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="##")
+            span.u-ff-en.u-text-lg TIMETABLE
+            span 節目表
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="##")
+            span.u-ff-en.u-text-lg TICKET
+            span 購票資訊
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="map.html")
+            span.u-ff-en.u-text-lg MAP
+            span 地圖導覽
+
+      ul.c-nav__btn-box.--icon
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="https://www.facebook.com/megaportfest/" target="_blank")
+            iconify-icon.u-icon.--md(icon="mingcute:facebook-fill")
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="https://www.instagram.com/megaportfest/" target="_blank")
+            iconify-icon.u-icon.--md(icon="mingcute:ins-fill")
+        li.c-nav__btn-wrap
+          a.c-nav__btn(href="https://www.youtube.com/channel/UC7xWU14_GGYKVqoSLg1M8EQ/feed" target="_blank")
+            iconify-icon.u-icon.--md(icon="mingcute:youtube-fill")

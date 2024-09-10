@@ -43,25 +43,34 @@ a.forEach(function(item) {
 });
 
 // Navbar
-let isOpened = false;
+let isNavOpened = false;
 const $body = document.body;
-const $navbar = document.querySelector('.l-navbar');
+const $nav = document.querySelector('.c-nav');
 const $burger = document.querySelector('.o-burger');
-function toggleNavbar() {
-  if (!isOpened) {
+function toggleNav() {
+  if (!isNavOpened) {
     // $body.style.overflow = 'hidden';
     lenis.stop();
-    $navbar.classList.add('is-opened');
+    $nav.classList.add('is-opened');
     $burger.classList.add('is-opened');
-    isOpened = true;
+    isNavOpened = true;
   } else {
     // $body.style.overflow = '';
     lenis.start();
-    $navbar.classList.remove('is-opened');
+    $nav.classList.remove('is-opened');
     $burger.classList.remove('is-opened');
-    isOpened = false;
+    isNavOpened = false;
   }
 }
+window.matchMedia('(min-width: 1400px)').addEventListener('change', function(e) {
+  if (isNavOpened) {
+    if (e.matches) {
+      lenis.start();
+    } else {
+      lenis.stop();
+    }
+  }
+})
 
 // 滾動至 news 時改變背景顏色
 const $news = document.querySelector('.l-news');
