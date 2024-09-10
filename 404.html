@@ -31,44 +31,46 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
-    <nav class="l-navbar"><a class="l-navbar__logo-mask" href="./"><img src="img/logo/logo.svg" alt="大港開唱"></a>
-      <div class="o-burger l-navbar__burger" onclick="toggleNavbar()">
-        <div class="o-burger__wrap">
-          <div class="o-burger__line"></div>
-          <div class="o-burger__line"></div>
-          <div class="o-burger__line"></div>
+    <header class="l-header"><a class="l-header__logo-mask" href="./"><img src="img/logo/logo.svg" alt="大港開唱"></a>
+      <div class="l-header__burger">
+        <div class="o-burger" onclick="toggleNav()">
+          <div class="o-burger__wrap">
+            <div class="o-burger__line"></div>
+            <div class="o-burger__line"></div>
+            <div class="o-burger__line"></div>
+          </div>
         </div>
       </div>
-      <div class="l-navbar__body">
-        <div class="l-navbar__menu">
-          <ul class="l-navbar__btn-box --link">
-            <li class="l-navbar__btn-wrap"><a class="l-navbar__btn" href="##"><span class="u-ff-en u-text-lg">INFO</span><span>相關資訊</span></a></li>
-            <li class="l-navbar__btn-wrap"><a class="l-navbar__btn" href="##"><span class="u-ff-en u-text-lg">NEWS</span><span>最新消息</span></a></li>
-            <li class="l-navbar__btn-wrap"><a class="l-navbar__btn" href="##"><span class="u-ff-en u-text-lg">ARTISTS</span><span>藝人名單</span></a></li>
-            <li class="l-navbar__btn-wrap"><a class="l-navbar__btn" href="##"><span class="u-ff-en u-text-lg">TIMETABLE</span><span>節目表</span></a></li>
-            <li class="l-navbar__btn-wrap"><a class="l-navbar__btn" href="##"><span class="u-ff-en u-text-lg">TICKET</span><span>購票資訊</span></a></li>
-            <li class="l-navbar__btn-wrap"><a class="l-navbar__btn" href="map.html"><span class="u-ff-en u-text-lg">MAP</span><span>地圖導覽</span></a></li>
+      <nav class="c-nav l-header__nav" data-lenis-prevent>
+        <div class="c-nav__menu">
+          <ul class="c-nav__btn-box --link">
+            <li class="c-nav__btn-wrap"><a class="c-nav__btn" href="./#lineup"><span class="u-ff-en u-text-lg">LINEUP</span><span>演出陣容</span></a></li>
+            <li class="c-nav__btn-wrap"><a class="c-nav__btn" href="./#news"><span class="u-ff-en u-text-lg">NEWS</span><span>最新消息</span></a></li>
+            <li class="c-nav__btn-wrap"><a class="c-nav__btn" href="./#about"><span class="u-ff-en u-text-lg">ABOUT</span><span>關於大港</span></a></li>
+            <li class="c-nav__btn-wrap"><a class="c-nav__btn" href="##"><span class="u-ff-en u-text-lg">TIMETABLE</span><span>節目表</span></a></li>
+            <li class="c-nav__btn-wrap"><a class="c-nav__btn" href="##"><span class="u-ff-en u-text-lg">TICKET</span><span>購票資訊</span></a></li>
+            <li class="c-nav__btn-wrap"><a class="c-nav__btn" href="map.html"><span class="u-ff-en u-text-lg">MAP</span><span>地圖導覽</span></a></li>
           </ul>
-          <ul class="l-navbar__btn-box --icon">
-            <li class="l-navbar__btn-wrap"><a class="l-navbar__btn" href="https://www.facebook.com/megaportfest/" target="_blank">
+          <ul class="c-nav__btn-box --icon">
+            <li class="c-nav__btn-wrap"><a class="c-nav__btn" href="https://www.facebook.com/megaportfest/" target="_blank">
                 <iconify-icon class="u-icon --md" icon="mingcute:facebook-fill"></iconify-icon></a></li>
-            <li class="l-navbar__btn-wrap"><a class="l-navbar__btn" href="https://www.instagram.com/megaportfest/" target="_blank">
+            <li class="c-nav__btn-wrap"><a class="c-nav__btn" href="https://www.instagram.com/megaportfest/" target="_blank">
                 <iconify-icon class="u-icon --md" icon="mingcute:ins-fill"></iconify-icon></a></li>
-            <li class="l-navbar__btn-wrap"><a class="l-navbar__btn" href="https://www.youtube.com/channel/UC7xWU14_GGYKVqoSLg1M8EQ/feed" target="_blank">
+            <li class="c-nav__btn-wrap"><a class="c-nav__btn" href="https://www.youtube.com/channel/UC7xWU14_GGYKVqoSLg1M8EQ/feed" target="_blank">
                 <iconify-icon class="u-icon --md" icon="mingcute:youtube-fill"></iconify-icon></a></li>
           </ul>
         </div>
-      </div>
-    </nav>
-    <header class="l-header-inner" data-aos="fade-down">
-      <div class="c-blockade l-header-inner__blockade">
+      </nav>
+    </header>
+    <div class="l-hero-inner" data-aos="fade-down">
+      <div class="c-blockade l-hero-inner__blockade">
         <div class="c-blockade__line"><span class="c-blockade__text">404 ERROR 找不到頁面</span></div>
         <div class="c-blockade__line"><span class="c-blockade__text">404 ERROR 找不到頁面</span></div>
         <div class="c-blockade__line"><span class="c-blockade__text">404 ERROR 找不到頁面</span></div>
         <div class="c-blockade__line"><span class="c-blockade__text">404 ERROR 找不到頁面</span></div>
       </div>
       <h2 class="u-text-3xl">404 ERROR</h2>
-    </header>
+    </div>
     <main class="l-main">
       <section class="l-error">
         <div class="container">
