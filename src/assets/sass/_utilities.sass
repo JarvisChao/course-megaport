@@ -11,6 +11,14 @@
   height: 100%
 
 // Spacing
+// @each $prefix, $properties in $spacing-prefixes
+//   @each $spacing, $vw in $spacing-map
+//     .u-#{$prefix}-#{$spacing}
+//       @each $property in $properties
+//         $value: var(--spacing-#{$spacing})
+//         @if ($spacing == auto)
+//           $value: auto
+//         #{$property}: $value if($spacing == 0, !important, null)
 .u-px-0
   padding-left: 0 !important
   padding-right: 0 !important
@@ -62,9 +70,10 @@
 .u-mb-8
   margin-bottom: var(--spacing-8)
 
-// Fonts
+// Text
 .u-ff-en
   font-family: var(--font-en)
+
 .u-fw-400
   font-weight: 400
 .u-fw-500
@@ -166,6 +175,7 @@
   &.--bottom
     object-position: center bottom
 
+// Others
 .u-gradient
   background-image: linear-gradient(to bottom, var(--color-black) 0%, transparent 70%)
 
