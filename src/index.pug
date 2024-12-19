@@ -121,10 +121,14 @@ html(lang="en")
                     img: 'img/news/news06.jpg',
                   }
                 ]
-              - for (let i = 0; i < newsList.length; i++)
+
+              //- - for (let i = 0; i < newsList.length; i++)
+              //-   .swiper-slide.l-news__slide
+              //-     +Card(newsList[i])
+              each item in newsList
                 .swiper-slide.l-news__slide
-                  +Card(newsList[i])
-                
+                  +Card(item)
+              
       section.l-about.u-gradient(id="about")
         .container
           .u-mb-80(data-aos="fade-right")
