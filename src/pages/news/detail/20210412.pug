@@ -1,0 +1,39 @@
+include ../../../layouts/_Settings.pug
+include ../../../components/_Blockade.pug
+
+doctype html
+html(lang="en")
+  head
+    - 
+      path = '/news/detail/20210412.html'
+      pageTitle = '大港 防疫公告！';
+      infoTitle = '';
+      description = '【入場需先填寫 Line 實聯制問卷才能兌換手環】 如何填寫實聯制';
+
+    include ../../../layouts/_Head.pug
+
+  body
+    include ../../../layouts/_Header.pug
+
+    -
+      const data = {
+        date: '2021.04.12',
+        title: '大港 防疫公告！',
+        content: '【入場需先填寫 Line 實聯制問卷才能兌換手環】 如何填寫實聯制...',
+        img: `${basePath}/img/news/img-01.jpg`,
+      }
+
+    main(class="l-main")
+      section(class="l-news-detail")
+        div(class="container")
+          div(class="l-news-detail__title-wrap")
+            h1(class="u-text-2xl") #{data.title}
+            span(class="u-text-lg") #{data.date}
+          div(class="l-news-detail__content")
+            //- 遇到後台編輯器，還原 reset 設定值
+            div(class="u-editor")
+              p #{data.content}
+              img(src=data.img alt=data.title class="u-mt-8")
+
+    include ../../../layouts/_Footer.pug
+    include ../../../layouts/_Scripts.pug

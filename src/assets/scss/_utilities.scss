@@ -1,0 +1,311 @@
+.u-inline {
+  display: inline;
+}
+.u-inline-block {
+  display: inline-block;
+}
+.u-block {
+  display: block;
+}
+.u-none {
+  display: none;
+}
+
+.u-w-full {
+  width: 100%;
+}
+.u-h-full {
+  height: 100%;
+}
+
+
+// Spacing
+@each $prefix, $properties in $spacing-prefixes {
+  @each $spacing, $vw in $spacing-map {
+    .u-#{$prefix}-#{$spacing} {
+      @each $property in $properties {
+        $value: var(--spacing-#{$spacing});
+        @if ($spacing == auto) {
+          $value: auto;
+        }
+        #{$property}: $value if($spacing == 0, !important, null);
+      }
+    }
+  }
+}
+// .u-px-0 {
+//   padding-left: 0 !important;
+//   padding-right: 0 !important;
+// }
+// .u-pl-0 {
+//   padding-left: 0 !important;
+// }
+// .u-pr-0 {
+//   padding-right: 0 !important;
+// }
+// .u-pt-0 {
+//   padding-top: 0 !important;
+// }
+// .u-pb-0 {
+//   padding-bottom: 0 !important;
+// }
+// .u-ml-auto {
+//   margin-left: auto;
+// }
+// .u-mt-auto {
+//   margin-top: auto;
+// }
+// .u-pt-120 {
+//   padding-top: var(--spacing-120);
+// }
+// .u-pb-120 {
+//   padding-bottom: var(--spacing-120);
+// }
+// .u-mt {
+//   &-120  {
+//     margin-top: var(--spacing-120);
+//   }
+//   &-80  {
+//     margin-top: var(--spacing-80);
+//   }
+//   &-64  {
+//     margin-top: var(--spacing-64);
+//   }
+//   &-40  {
+//     margin-top: var(--spacing-40);
+//   }
+//   &-24  {
+//     margin-top: var(--spacing-24);
+//   }
+//   &-16  {
+//     margin-top: var(--spacing-16);
+//   }
+//   &-8  {
+//     margin-top: var(--spacing-8);
+//   }
+// }
+// .u-mb {
+//   &-120  {
+//     margin-bottom: var(--spacing-120);
+//   }
+//   &-80  {
+//     margin-bottom: var(--spacing-80);
+//   }
+//   &-64  {
+//     margin-bottom: var(--spacing-64);
+//   }
+//   &-40  {
+//     margin-bottom: var(--spacing-40);
+//   }
+//   &-24  {
+//     margin-bottom: var(--spacing-24);
+//   }
+//   &-16  {
+//     margin-bottom: var(--spacing-16);
+//   }
+//   &-8  {
+//     margin-bottom: var(--spacing-8);
+//   }
+// }
+
+
+// Text
+.u-ff-en {
+  font-family: var(--font-en);
+}
+.u-fw {
+  &-400  {
+    font-weight: 400;
+  }
+  &-500  {
+    font-weight: 500;
+  }
+  &-700  {
+    font-weight: 700;
+  }
+  &-900  {
+    font-weight: 900;
+  }
+}
+// class 裡只要同時有 u-text 及 xl 字眼就符合 (符合：.c-card.u-text-2xl)
+[class*="u-text"][class*="xl"] {
+  font-weight: 900;
+}
+.u-text {
+  &-4xl {
+    font-size: var(--text-4xl);
+    letter-spacing: -0.3rem;
+    line-height: 1.2;
+  }
+  &-3xl {
+    font-size: var(--text-3xl);
+    letter-spacing: 0;
+  }
+  &-2xl {
+    font-size: var(--text-2xl);
+    letter-spacing: 0.24rem;
+  }
+  &-xl {
+    font-size: var(--text-xl);
+  }
+  &-lg {
+    font-size: var(--text-lg);
+    font-weight: 900;
+    letter-spacing: 0.04rem;
+  }
+  &-md {
+    font-size: var(--text-md);
+    font-weight: 700;
+  }
+}
+[class*="u-icon"] {
+  // iconify 上下不置中問題
+  vertical-align: middle;
+}
+.u-icon {
+  font-size: 2.4rem;
+  &-sm {
+    font-size: 1.8rem;
+  }
+  &-md {
+    font-size: 2.8rem;
+  }
+  &-lg {
+    font-size: 4rem;
+  }
+}
+.u-lh-1 {
+  line-height: 1;
+}
+
+
+// Colors
+.u-color {
+  &-primary  {
+    color: var(--color-primary);
+  }
+  &-secondary  {
+    color: var(--color-secondary);
+  }
+  &-black  {
+    color: var(--color-black);
+  }
+  &-gray-mid  {
+    color: var(--color-gray-mid);
+  }
+  &-gray-light  {
+    color: var(--color-gray-light);
+  }
+  &-white  {
+    color: var(--color-white);
+  }
+}
+.u-text {
+  &-center {
+    text-align: center;
+  }
+  &-left {
+    text-align: left;
+  }
+  &-right {
+    text-align: right;
+  }
+}
+
+
+// Line Clamp
+// 超過指定行數以 ... 收尾
+[class*="u-line-clamp"] {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.u-line-clamp {
+  &-1 {
+    -webkit-line-clamp: 1;
+  }
+  &-2 {
+    -webkit-line-clamp: 2;
+  }
+  &-3 {
+    -webkit-line-clamp: 3;
+  }
+}
+
+
+// Image
+// 等比圖片製作
+.u-img-ratio {
+  --img-w-ratio: 3;
+  --img-h-ratio: 2;
+  // padding-bottom: 66.7%
+  padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio));
+}
+// 如同 background-image（用 img 搭配 object-fit 有助於 SEO 搜尋）
+.u-object-fit {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  &.--abs {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  &.--right {
+    object-position: right center;
+  }
+  &.--bottom {
+    object-position: center bottom;
+  }
+  &.--parallax {
+    position: absolute;
+    left: 0;
+    top: -100px;
+    height: calc(100% + 200px);
+    // transition: transform 1s cubic-bezier(.23, .83, .7, 1);
+  }
+}
+
+
+// Others
+.u-editor {
+  font-size: var(--text-md);
+  font-weight: 500;
+  line-height: 1.7;
+  overflow: auto;
+  a, button {
+    border-bottom: 1px solid var(--color-primary);
+    transition: color 0.3s;
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+  ul, ol {
+    list-style: revert;
+    margin: revert;
+  }
+  ul {
+    padding-left: 2.4rem;
+  }
+  ol {
+    padding-left: 3.6rem;
+  }
+  h1, h2, h3, h4, h5, h6, p, button {
+    margin: revert;
+  }
+  span {
+    display: inline;
+  }
+}
+
+.u-pre-wrap {
+  white-space: pre-wrap;
+}
+.u-select-none {
+  user-select: none;
+}
+.u-drag-none {
+  -webkit-user-drag: none;
+}

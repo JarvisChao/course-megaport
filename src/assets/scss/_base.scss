@@ -1,0 +1,183 @@
+*, *::before, *::after {
+  position: relative;
+  box-sizing: border-box;
+  &::selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+  &::-moz-selection {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+  }
+}
+html {
+  font-size: calc(16px / 1.6);
+  @include media(lg) {
+    font-size: calc(15px / 1.6);
+  }
+  @include media(ipad) {
+    font-size: calc(14px / 1.6);
+  }
+}
+body {
+  margin: 0;
+  background-image: url('../img/bg-dots.png');
+  background-color: var(--color-gray-mid);
+  font-family: var(--font-primary);
+  font-size: 1.6rem;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: 0.1rem;
+  line-height: 1.7;
+  color: var(--color-gray-light);
+  transition: background-color 0.8s;
+  &.is-news-active {
+    background-image: none;
+    background-color: var(--color-primary);
+  }
+}
+
+/* ----------------------------------- */
+/* ------ Reset ------ */
+/* ----------------------------------- */
+a, button, input, label, select, textarea {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+}
+a, button {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  user-select: none;
+  &:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+button {
+  padding: 0;
+  border: none;
+  background: none;
+}
+img {
+  max-width: 100%;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p, button {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  color: inherit;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+span {
+  display: block;
+  line-height: inherit;
+}
+
+/* ----------------------------------- */
+/* ------ Layouts ------ */
+/* ----------------------------------- */
+// 使用 section 控制左右內距（使不卡邊）
+section {
+  --section-spacing-x: 4vw;
+  --section-spacing-y: var(--spacing-120);
+  padding: var(--section-spacing-y) var(--section-spacing-x);
+  &.--gradient {
+    background-image: linear-gradient(to bottom, var(--color-black) 0%, transparent 70%);
+  }
+  @include media(xs) {
+    --section-spacing-x: 2vw;
+  }
+}
+.container {
+  --section-width: 100vw;
+  --container-width: 152rem;
+  max-width: var(--container-width);
+  &.--sm {
+    --container-width: 136rem;
+  }
+  // 靠左或右，並同時保有 container 最大寬特性
+  &[class*="--align"] {    // 減回去 section padding 空間
+    --edge-fill: calc(-1 * var(--section-spacing-x));
+
+    // width: auto 移除預設 100%
+    // 使 container 寬度不侷限在 section padding 裡
+    width: auto;
+
+    // |----------||----------| section 寬
+    //        |---||---|        container 最大寬
+    // |----------||---|        section 寬 / 2 + container 最大寬 / 2
+    //
+    // section 一半 + container 最大寬的一半 - container 預設 padding
+    max-width: calc(var(--section-width) / 2 + var(--container-width) / 2 - var(--bs-gutter-x) * .5);
+
+    // 避免靠右時，滾軸出現
+    > .row {
+      --bs-gutter-x: 0;
+    }
+  }
+  &.--align-left {
+    padding-left: 0;
+    margin-left: var(--edge-fill);
+  }
+  &.--align-right {
+    padding-right: 0;
+    margin-right: var(--edge-fill);
+  }
+}
+
+// Bootstrap row 自定義 gap
+.row {
+  &.--no-gap {
+    --bs-gutter-x: 0;
+    --bs-gutter-y: 0;
+  }
+  &.--gap-md {
+    --bs-gutter-x: var(--spacing-32);
+    --bs-gutter-y: var(--spacing-32);
+    @include media(xs) {
+      --bs-gutter-x: var(--spacing-16);
+      --bs-gutter-y: var(--spacing-24);
+    }
+  }
+  &.--gap {
+    --bs-gutter-x: var(--spacing-24);
+    --bs-gutter-y: var(--spacing-24);
+    @include media(xs) {
+      --bs-gutter-x: var(--spacing-12);
+      --bs-gutter-y: var(--spacing-16);
+    }
+  }
+  &.--gap-y-md {
+    --bs-gutter-y: var(--spacing-32);
+    @include media(xs) {
+      --bs-gutter-y: var(--spacing-24);
+    }
+  }
+}
+
+/* ----------------------------------- */
+/* ------ Plugins ------ */
+/* ----------------------------------- */
+.js-lazy {
+  &.loading {
+    width: 100%;
+    background-color: var(--color-gray-mid-40);
+    // background-image: linear-gradient(to right, var(--color-gray-mid-40), var(--color-gray-mid));
+    // background-size: cover;
+  }
+}
+[data-parallax-speed] {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}

@@ -6,9 +6,9 @@ mixin Blockade(options)
       text: '台灣最生猛海派的音樂祭 ——『 大港開唱 』'
     }, options);
 
+  //- &attributes(attributes) 傳入 html 屬性
   .c-blockade&attributes(attributes)
     .c-blockade__line
-      //- end 結束動畫 / easing 延遲 / x 初始位置,可視位置,結束位置
       span.c-blockade__text #{props.text}
     .c-blockade__line
       span.c-blockade__text #{props.text}

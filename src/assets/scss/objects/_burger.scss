@@ -1,0 +1,55 @@
+.o-burger {
+  --size: 4.2rem;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: var(--size);
+  height: var(--size);
+  cursor: pointer;
+  z-index: 999;
+  @include media(xl) {
+    display: flex;
+  }
+  @include media(xs) {
+    --size: 3.8rem;
+  }
+
+  &:not(.is-opened):hover &__line {
+    &:nth-child(1) {
+      width: 90%;
+    }
+    &:nth-child(2) {
+      width: 70%;
+    }
+    &:nth-child(3) {
+      width: 90%;
+    }
+  }
+  &.is-opened {
+    align-items: center;
+  }
+  &.is-opened &__line {
+    --line-offset: calc(var(--line-gap) + var(--line-height));
+    &:nth-child(1) {
+      transform: translateY(var(--line-offset)) rotate(45deg)
+    }
+    &:nth-child(2) {
+      width: 0;
+    }
+    &:nth-child(3) {
+      transform: translateY(calc(-1 * var(--line-offset))) rotate(-45deg)
+    }
+  }
+  &__line {
+    --line-gap: 0.8rem;
+    --line-height: 2px;
+    width: 80%;
+    height: var(--line-height);
+    background-color: var(--color-gray-light);
+    transition: width 0.5s, transform 0.5s;
+    &:not(:first-child) {
+      margin-top: var(--line-gap);
+    }
+  }
+}

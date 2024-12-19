@@ -1,0 +1,47 @@
+.l-about {
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    @include size(60%, 8rem);
+    transform-origin: right top;
+    transform: skew(-35deg);
+    background-image: linear-gradient(to left, var(--color-gray-light-80) 0%, var(--color-gray-light-80) 50%, transparent, 50%, transparent 100%);
+    background-size: 14% 100%;
+    @include media(xs) {
+      @include size(40%, 6rem);
+      background-size: 24% 100%;
+    }
+  }
+  &__img-wrap {
+    height: 100%;
+    transform-origin: right bottom;
+    transform: skew(35deg);
+    overflow: hidden;
+  }
+  &__img-mask {
+    @include size(100%);
+    transform-origin: right bottom;
+    transform: skew(-35deg);
+    @include media(sm) {
+      height: 60vw;
+    }
+  }
+  &__content-wrap {
+    padding: var(--spacing-40) 0 var(--spacing-80);
+    @include media(sm) {
+      padding-left: 5vw;
+    }
+    @include media(xs) {
+      padding-top: var(--spacing-24);
+    }
+  }
+  &__content:first-child {
+    margin-left: -16rem;
+    @include media(sm) {
+      margin-left: 0;
+    }
+  }
+}

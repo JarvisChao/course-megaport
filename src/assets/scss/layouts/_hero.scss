@@ -1,0 +1,56 @@
+.l-hero {
+  height: 100vh;
+  &__swiper {
+    @include size(100%);
+  }
+  &__slide.swiper-slide-active &__img-mask {
+    transform: scale(1.1);
+  }
+  &__img-mask {
+    @include size(100%);
+    transform-origin: center center;
+    transform: scale(1);
+    transition: transform 15s;
+  }
+  @include media(xl) {
+    height: 80vh;
+  }
+}
+
+/* -- header inner -- */
+.l-hero-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  background-image: url('../img/footer/bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  @include media(xl) {
+    margin-top: 8.5rem;
+  }
+  @include media(xs) {
+    margin-top: 5.5rem;
+  }
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    @include size(100%);
+    background-color: var(--color-primary);
+    mix-blend-mode: multiply;
+  }
+  &__blockade {
+    top: auto;
+    bottom: -30%;
+    @include media(xl) {
+      bottom: -20%;
+    }
+    @include media(ipad-portrait) {
+      bottom: 10%;
+    }
+    @include media(xs) {
+      bottom: -20%;
+    }
+  }
+}

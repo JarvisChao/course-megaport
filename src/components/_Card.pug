@@ -19,7 +19,7 @@ mixin Card(options)
         img.u-object-fit.--abs.js-lazy(data-src=props.img, alt=props.title)
       .c-card__body
         h3.u-text-md #{props.title}
-        p.c-card__desc #{props.content}
+        p.u-line-clamp-2.c-card__desc #{props.content}
         +Btn({
           href: props.link,
           position: 'right'

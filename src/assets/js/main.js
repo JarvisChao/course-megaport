@@ -11,12 +11,10 @@ function isMobile() {
   }
 }
 
-const lenis = new Lenis();
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-requestAnimationFrame(raf);
+// Initialize Lenis
+const lenis = new Lenis({
+  autoRaf: true,
+});
 
 // //-- Detect Browser
 // // 偵測瀏覽器加入對應 js 文件
@@ -73,13 +71,15 @@ window.matchMedia('(min-width: 1400px)').addEventListener('change', function(e) 
 })
 
 // 滾動至 news 時改變背景顏色
-const $news = document.querySelector('.l-news');
+const $news = document.querySelector('.l-news-home');
 window.addEventListener('scroll', function() {
   if ($news !== null) {
-    const newsTop = this.scrollY + $news.getBoundingClientRect().top;
-    const start = newsTop - 100;
-    const end = newsTop + $news.offsetHeight / 1.2;
-    if (this.scrollY > start && this.scrollY < end) {
+    // $news.getBoundingClientRect().top => news 頂到視窗上緣後會是負數
+    const newsTop = $news.getBoundingClientRect().top;
+    const enter = newsTop < 100;
+    // $news.offsetHeight => news 元素的高
+    const beforeLeave = newsTop * -1 < $news.offsetHeight / 3
+    if (enter && beforeLeave) {
       $body.classList.add('is-news-active');
     } else {
       $body.classList.remove('is-news-active');
@@ -117,8 +117,9 @@ $lazyImgs.forEach(function(item) {
 });
 // https://github.com/verlok/vanilla-lazyload
 const lazyLoad = new LazyLoad({
+  // 自訂義 BEM class
   elements_selector: '.js-lazy',
-  // 設定距離可視區(視窗)底部多遠觸發
+  // 設定距離可視區(視窗)底部多遠觸發，官方預設是 300
   threshold: 500,
   callback_loaded: function() {
     AOS.refresh();
@@ -150,6 +151,7 @@ $parallaxes.forEach(function(item) {
   })
 });
 
+// Gsap
 gsap.registerPlugin(ScrollTrigger);
 const tl = gsap.timeline({
   scrollTrigger: {
@@ -162,7 +164,31 @@ const tl = gsap.timeline({
 });
 
 const $blockadeTexts = document.querySelectorAll('.c-blockade__text');
-tl.fromTo($blockadeTexts[0], { x: '70vw' }, { x: '-110vw' }, 'startLabel');
-tl.fromTo($blockadeTexts[1], { x: '-50vw' }, { x: '100vw' }, 'startLabel+=5%');
-tl.fromTo($blockadeTexts[2], { x: '100vw' }, { x: '-60vw' }, 'startLabel+=5%');
-tl.fromTo($blockadeTexts[3], { x: '-100vw' }, { x: '90vw' }, 'startLabel+=10%');
+tl.to($blockadeTexts[0], { x: '-110vw' }, 'startLabel');
+tl.to($blockadeTexts[1], { x: '100vw' }, 'startLabel+=5%');
+tl.to($blockadeTexts[2], { x: '-60vw' }, 'startLabel+=5%');
+tl.to($blockadeTexts[3], { x: '90vw' }, 'startLabel+=10%');
+
+// 圖片視差滾動
+gsap.utils.toArray('[data-parallax-speed]').forEach(mask => {
+  const img = mask.querySelector('img');
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: mask,
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true
+    }
+  });
+
+  const speed = mask.dataset.parallaxSpeed;
+  // 預設 .u-object-fit.--parallax 圖片高度放大 200px
+  // 所以位移控制在 100
+  const y = Number(speed) * 100;
+  tl.fromTo(
+    img,
+    { y: -1 * y, ease: 'power1.out' },
+    { y, ease: 'power1.out' }
+  );
+});

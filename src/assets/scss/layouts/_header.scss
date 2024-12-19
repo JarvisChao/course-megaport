@@ -1,0 +1,156 @@
+.l-header {
+  display: flex;
+  align-items: center;
+  // justify-content: space-between
+  // 因為 sticky 一樣會佔位，如果想要 hero 寬高滿版，可以改用 fixed
+  position: sticky;
+  position: -webkit-sticky;
+  // position: fixed
+  // left: 0
+  top: 0;
+  padding-left: 4vw;
+  border-bottom: 1px solid var(--color-primary);
+  background-color: var(--color-black);
+  box-shadow: 0 var(--spacing-4) var(--spacing-56) var(--color-primary);
+  z-index: 999;
+  @include media(xl) {
+    padding: var(--spacing-16) 4vw;
+    justify-content: space-between;
+  }
+  @include media(xs) {
+    padding-left: 6vw;
+    padding-right: 6vw;
+  }
+  &__logo-mask {
+    max-width: 20rem;
+    @include media(xs) {
+      max-width: 14rem;
+    }
+  }
+  &__nav {
+    margin-left: auto;
+  }
+}
+
+
+// nav
+.c-nav {
+  &__menu {
+    display: flex;
+  }
+  &__btn-box {
+    display: flex;
+  }
+  &__btn-box.--icon &__btn {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-left: 1.2vw;
+    padding-right: 1.2vw;
+    background-color: var(--color-gray-mid-40);
+    &::before, &::after {
+      --gradient-color: var(--color-secondary);
+    }
+  }
+  &__btn {
+    // vw 簡易換算方式：px 除以 20
+    // vh 簡易換算方式：px 除以 9.6
+    padding: var(--spacing-24) 2.8vw;
+    line-height: 1.2;
+    color: var(--color-gray-mid);
+    transition: color 0.3s;
+    @include media(xxl) {
+      padding-left: 2.6vw;
+      padding-right: 2.6vw;
+    }
+    // 調整當前頁面樣式
+    &:hover, &.is-active {
+      color: var(--color-gray-light);
+      &::before {
+        opacity: 1;
+      }
+    }
+    &::before, &::after {
+      --gradient-color: var(--color-primary);
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      // transparent 透明的
+      background-image: linear-gradient(to bottom, var(--gradient-color), transparent);
+    }
+    &::before {
+      @include size(100%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    &::after {
+      --gradient-color: var(--color-gray-light);
+      @include size(1px, 100%);
+    }
+  }
+
+  // 因為是整個樣式大改，所以 media 就不個別寫在所屬 class 底下
+  // c-nav 手機版單純控制開關
+  @include media(xl) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    // 設高度 0 防止縮小時 opacity 過渡效果
+    @include size(100%, 0);
+    background-color: var(--color-black-80);
+    opacity: 0;
+    // 讓滑鼠無作用
+    pointer-events: none;
+    overflow: auto;
+    transition: height 0s 1s, opacity 0.5s 0.5s;
+    &.is-opened {
+      height: 100%;
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 0.5s;
+    }
+    &.is-opened &__menu {
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
+    }
+    &__menu {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      // 解決視窗高度縮小 flex 吃掉上下內容
+      min-height: 100%;
+      transform: translateY(-1rem);
+      padding: var(--spacing-64) 0;
+      opacity: 0;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+    &__btn-box.--icon {
+      margin-top: var(--spacing-16);
+    }
+    &__btn-box.--icon &__btn {
+      background-color: transparent;
+      &::after {
+        display: none;
+      }
+    }
+    &__btn-wrap:first-child &__btn::after {
+      display: none;
+    }
+  }
+  @include media(sm) {
+    &__btn-box:not(.--icon) {
+      flex-direction: column;
+      align-items: center;
+    }
+    &__btn {
+      text-align: center;
+      &::after {
+        display: none;
+      }
+    }
+  }
+}
