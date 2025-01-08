@@ -5,17 +5,17 @@ mixin Btn(options)
       // 預設值
       href: '##',
       target: undefined,
-      position: ''
+      align: ''
     }, options);
 
     const classes = [
       props.size ? `--size-${props.size}` : '',
-      props.direction ? `--${props.direction}` : ''
+      props.align ? `--align-${props.align}` : ''
     ];
   //- &attributes(attributes) 傳入 html 屬性
   div&attributes(attributes)(
-    class=props.position ? `--${props.position}` : ''
     class="o-btn"
+    class=classes.join(' ')
   )
     a(href=props.href target=props.target class="o-btn__link")
       block

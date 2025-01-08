@@ -21,9 +21,12 @@ meta(name="description" content=description)
 //- <Page Title> - <Site Name>｜<Info Title>
 //- js 字串模板使用反引號 `` 加 $ 字號 `${}`
 - pageTitle = `${pageTitle ? `${pageTitle} - ` : ''}`;
-meta(property="og:title", content=`${pageTitle}${siteName}｜${infoTitle}`)
+- title = `${pageTitle}${siteName}｜${infoTitle}`
+if !infoTitle
+  - title = `${pageTitle}${siteName}`
+meta(property="og:title", content=title)
 //- pug 的內容語法，使用 # 字號 #{}
-title #{pageTitle}#{siteName}｜#{infoTitle}
+title #{title}
 
 //- 網頁 icon
 link(rel="apple-touch-icon", sizes="180x180", href=`${basePath}/favicon/apple-touch-icon.png`)

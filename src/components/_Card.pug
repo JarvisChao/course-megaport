@@ -1,15 +1,16 @@
 include ./_Btn.pug
 
-mixin Card(options)
+mixin Card(options, index)
   -
     // Object.assign 用來合併預設值及傳進來的 options 值
     const props = Object.assign({
       // 預設值
       date: '',
       title: '',
-      content: '',
+      description: '',
       img: '',
-      link: '##'
+      content: '',
+      link: `${basePath}/news/detail/${index}.html`
     }, options);
 
   article.c-card
@@ -19,8 +20,8 @@ mixin Card(options)
         img.u-object-fit.--abs.js-lazy(data-src=props.img, alt=props.title)
       .c-card__body
         h3.u-text-md #{props.title}
-        p.u-line-clamp-2.c-card__desc #{props.content}
+        p.u-line-clamp-2.c-card__desc #{props.description}
         +Btn({
           href: props.link,
-          position: 'right'
+          align: 'right'
         }).u-mt-auto MORE

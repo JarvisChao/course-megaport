@@ -1,4 +1,6 @@
 include ../layouts/_Settings.pug
+include ../db/_artist-db.pug
+include ../db/_news-db.pug
 include ../components/_Blockade.pug
 include ../components/_ArtistCard.pug
 include ../components/_Card.pug
@@ -12,7 +14,6 @@ html(lang="en")
   body
     include ../layouts/_Header.pug
     
-
     main(class="l-main")
       div(class="l-hero" data-aos="fade")
         //- 引入插件基本步驟
@@ -38,6 +39,7 @@ html(lang="en")
                   class="u-object-fit js-lazy"
                 )
 
+
       section(id="lineup" class="--gradient u-pb-0 l-lineup")
         +Blockade(class="l-lineup__blockade")
         div(class="l-lineup__sticky")
@@ -51,40 +53,7 @@ html(lang="en")
               class="row --gap l-lineup__box js-parallax"
               data-input-element=".l-lineup"
             )
-              -
-                const artistList = [
-                  {
-                    name: '9m88',
-                    img: 'img/lineup/artist-01.jpg',
-                    featured: 1
-                  },
-                  {
-                    name: '恆月三途',
-                    img: 'img/lineup/artist-02.jpg',
-                    size: 'lg',
-                    featured: 1
-                  },
-                  {
-                    name: 'Beyound Cure',
-                    img: 'img/lineup/artist-03.jpg',
-                    direction: 'reverse',
-                    size: 'lg',
-                    featured: 1
-                  },
-                  {
-                    name: 'Dudu King',
-                    img: 'img/lineup/artist-04.jpg',
-                    direction: 'reverse',
-                    featured: 1
-                  },
-                  {
-                    name: 'Da Wang',
-                    img: 'img/lineup/artist-05.jpg',
-                    direction: 'reverse',
-                    featured: 1
-                  }
-                ];
-                const artistFeaturedList = artistList.filter(item => item.featured);
+              - const artistFeaturedList = artistList.filter(item => item.featured);
 
               div(class="col-sm-5 l-lineup__wrap" data-depth="0.1")
                 +ArtistCard(artistFeaturedList[0])
@@ -100,10 +69,11 @@ html(lang="en")
               )
                 +ArtistCard(artistFeaturedList[4])
 
-      section(id="news" class="l-news-home")
-        div(class="l-news-home__swiper-btn --prev")
+
+      section(id="news" class="l-home-news")
+        div(class="l-home-news__swiper-btn --prev")
           iconify-icon.u-icon(icon="fa-solid:arrow-left")
-        div(class="l-news-home__swiper-btn --next")
+        div(class="l-home-news__swiper-btn --next")
           iconify-icon.u-icon(icon="fa-solid:arrow-right")
 
         div(class="container")
@@ -111,55 +81,14 @@ html(lang="en")
             h2(class="u-text-4xl u-color-secondary") NEWS
               span(class="u-text-lg") MEGAPORT FESTIVAL
               
-          div(class="swiper l-news-home__swiper" data-aos="fade-up")
+          div(class="swiper l-home-news__swiper" data-aos="fade-up")
             div(class="swiper-wrapper")
-              -
-                const newsList = [
-                  {
-                    date: '2021.04.12',
-                    title: '大港 防疫公告！',
-                    content: '【入場需先填寫 Line 實聯制問卷才能兌換手環】 如何填寫實聯制...',
-                    img: 'img/news/img-01.jpg',
-                    link: `${basePath}/news/detail/20210412.html`
-                  },
-                  {
-                    date: '2021.05.10',
-                    title: '金牌台啤x大港開唱 聯名限定上市',
-                    content: '為在地音樂乾一杯！ 金牌台啤x大港開唱聯名啤酒限定上市 高雄最具代表性的大型音樂...',
-                    img: 'img/news/img-02.jpg',
-                  },
-                  {
-                    date: '2021.05.24',
-                    title: '大港開唱 x MegaFun',
-                    content: '✧ 好耍 ✧趣味 ✧足歡喜 大港娛樂特區MegaFun全方位手冊 . ** MEGADIVE 孤枝大夫 ** 輕鬆享受人體衝浪支...',
-                    img: 'img/news/img-03.jpg',
-                  },
-                  {
-                    date: '2021.06.17',
-                    title: '大港帥口罩',
-                    content: '想要這個大港口罩嗎？填寫實聯制問卷就送給你 #只送不賣 #有大港單雙日票券者才可兌換...',
-                    img: 'img/news/img-04.jpg',
-                  },
-                  {
-                    date: '2021.06.22',
-                    title: '官方周邊 正式公佈！',
-                    content: '敲破碗的大港周邊這不就來了嗎 . 定番款大港毛巾必收 漁夫帽門簾與工作衫首次登場 超搶眼...',
-                    img: 'img/news/img-05.jpg',
-                  },
-                  {
-                    date: '2021.07.10',
-                    title: '大港線上直播 來囉！',
-                    content: '沒買到大港票的朋朋，線上直播來啦 . 大港開唱與LINE TODAY獨家合作 #南霸天、 #女神龍...',
-                    img: 'img/news/img-06.jpg',
-                  }
-                ]
-
               //- - for (let i = 0; i < newsList.length; i++)
-              //-   .swiper-slide.l-news-home__slide
+              //-   .swiper-slide.l-home-news__slide
               //-     +Card(newsList[i])
-              each item in newsList
-                div(class="swiper-slide l-news-home__slide")
-                  +Card(item)
+              each item, index in newsList
+                div(class="swiper-slide l-home-news__slide")
+                  +Card(item, index)
 
           
       section(id="about" class="--gradient l-about")
@@ -186,9 +115,15 @@ html(lang="en")
                 div(class="l-about__content" data-aos="fade-up")
                   h3(class="u-text-2xl u-mb-16") 「人生」與「音樂」
                   p(class="u-fw-500 u-line-clamp-3") 大港舉辦在高雄港邊，獨特的海港地景和人文風情，常勾起人生中各種酸甜苦辣的回憶。也因如此，大港總是邀請有著豐富人生歷程的知名藝人及業界前輩演出，也會與新一代的樂團或藝人一起合作演出，交融出世代之間的化學效應，往往成為當年度為人津津樂道的經典現場
+
+                //- div(class="o-btn --align-right u-mt-64")
+                //-   a(
+                //-     href=`${basePath}/about.html` target="_blank"
+                //-     class="o-btn__link"
+                //-   ) MORE  
                 +Btn({
                   href: 'about.html',
-                  position: 'right'
+                  align: 'right'
                 })(class="u-mt-64" data-aos="fade-up") MORE
 
     include ../layouts/_Footer.pug
@@ -211,7 +146,7 @@ html(lang="en")
         }
       })
 
-      const newsSwiper = new Swiper('.l-news-home__swiper', {
+      const newsSwiper = new Swiper('.l-home-news__swiper', {
         longSwipesRatio: 0.1,
         loop: true,
         speed: 1200,
@@ -221,12 +156,12 @@ html(lang="en")
         breakpoints: {
           1400: {
             slidesPerView: 4,
-            spaceBetween: 32,
+            spaceBetween: 24,
             centeredSlides: false
           },
           992: {
             slidesPerView: 3,
-            spaceBetween: 24,
+            spaceBetween: 20,
             centeredSlides: false
           },
           576: {
@@ -241,7 +176,7 @@ html(lang="en")
           },
         },
         navigation: {
-          prevEl: '.l-news-home__swiper-btn.--prev',
-          nextEl: '.l-news-home__swiper-btn.--next',
+          prevEl: '.l-home-news__swiper-btn.--prev',
+          nextEl: '.l-home-news__swiper-btn.--next',
         },
       })

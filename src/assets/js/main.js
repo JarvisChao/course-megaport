@@ -71,7 +71,7 @@ window.matchMedia('(min-width: 1400px)').addEventListener('change', function(e) 
 })
 
 // 滾動至 news 時改變背景顏色
-const $news = document.querySelector('.l-news-home');
+const $news = document.querySelector('.l-home-news');
 window.addEventListener('scroll', function() {
   if ($news !== null) {
     // $news.getBoundingClientRect().top => news 頂到視窗上緣後會是負數

@@ -1,0 +1,35 @@
+mixin NewsDetail(index)
+  include ../layouts/_Settings.pug
+  include ../db/_news-db.pug
+  include ../components/_Blockade.pug
+
+  - const data = newsList[index];
+
+  doctype html
+  html(lang="en")
+    head
+      - 
+        path = `/news/detail/${index}.html`
+        pageTitle = data.title;
+        infoTitle = '';
+        description = data.description;
+
+      include ../layouts/_Head.pug
+
+    body
+      include ../layouts/_Header.pug
+
+      main(class="l-main")
+        section(class="l-news-detail")
+          div(class="container")
+            div(class="l-news-detail__title-wrap")
+              h1(class="u-text-2xl") #{data.title}
+              span(class="u-text-lg") #{data.date}
+            div(class="l-news-detail__content")
+              img(src=data.img alt=data.title)
+              //- 遇到後台編輯器，還原 reset 設定值
+              div(class="u-editor")
+                !=data.content
+
+      include ../layouts/_Footer.pug
+      include ../layouts/_Scripts.pug

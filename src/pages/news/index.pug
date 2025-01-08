@@ -1,4 +1,5 @@
 include ../../layouts/_Settings.pug
+include ../../db/_news-db.pug
 include ../../components/_Blockade.pug
 include ../../components/_Card.pug
 
@@ -25,50 +26,9 @@ html(lang="en")
       section(class="l-news")
         div(class="container")
           div(class="row --gap --gap-y-md")
-            -
-              const newsList = [
-                {
-                  date: '2021.04.12',
-                  title: '大港 防疫公告！',
-                  content: '【入場需先填寫 Line 實聯制問卷才能兌換手環】 如何填寫實聯制...',
-                  img: `${basePath}/img/news/img-01.jpg`,
-                  link: 'detail/20210412.html'
-                },
-                {
-                  date: '2021.05.10',
-                  title: '金牌台啤x大港開唱 聯名限定上市',
-                  content: '為在地音樂乾一杯！ 金牌台啤x大港開唱聯名啤酒限定上市 高雄最具代表性的大型音樂...',
-                  img: `${basePath}/img/news/img-02.jpg`,
-                },
-                {
-                  date: '2021.05.24',
-                  title: '大港開唱 x MegaFun',
-                  content: '✧ 好耍 ✧趣味 ✧足歡喜 大港娛樂特區MegaFun全方位手冊 . ** MEGADIVE 孤枝大夫 ** 輕鬆享受人體衝浪支...',
-                  img: `${basePath}/img/news/img-03.jpg`,
-                },
-                {
-                  date: '2021.06.17',
-                  title: '大港帥口罩',
-                  content: '想要這個大港口罩嗎？填寫實聯制問卷就送給你 #只送不賣 #有大港單雙日票券者才可兌換...',
-                  img: `${basePath}/img/news/img-04.jpg`,
-                },
-                {
-                  date: '2021.06.22',
-                  title: '官方周邊 正式公佈！',
-                  content: '敲破碗的大港周邊這不就來了嗎 . 定番款大港毛巾必收 漁夫帽門簾與工作衫首次登場 超搶眼...',
-                  img: `${basePath}/img/news/img-05.jpg`,
-                },
-                {
-                  date: '2021.07.10',
-                  title: '大港線上直播 來囉！',
-                  content: '沒買到大港票的朋朋，線上直播來啦 . 大港開唱與LINE TODAY獨家合作 #南霸天、 #女神龍...',
-                  img: `${basePath}/img/news/img-06.jpg`,
-                }
-              ]
-
-            each item in newsList
+            each item, index in newsList
               div(class="col-xxl-3 col-lg-4 col-6")
-                +Card(item)
+                +Card(item, index)
 
     include ../../layouts/_Footer.pug
     include ../../layouts/_Scripts.pug
