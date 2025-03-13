@@ -183,7 +183,7 @@ gsap.utils.toArray('[data-parallax-speed]').forEach(mask => {
   });
 
   const speed = mask.dataset.parallaxSpeed;
-  // 預設 .u-object-fit.--parallax 圖片高度放大 200px
+  // 預設 .u-object-fit.-parallax 圖片高度放大 200px
   // 所以位移控制在 100
   const y = Number(speed) * 100;
   tl.fromTo(

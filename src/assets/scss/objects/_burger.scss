@@ -1,5 +1,5 @@
 .o-burger {
-  --size: 4.2rem;
+  --size: #{rem(42)};
   display: none;
   flex-direction: column;
   justify-content: center;
@@ -12,25 +12,13 @@
     display: flex;
   }
   @include media(xs) {
-    --size: 3.8rem;
-  }
-
-  &:not(.is-opened):hover &__line {
-    &:nth-child(1) {
-      width: 90%;
-    }
-    &:nth-child(2) {
-      width: 70%;
-    }
-    &:nth-child(3) {
-      width: 90%;
-    }
+    --size: #{rem(38)};
   }
   &.is-opened {
     align-items: center;
   }
   &.is-opened &__line {
-    --line-offset: calc(var(--line-gap) + var(--line-height));
+    --line-offset: calc(var(--gap) + var(--height));
     &:nth-child(1) {
       transform: translateY(var(--line-offset)) rotate(45deg)
     }
@@ -42,14 +30,25 @@
     }
   }
   &__line {
-    --line-gap: 0.8rem;
-    --line-height: 2px;
+    --gap: #{rem(8)};
+    --height: 2px;
     width: 80%;
-    height: var(--line-height);
+    height: var(--height);
     background-color: var(--color-gray-light);
     transition: width 0.5s, transform 0.5s;
     &:not(:first-child) {
-      margin-top: var(--line-gap);
+      margin-top: var(--gap);
+    }
+  }
+  &:not(.is-opened):hover &__line {
+    &:nth-child(1) {
+      width: 90%;
+    }
+    &:nth-child(2) {
+      width: 70%;
+    }
+    &:nth-child(3) {
+      width: 90%;
     }
   }
 }

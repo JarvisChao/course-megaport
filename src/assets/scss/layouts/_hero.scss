@@ -27,10 +27,10 @@
   background-size: cover;
   background-position: center center;
   @include media(xl) {
-    margin-top: 8.5rem;
+    margin-top: rem(85);
   }
   @include media(xs) {
-    margin-top: 5.5rem;
+    margin-top: rem(55);
   }
   &::after {
     content: '';

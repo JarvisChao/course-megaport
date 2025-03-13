@@ -1,16 +1,16 @@
 .c-artist-card {
   width: 100%;
-  max-width: 45rem;
+  max-width: rem(450);
   pointer-events: auto;
-  &.--size-lg {
-    max-width: 56rem;
+  &.-size-lg {
+    max-width: rem(560);
   }
-  &.--reverse & {
+  &.-reverse & {
     &__link {
       flex-direction: column-reverse;
     }
     &__title {
-      margin-top: var(--spacing-8);
+      margin-top: var(--spacing-2);
       margin-bottom: 0;
     }
   }
@@ -24,7 +24,7 @@
     }
   }
   &__title {
-    margin-bottom: var(--spacing-8);
+    margin-bottom: var(--spacing-2);
   }
   &__glitch-mask {
     position: absolute;
@@ -45,10 +45,10 @@
       mix-blend-mode: multiply;
       z-index: 10;
     }
-    &.--primary::after {
+    &.-primary::after {
       background-color: var(--color-primary);
     }
-    &.--secondary::after {
+    &.-secondary::after {
       background-color: var(--color-secondary);
     }
   }

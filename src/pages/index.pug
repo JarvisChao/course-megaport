@@ -40,17 +40,17 @@ html(lang="en")
                 )
 
 
-      section(id="lineup" class="--gradient u-pb-0 l-lineup")
+      section(id="lineup" class="-gradient u-pb-0 l-lineup")
         +Blockade(class="l-lineup__blockade")
         div(class="l-lineup__sticky")
           div(class="container")
-            div(class="u-mb-80" data-aos="fade-up")
-              h2(class="u-text-4xl u-color-secondary") LINEUP
-                span(class="u-text-lg") MEGAPORT FESTIVAL
+            div(class="u-mb-20" data-aos="fade-up")
+              h2(class="o-section-title") LINEUP
+                span(class="o-text-lg") MEGAPORT FESTIVAL
 
             //- input-element 滑鼠進入指定區塊內才生效
             div(
-              class="row --gap l-lineup__box js-parallax"
+              class="row -gap l-lineup__box js-parallax"
               data-input-element=".l-lineup"
             )
               - const artistFeaturedList = artistList.filter(item => item.featured);
@@ -71,15 +71,15 @@ html(lang="en")
 
 
       section(id="news" class="l-home-news")
-        div(class="l-home-news__swiper-btn --prev")
+        div(class="l-home-news__swiper-btn -prev")
           iconify-icon.u-icon(icon="fa-solid:arrow-left")
-        div(class="l-home-news__swiper-btn --next")
+        div(class="l-home-news__swiper-btn -next")
           iconify-icon.u-icon(icon="fa-solid:arrow-right")
 
         div(class="container")
-          div(class="u-mb-80 u-text-center" data-aos="fade-up")
-            h2(class="u-text-4xl u-color-secondary") NEWS
-              span(class="u-text-lg") MEGAPORT FESTIVAL
+          div(class="u-mb-20 u-text-center" data-aos="fade-up")
+            h2(class="o-section-title") NEWS
+              span(class="o-text-lg") MEGAPORT FESTIVAL
               
           div(class="swiper l-home-news__swiper" data-aos="fade-up")
             div(class="swiper-wrapper")
@@ -91,13 +91,13 @@ html(lang="en")
                   +Card(item, index)
 
           
-      section(id="about" class="--gradient l-about")
+      section(id="about" class="-gradient l-about")
         div(class="container")
-          div(class="u-mb-80" data-aos="fade-right")
-            h2(class="u-text-4xl u-color-secondary") ABOUT
-              span(class="u-text-lg") MEGAPORT FESTIVAL
+          div(class="u-mb-20" data-aos="fade-right")
+            h2(class="o-section-title") ABOUT
+              span(class="o-text-lg") MEGAPORT FESTIVAL
 
-        div(class="container --sm --align-left")
+        div(class="container-sm -align-left")
           div(class="row")
             div(class="col-md-8 order-md-0 order-2" data-aos="fade-right")
               div(class="l-about__img-wrap")
@@ -105,18 +105,18 @@ html(lang="en")
                 div(class="l-about__img-mask" data-parallax-speed="-1")
                   img(
                     src="img/about/about.jpg", alt="關於大港開唱"
-                    class="u-object-fit --parallax"
+                    class="u-object-fit -parallax"
                   )
             div(class="col-md-4 order-md-0 order-1")
               div(class="l-about__content-wrap")
-                div(class="l-about__content u-mb-64" data-aos="fade-up")
-                  h3(class="u-text-2xl u-mb-16") 2022 年即將邁入第十三屆的《大港開唱》
+                div(class="l-about__content u-mb-16" data-aos="fade-up")
+                  h3(class="u-text-2xl u-mb-4") 2022 年即將邁入第十三屆的《大港開唱》
                   p(class="u-fw-500 u-line-clamp-3") 每年三月於高雄舉辦的大型音樂祭典，受到全台灣及日本香港年輕觀眾的喜愛，近年已成為台灣最具指標性的大型戶外音樂祭活動。
                 div(class="l-about__content" data-aos="fade-up")
-                  h3(class="u-text-2xl u-mb-16") 「人生」與「音樂」
+                  h3(class="u-text-2xl u-mb-4") 「人生」與「音樂」
                   p(class="u-fw-500 u-line-clamp-3") 大港舉辦在高雄港邊，獨特的海港地景和人文風情，常勾起人生中各種酸甜苦辣的回憶。也因如此，大港總是邀請有著豐富人生歷程的知名藝人及業界前輩演出，也會與新一代的樂團或藝人一起合作演出，交融出世代之間的化學效應，往往成為當年度為人津津樂道的經典現場
 
-                //- div(class="o-btn --align-right u-mt-64")
+                //- div(class="o-btn -align-right u-mt-16")
                 //-   a(
                 //-     href=`${basePath}/about.html` target="_blank"
                 //-     class="o-btn__link"
@@ -124,7 +124,7 @@ html(lang="en")
                 +Btn({
                   href: 'about.html',
                   align: 'right'
-                })(class="u-mt-64" data-aos="fade-up") MORE
+                })(class="u-mt-16" data-aos="fade-up") MORE
 
     include ../layouts/_Footer.pug
 
@@ -176,7 +176,7 @@ html(lang="en")
           },
         },
         navigation: {
-          prevEl: '.l-home-news__swiper-btn.--prev',
-          nextEl: '.l-home-news__swiper-btn.--next',
+          prevEl: '.l-home-news__swiper-btn.-prev',
+          nextEl: '.l-home-news__swiper-btn.-next',
         },
       })

@@ -21,11 +21,11 @@ html(lang="en")
     main(class="l-main")
       div(class="l-hero-inner" data-aos="fade-down")
         +Blockade(class="l-hero-inner__blockade")
-        h2(class="u-text-3xl") NEWS
+        h2(class="u-text-3xl u-tracking-0") NEWS
         
       section(class="l-news")
         div(class="container")
-          div(class="row --gap --gap-y-md")
+          div(class="row -gap -gap-y-md")
             each item, index in newsList
               div(class="col-xxl-3 col-lg-4 col-6")
                 +Card(item, index)

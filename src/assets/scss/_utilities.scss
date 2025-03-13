@@ -1,3 +1,4 @@
+// Display
 .u-inline {
   display: inline;
 }
@@ -11,6 +12,8 @@
   display: none;
 }
 
+
+// Size
 .u-w-full {
   width: 100%;
 }
@@ -37,178 +40,166 @@
 //   padding-left: 0 !important;
 //   padding-right: 0 !important;
 // }
-// .u-pl-0 {
-//   padding-left: 0 !important;
+// .u-pt-0 {
+//   padding-top: 0 !important;
 // }
 // .u-pr-0 {
 //   padding-right: 0 !important;
 // }
-// .u-pt-0 {
-//   padding-top: 0 !important;
-// }
 // .u-pb-0 {
 //   padding-bottom: 0 !important;
+// }
+// .u-pl-0 {
+//   padding-left: 0 !important;
+// }
+
+// .u-mt-auto {
+//   margin-top: auto;
 // }
 // .u-ml-auto {
 //   margin-left: auto;
 // }
-// .u-mt-auto {
-//   margin-top: auto;
+
+// .u-pt-30 {
+//   padding-top: var(--spacing-30);
 // }
-// .u-pt-120 {
-//   padding-top: var(--spacing-120);
+// .u-pb-30 {
+//   padding-top: var(--spacing-30);
 // }
-// .u-pb-120 {
-//   padding-bottom: var(--spacing-120);
-// }
-// .u-mt {
-//   &-120  {
-//     margin-top: var(--spacing-120);
-//   }
-//   &-80  {
-//     margin-top: var(--spacing-80);
-//   }
-//   &-64  {
-//     margin-top: var(--spacing-64);
-//   }
-//   &-40  {
-//     margin-top: var(--spacing-40);
-//   }
-//   &-24  {
-//     margin-top: var(--spacing-24);
-//   }
-//   &-16  {
-//     margin-top: var(--spacing-16);
-//   }
-//   &-8  {
-//     margin-top: var(--spacing-8);
-//   }
+// .u-mt-16 {
+//   margin-top: var(--spacing-16);
 // }
 // .u-mb {
-//   &-120  {
-//     margin-bottom: var(--spacing-120);
+//   &-30  {
+//     margin-bottom: var(--spacing-30);
 //   }
-//   &-80  {
-//     margin-bottom: var(--spacing-80);
-//   }
-//   &-64  {
-//     margin-bottom: var(--spacing-64);
-//   }
-//   &-40  {
-//     margin-bottom: var(--spacing-40);
-//   }
-//   &-24  {
-//     margin-bottom: var(--spacing-24);
+//   &-20  {
+//     margin-bottom: var(--spacing-20);
 //   }
 //   &-16  {
 //     margin-bottom: var(--spacing-16);
 //   }
-//   &-8  {
-//     margin-bottom: var(--spacing-8);
+//   &-4  {
+//     margin-bottom: var(--spacing-4);
 //   }
 // }
 
 
+// Image
+// 等比圖片製作
+// 使用 padding-bottom 作法
+// `父層` 使用 `u-img-ratio` 並將 `img` 加上 `u-object-fit` `-abs` 使其絕對定位（才能成功套用等比例）
+.u-img-ratio {
+  --img-w-ratio: 3;
+  --img-h-ratio: 2;
+
+  // 因為有時候會是 a 連結
+  display: block;
+
+  // for editor iframe
+  max-width: 100%;
+
+  // padding 寫在 ::before 才能用 `u-img-ratio` 控制寬度
+  &::before {
+    content: '';
+    display: block;
+    width: 100%;
+    // padding 使用 % 單位會依據父層 `u-img-ratio` 寬度
+    // 所以 padding-bottom: 100% 會是正方形
+    // 1 : 1 = 100% : 100%
+    // 4 : 3 = 100% : X
+    // X = 100 * 3 / 4 = 75
+    // padding-bottom: 75%
+    padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio));
+  }
+}
+
+
+// 等比圖片製作
+// 使用 aspect-ratio 作法
+// 將 `img` 加上 `u-object-fit` `-aspect-ratio` 即可
+// aspect-ratio 寫法與 padding 寫法差在瀏覽器支援度
+.u-object-fit.-aspect-ratio {
+  --img-w-ratio: 3;
+  --img-h-ratio: 2;
+  aspect-ratio: var(--img-w-ratio) / var(--img-h-ratio);
+}
+
+// 如同 background-image（用 img 搭配 object-fit 有助於 SEO 搜尋）
+.u-object-fit {
+  --object-fit: cover;
+  --object-position-x: center;
+  --object-position-y: center;
+  @include size(100%);
+  object-fit: var(--object-fit);
+  object-position: var(--object-position-x) var(--object-position-y);
+  overflow: hidden;
+  &.-abs {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  // for GSAP 視差滾動
+  &.-parallax {
+    position: absolute;
+    left: 0;
+    top: -100px;
+    height: calc(100% + 200px);
+    // transition: transform 1s cubic-bezier(.23, .83, .7, 1);
+  }
+}
+
+
+// 將 map 內容生成 utilities
+$utilities:
+  font $font-map font-family,
+  text $text-map font-size,
+  leading $leading-map line-height,
+  tracking $tracking-map letter-spacing,
+  color $color-map color;
+
+@each $name, $map, $property in $utilities {
+  @each $key, $value in $map {
+    .u-#{$name}-#{$key} {
+      #{$property}: var(--#{$name}-#{$key})
+    }
+    // .u-text-sm {
+    //   font-size: var(--text-sm);
+    // }
+  }
+}
+
+
+// Font
+@each $fw, $value in (900, 700, 600, 500, 400, 300, 100) {
+  .u-fw-#{$fw} {
+    font-weight: $fw
+  }
+}
+
+
 // Text
-.u-ff-en {
-  font-family: var(--font-en);
-}
-.u-fw {
-  &-400  {
-    font-weight: 400;
-  }
-  &-500  {
-    font-weight: 500;
-  }
-  &-700  {
-    font-weight: 700;
-  }
-  &-900  {
-    font-weight: 900;
-  }
-}
 // class 裡只要同時有 u-text 及 xl 字眼就符合 (符合：.c-card.u-text-2xl)
 [class*="u-text"][class*="xl"] {
   font-weight: 900;
 }
-.u-text {
-  &-4xl {
-    font-size: var(--text-4xl);
-    letter-spacing: -0.3rem;
-    line-height: 1.2;
-  }
-  &-3xl {
-    font-size: var(--text-3xl);
-    letter-spacing: 0;
-  }
-  &-2xl {
-    font-size: var(--text-2xl);
-    letter-spacing: 0.24rem;
-  }
-  &-xl {
-    font-size: var(--text-xl);
-  }
-  &-lg {
-    font-size: var(--text-lg);
-    font-weight: 900;
-    letter-spacing: 0.04rem;
-  }
-  &-md {
-    font-size: var(--text-md);
-    font-weight: 700;
-  }
-}
+
+
+// Icon
 [class*="u-icon"] {
   // iconify 上下不置中問題
   vertical-align: middle;
 }
 .u-icon {
-  font-size: 2.4rem;
-  &-sm {
-    font-size: 1.8rem;
+  font-size: rem(24);
+  &-lg {
+    font-size: rem(40);
   }
   &-md {
-    font-size: 2.8rem;
+    font-size: rem(28);
   }
-  &-lg {
-    font-size: 4rem;
-  }
-}
-.u-lh-1 {
-  line-height: 1;
-}
-
-
-// Colors
-.u-color {
-  &-primary  {
-    color: var(--color-primary);
-  }
-  &-secondary  {
-    color: var(--color-secondary);
-  }
-  &-black  {
-    color: var(--color-black);
-  }
-  &-gray-mid  {
-    color: var(--color-gray-mid);
-  }
-  &-gray-light  {
-    color: var(--color-gray-light);
-  }
-  &-white  {
-    color: var(--color-white);
-  }
-}
-.u-text {
-  &-center {
-    text-align: center;
-  }
-  &-left {
-    text-align: left;
-  }
-  &-right {
-    text-align: right;
+  &-sm {
+    font-size: rem(18);
   }
 }
 
@@ -234,46 +225,26 @@
 }
 
 
-// Image
-// 等比圖片製作
-.u-img-ratio {
-  --img-w-ratio: 3;
-  --img-h-ratio: 2;
-  // padding-bottom: 66.7%
-  padding-bottom: calc(100% * var(--img-h-ratio) / var(--img-w-ratio));
-}
-// 如同 background-image（用 img 搭配 object-fit 有助於 SEO 搜尋）
-.u-object-fit {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center center;
-  &.--abs {
-    position: absolute;
-    left: 0;
-    top: 0;
+// Text Align
+.u-text {
+  &-center {
+    text-align: center;
   }
-  &.--right {
-    object-position: right center;
+  &-left {
+    text-align: left;
   }
-  &.--bottom {
-    object-position: center bottom;
-  }
-  &.--parallax {
-    position: absolute;
-    left: 0;
-    top: -100px;
-    height: calc(100% + 200px);
-    // transition: transform 1s cubic-bezier(.23, .83, .7, 1);
+  &-right {
+    text-align: right;
   }
 }
 
 
 // Others
 .u-editor {
+  max-width: 100%;
   font-size: var(--text-md);
   font-weight: 500;
-  line-height: 1.7;
+  line-height: var(leading-relaxed);
   overflow: auto;
   a, button {
     border-bottom: 1px solid var(--color-primary);
@@ -287,10 +258,10 @@
     margin: revert;
   }
   ul {
-    padding-left: 2.4rem;
+    padding-left: rem(28);
   }
   ol {
-    padding-left: 3.6rem;
+    padding-left: rem(36);
   }
   h1, h2, h3, h4, h5, h6, p, button {
     margin: revert;
@@ -306,6 +277,82 @@
 .u-select-none {
   user-select: none;
 }
-.u-drag-none {
-  -webkit-user-drag: none;
-}
+
+
+// 自己逐項定義
+// Font
+// .u-font-en {
+//   font-family: var(--font-en);
+// }
+
+// .u-fw {
+//   &-900  {
+//     font-weight: 900;
+//   }
+//   &-700  {
+//     font-weight: 700;
+//   }
+//   &-500  {
+//     font-weight: 500;
+//   }
+//   &-400  {
+//     font-weight: 400;
+//   }
+// }
+
+
+// Text
+// class 裡只要同時有 u-text 及 xl 字眼就符合 (符合：.c-card.u-text-2xl)
+// [class*="u-text"][class*="xl"] {
+//   font-weight: 900;
+// }
+// .u-text {
+//   &-5xl {
+//     font-size: var(--text-5xl);
+//   }
+//   &-4xl {
+//     font-size: var(--text-4xl);
+//   }
+//   &-3xl {
+//     font-size: var(--text-3xl);
+//   }
+//   &-2xl {
+//     font-size: var(--text-2xl);
+//   }
+//   &-xl {
+//     font-size: var(--text-xl);
+//   }
+//   &-lg {
+//     font-size: var(--text-lg);
+//   }
+//   &-md {
+//     font-size: var(--text-md);
+//   }
+// }
+
+// .u-leading-1 {
+//   line-height: 1;
+// }
+
+
+// Colors
+// .u-color {
+//   &-primary  {
+//     color: var(--color-primary);
+//   }
+//   &-secondary  {
+//     color: var(--color-secondary);
+//   }
+//   &-black  {
+//     color: var(--color-black);
+//   }
+//   &-gray-mid  {
+//     color: var(--color-gray-mid);
+//   }
+//   &-gray-light  {
+//     color: var(--color-gray-light);
+//   }
+//   &-white  {
+//     color: var(--color-white);
+//   }
+// }

@@ -3,7 +3,7 @@
     content: '';
     display: block;
     // 控制 sticky 空間
-    height: 20rem;
+    height: rem(200);
     pointer-events: none;
   }
   &__blockade {
@@ -15,7 +15,7 @@
   &__sticky {
     position: sticky;
     position: -webkit-sticky;
-    top: var(--spacing-120);
+    top: var(--spacing-30);
   }
   // 解決 parallax 滑鼠不能 hover 效果
   &__box {

@@ -1,0 +1,19 @@
+@use 'sass:math';
+
+// 移除 px 單位
+@function stripUnit($value) {
+  @return math.div($value, $value * 0 + 1);
+}
+  
+// 計算 rem
+@function rem($pxValue) {
+  @return calc(var(--html-spacing) * #{stripUnit($pxValue)});
+}
+
+// `calc(var(--html-spacing) * #{stripUnit($pxValue)})` 編譯出來為 =>
+// `calc(var(--html-spacing) * 數值)` 使 CSS 辨識度佳
+
+// 使用方式 rem(400)
+// => calc(var(--html-spacing) * 400)
+// => 25rem
+// => 400px

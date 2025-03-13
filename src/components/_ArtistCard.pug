@@ -11,8 +11,8 @@ mixin ArtistCard(options)
     }, options);
 
     const classes = [
-      props.size ? `--size-${props.size}` : '',
-      props.direction ? `--${props.direction}` : ''
+      props.size ? `-size-${props.size}` : '',
+      props.direction ? `-${props.direction}` : ''
     ];
 
   article(class=classes.join(' ') class="c-artist-card")
@@ -23,15 +23,15 @@ mixin ArtistCard(options)
         div(class="u-img-ratio c-artist-card__img-mask")
           img(
             data-src=props.img alt=`大港開唱藝人名單 ${props.name}`
-            class="u-object-fit --abs js-lazy"
+            class="u-object-fit -abs js-lazy"
           )
-        div(class="u-img-ratio c-artist-card__glitch-mask --primary" data-depth="-0.2")
+        div(class="u-img-ratio c-artist-card__glitch-mask -primary" data-depth="-0.2")
           img(
             data-src=props.img alt=`大港開唱藝人名單 ${props.name}`
-            class="u-object-fit --abs js-lazy"
+            class="u-object-fit -abs js-lazy"
           )
-        div(class="u-img-ratio c-artist-card__glitch-mask --secondary" data-depth="0.2")
+        div(class="u-img-ratio c-artist-card__glitch-mask -secondary" data-depth="0.2")
           img(
             data-src=props.img alt=`大港開唱藝人名單 ${props.name}`
-            class="u-object-fit --abs js-lazy"
+            class="u-object-fit -abs js-lazy"
           )

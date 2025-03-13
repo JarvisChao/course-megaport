@@ -3,7 +3,7 @@
   left: 0;
   top: 0;
   width: 100%;
-  padding: 20rem 0;
+  padding: rem(200) 0;
   pointer-events: none;
   overflow: hidden;
   z-index: 99;
@@ -36,20 +36,20 @@
   }
   &__text {
     display: inline-block;
-    padding: var(--spacing-16) var(--spacing-80);
+    padding: var(--spacing-4) var(--spacing-20);
     background-color: var(--color-black);
-    font-size: 4.8rem;
+    font-size: rem(48);
     font-weight: 700;
-    letter-spacing: 0.5rem;
+    letter-spacing: rem(5);
     line-height: 1;
     color: var(--color-primary);
     white-space: nowrap;
     transition: transform 1s cubic-bezier(.23, .83, .7, 1);
     @include media(sm) {
-      font-size: 4.2rem;
+      font-size: rem(42);
     }
     @include media(xs) {
-      font-size: 4rem;
+      font-size: rem(40);
     }
   }
 }

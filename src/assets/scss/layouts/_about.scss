@@ -5,13 +5,13 @@
     position: absolute;
     right: 0;
     top: 0;
-    @include size(60%, 8rem);
+    @include size(60%, rem(80));
     transform-origin: right top;
     transform: skew(-35deg);
     background-image: linear-gradient(to left, var(--color-gray-light-80) 0%, var(--color-gray-light-80) 50%, transparent, 50%, transparent 100%);
     background-size: 14% 100%;
     @include media(xs) {
-      @include size(40%, 6rem);
+      @include size(40%, rem(64));
       background-size: 24% 100%;
     }
   }
@@ -30,16 +30,16 @@
     }
   }
   &__content-wrap {
-    padding: var(--spacing-40) 0 var(--spacing-80);
+    padding: var(--spacing-10) 0 var(--spacing-20);
     @include media(sm) {
       padding-left: 5vw;
     }
     @include media(xs) {
-      padding-top: var(--spacing-24);
+      padding-top: var(--spacing-6);
     }
   }
   &__content:first-child {
-    margin-left: -16rem;
+    margin-left: rem(-160);
     @include media(sm) {
       margin-left: 0;
     }
