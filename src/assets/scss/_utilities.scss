@@ -187,8 +187,10 @@ $utilities:
 
 // Icon
 [class*="u-icon"] {
-  // iconify 上下不置中問題
-  vertical-align: middle;
+  // 因為預設是 inline 會導致一些像 img 一樣的底部空白
+  // 不過 vertical-align: middle; 無法徹底解決
+  // 所以直接設 block 跳脫文字樣式
+  display: block
 }
 .u-icon {
   font-size: rem(24);

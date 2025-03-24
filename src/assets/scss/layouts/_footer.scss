@@ -80,7 +80,9 @@
   }
 }
 .o-gotop {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: absolute;
   left: 50%;
   top: 0;
