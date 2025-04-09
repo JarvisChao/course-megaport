@@ -8,10 +8,10 @@
   height: var(--size);
   cursor: pointer;
   z-index: 999;
-  @include media(xl) {
+  @include media(max-2xl) {
     display: flex;
   }
-  @include media(xs) {
+  @include media(max-sm) {
     --size: #{rem(38)};
   }
   &.is-opened {

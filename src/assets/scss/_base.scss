@@ -17,10 +17,10 @@
 
 html {
   font-size: 16px;
-  @include media(lg) {
+  @include media(max-xl) {
     font-size: 15px;
   }
-  @include media(ipad) {
+  @include media(max-ipad) {
     font-size: 14px;
   }
 }
@@ -175,7 +175,7 @@ section {
   &.-gap-md {
     --bs-gutter-x: var(--spacing-8);
     --bs-gutter-y: var(--spacing-8);
-    @include media(xs) {
+    @include media(max-sm) {
       --bs-gutter-x: var(--spacing-4);
       --bs-gutter-y: var(--spacing-6);
     }
@@ -183,14 +183,14 @@ section {
   &.-gap {
     --bs-gutter-x: var(--spacing-6);
     --bs-gutter-y: var(--spacing-6);
-    @include media(xs) {
+    @include media(max-sm) {
       --bs-gutter-x: var(--spacing-3);
       --bs-gutter-y: var(--spacing-4);
     }
   }
   &.-gap-y-md {
     --bs-gutter-y: var(--spacing-8);
-    @include media(xs) {
+    @include media(max-sm) {
       --bs-gutter-y: var(--spacing-6);
     }
   }

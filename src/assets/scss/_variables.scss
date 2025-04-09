@@ -7,7 +7,7 @@
   // Section
   --section-spacing-x: 4vw;
   --section-spacing-y: var(--spacing-30);
-  @include media(xs) {
+  @include media(max-sm) {
     --section-spacing-x: 2vw;
   }
 
@@ -31,14 +31,14 @@
       // => 160px
     }
   }
-  @include media(xs) {
+  @include media(max-sm) {
     @each $spacing, $vw in $spacing-map {
       @if $vw {
         --spacing-#{$spacing}: #{$vw};
       }
     }
   }
-  // 以上將編譯出各種 spacing 及 xs 對應的值，值為 null 時 xs 將不編譯
+  // 以上將編譯出各種 spacing 及 max-sm 對應的值，值為 null 時 max-sm 將不編譯
   // --spacing-40: calc(var(--html-spacing) * 160);
   // --spacing-30: calc(var(--html-spacing) * 120);
   // --spacing-2: calc(var(--html-spacing) * 80);
@@ -70,7 +70,7 @@
   // --spacing-3: rem(12);
   // --spacing-2: rem(8);
   // --spacing-1: rem(4);
-  // @include media(xs) {
+  // @include media(max-sm) {
   //   --spacing-40: 24vw;
   //   --spacing-36: 22vw;
   //   --spacing-30: 20vw;
@@ -123,7 +123,7 @@
   // --text-base: rem(16);
   // --text-sm: rem(14);
   // --text-xs: rem(12);
-  // @include media(xs) {
+  // @include media(max-sm) {
   //   --text-5xl: rem(62);
   //   --text-4xl: rem(32);
   //   --text-3xl: rem(28);

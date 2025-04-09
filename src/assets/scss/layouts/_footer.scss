@@ -9,7 +9,7 @@
   &__img-mask {
     max-width: rem(300);
     margin: 0 auto;
-    @include media(xs) {
+    @include media(max-sm) {
       max-width: rem(240);
     }
   }

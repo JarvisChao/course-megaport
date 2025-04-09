@@ -59,25 +59,25 @@ $font-map: (
 // Text
 $text-map: (
   5xl: (
-    default: rem(64), xs: rem(62)
+    default: rem(64), max-sm: rem(62)
   ),
   4xl: (
-    default: rem(40), sm: rem(36), xs: rem(32)
+    default: rem(40), max-md: rem(36), max-sm: rem(32)
   ),
   3xl: (
-    default: rem(32), xs: rem(28)
+    default: rem(32), max-sm: rem(28)
   ),
   2xl: (
-    default: rem(28), xs: rem(24)
+    default: rem(28), max-sm: rem(24)
   ),
   xl: (
-    default: rem(24), xs: rem(22)
+    default: rem(24), max-sm: rem(22)
   ),
   lg: (
-    default: rem(20), xs: rem(18)
+    default: rem(20), max-sm: rem(18)
   ),
   md: (
-    default: rem(18), xs: rem(17)
+    default: rem(18), max-sm: rem(17)
   ),
   base: (
     default: rem(16)

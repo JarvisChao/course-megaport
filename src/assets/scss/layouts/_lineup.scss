@@ -8,7 +8,7 @@
   }
   &__blockade {
     top: -10%;
-    @include media(lg) {
+    @include media(max-xl) {
       top: -20%;
     }
   }

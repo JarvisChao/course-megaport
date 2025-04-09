@@ -12,7 +12,7 @@
     transform: scale(1);
     transition: transform 15s;
   }
-  @include media(xl) {
+  @include media(max-2xl) {
     height: 80vh;
   }
 }
@@ -26,10 +26,10 @@
   background-image: url('../img/footer/bg.jpg');
   background-size: cover;
   background-position: center center;
-  @include media(xl) {
+  @include media(max-2xl) {
     margin-top: rem(85);
   }
-  @include media(xs) {
+  @include media(max-sm) {
     margin-top: rem(55);
   }
   &::after {
@@ -43,13 +43,13 @@
   &__blockade {
     top: auto;
     bottom: -30%;
-    @include media(xl) {
+    @include media(max-2xl) {
       bottom: -20%;
     }
-    @include media(ipad-portrait) {
+    @include media(max-ipad-portrait) {
       bottom: 10%;
     }
-    @include media(xs) {
+    @include media(max-sm) {
       bottom: -20%;
     }
   }
