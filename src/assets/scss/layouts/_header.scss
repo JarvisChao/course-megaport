@@ -35,11 +35,59 @@
 
 // nav
 .c-nav {
+  // c-nav 手機版單純控制開關
+  @include media(max-2xl) {
+    position: fixed;
+    left: 0;
+    top: 0;
+    // 設高度 0 防止縮小時 opacity 過渡效果
+    @include size(100%, 0);
+    background-color: var(--color-black-80);
+    opacity: 0;
+    // 讓滑鼠無作用
+    pointer-events: none;
+    overflow: auto;
+    transition: height 0s 1s, opacity 0.5s 0.5s;
+    &.is-opened {
+      height: 100%;
+      opacity: 1;
+      pointer-events: auto;
+      transition: opacity 0.5s;
+    }
+    &.is-opened &__menu {
+      transform: translateY(0);
+      opacity: 1;
+      transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
+    }
+  }
   &__menu {
     display: flex;
+    @include media(max-2xl) {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      // 解決視窗高度縮小 flex 吃掉上下內容
+      min-height: 100%;
+      transform: translateY(rem(-10));
+      padding: var(--spacing-16) 0;
+      opacity: 0;
+      transition: transform 0.5s, opacity 0.5s;
+    }
   }
   &__btn-box {
     display: flex;
+    @include media(max-2xl) {
+      &.-icon {
+        margin-top: var(--spacing-4);
+      }
+    }
+    @include media(max-md) {
+      &:not(.-icon) {
+        flex-direction: column;
+        align-items: center;
+      }
+    }
   }
   &__btn-box.-icon &__btn {
     display: flex;
@@ -50,6 +98,17 @@
     background-color: var(--color-gray-mid-40);
     &::before, &::after {
       --gradient-color: var(--color-secondary);
+    }
+    @include media(max-2xl) {
+      background-color: transparent;
+      &::after {
+        display: none;
+      }
+    }
+  }
+  @include media(max-2xl) {
+    &__btn-wrap:first-child &__btn::after {
+      display: none;
     }
   }
   &__btn {
@@ -62,6 +121,12 @@
     @include media(max-3xl) {
       padding-left: 2.6vw;
       padding-right: 2.6vw;
+    }
+    @include media(max-md) {
+      text-align: center;
+      &::after {
+        display: none;
+      }
     }
     // 調整當前頁面樣式
     &:hover, &.is-active {
@@ -90,67 +155,59 @@
       @include size(1px, 100%);
     }
   }
+}
 
-  // 因為是整個樣式大改，所以 media 就不個別寫在所屬 class 底下
-  // c-nav 手機版單純控制開關
+.o-burger {
+  --size: #{rem(42)};
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  width: var(--size);
+  height: var(--size);
+  cursor: pointer;
+  z-index: 999;
   @include media(max-2xl) {
-    position: fixed;
-    left: 0;
-    top: 0;
-    // 設高度 0 防止縮小時 opacity 過渡效果
-    @include size(100%, 0);
-    background-color: var(--color-black-80);
-    opacity: 0;
-    // 讓滑鼠無作用
-    pointer-events: none;
-    overflow: auto;
-    transition: height 0s 1s, opacity 0.5s 0.5s;
-    &.is-opened {
-      height: 100%;
-      opacity: 1;
-      pointer-events: auto;
-      transition: opacity 0.5s;
+    display: flex;
+  }
+  @include media(max-sm) {
+    --size: #{rem(38)};
+  }
+  &.is-opened {
+    align-items: center;
+  }
+  &.is-opened &__line {
+    --line-offset: calc(var(--gap) + var(--height));
+    &:nth-child(1) {
+      transform: translateY(var(--line-offset)) rotate(45deg)
     }
-    &.is-opened &__menu {
-      transform: translateY(0);
-      opacity: 1;
-      transition: transform 0.5s 0.5s, opacity 0.5s 0.5s;
+    &:nth-child(2) {
+      width: 0;
     }
-    &__menu {
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      // 解決視窗高度縮小 flex 吃掉上下內容
-      min-height: 100%;
-      transform: translateY(rem(-10));
-      padding: var(--spacing-16) 0;
-      opacity: 0;
-      transition: transform 0.5s, opacity 0.5s;
-    }
-    &__btn-box.-icon {
-      margin-top: var(--spacing-4);
-    }
-    &__btn-box.-icon &__btn {
-      background-color: transparent;
-      &::after {
-        display: none;
-      }
-    }
-    &__btn-wrap:first-child &__btn::after {
-      display: none;
+    &:nth-child(3) {
+      transform: translateY(calc(-1 * var(--line-offset))) rotate(-45deg)
     }
   }
-  @include media(max-md) {
-    &__btn-box:not(.-icon) {
-      flex-direction: column;
-      align-items: center;
+  &__line {
+    --gap: #{rem(8)};
+    --height: 2px;
+    width: 80%;
+    height: var(--height);
+    background-color: var(--color-gray-light);
+    transition: width 0.5s, transform 0.5s;
+    &:not(:first-child) {
+      margin-top: var(--gap);
     }
-    &__btn {
-      text-align: center;
-      &::after {
-        display: none;
-      }
+  }
+  &:not(.is-opened):hover &__line {
+    &:nth-child(1) {
+      width: 90%;
+    }
+    &:nth-child(2) {
+      width: 70%;
+    }
+    &:nth-child(3) {
+      width: 90%;
     }
   }
 }

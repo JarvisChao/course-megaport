@@ -24,6 +24,14 @@
 
 // Spacing
 @each $prefix, $properties in $spacing-prefixes {
+  // section
+  @each $axis in (x, y) {
+    .u-#{$prefix}-section-#{$axis} {
+      @each $property in $properties {
+        #{$property}: var(--section-spacing-#{$axis});
+      }
+    }
+  }
   @each $spacing, $vw in $spacing-map {
     .u-#{$prefix}-#{$spacing} {
       @each $property in $properties {
