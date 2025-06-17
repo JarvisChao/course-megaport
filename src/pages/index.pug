@@ -1,6 +1,6 @@
 include ../layouts/_Settings.pug
-include ../db/_artist-db.pug
-include ../db/_news-db.pug
+include ../data/_artist.pug
+include ../data/_news.pug
 include ../components/_Blockade.pug
 include ../components/_ArtistCard.pug
 include ../components/_Card.pug
@@ -83,9 +83,6 @@ html(lang="en")
               
           div(class="swiper l-home-news__swiper" data-aos="fade-up")
             div(class="swiper-wrapper")
-              //- - for (let i = 0; i < newsList.length; i++)
-              //-   .swiper-slide.l-home-news__slide
-              //-     +Card(newsList[i])
               each item, index in newsList
                 div(class="swiper-slide l-home-news__slide")
                   +Card(item, index)

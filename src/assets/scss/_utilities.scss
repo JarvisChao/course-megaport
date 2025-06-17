@@ -67,6 +67,20 @@
 }
 
 
+// Gap
+@each $prefix, $properties in $gap-prefixes {
+  @each $spacing, $vw in $spacing-map {
+    .u-#{$prefix}-#{$spacing} {
+      @each $property in $properties {
+        @if ($spacing != auto) {
+          #{$property}: var(--spacing-#{$spacing});
+        }
+      }
+    }
+  }
+}
+
+
 // Spacing
 @each $prefix, $properties in $spacing-prefixes {
   // section

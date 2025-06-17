@@ -48,6 +48,11 @@ $spacing-prefixes: (
   mt: margin-top,
   mb: margin-bottom
 );
+$gap-prefixes: (
+  gap: gap,
+  gap-x: row-gap,
+  gap-y: column-gap
+);
 
 // Font
 $font-map: (

@@ -46,6 +46,28 @@ body {
 /* ----------------------------------- */
 /* ------ Reset ------ */
 /* ----------------------------------- */
+ul, ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  &.-initial {
+    list-style: revert;
+  }
+}
+ul.-initial {
+  padding-left: rem(28);
+}
+ol.-initial {
+  padding-left: rem(36);
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+svg {
+  max-width: inherit;
+  vertical-align: middle;
+}
 a, button, input, label, select, textarea {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
@@ -63,36 +85,14 @@ a, button {
 button {
   padding: 0;
   background: none;
-  letter-spacing: inherit;
   appearance: none;
-}
-img {
-  max-width: 100%;
-  vertical-align: middle;
-}
-svg {
-  max-width: inherit;
-  vertical-align: middle;
-}
-ul, ol {
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  &.-initial {
-    list-style: revert;
-  }
-}
-ul.-initial {
-  padding-left: rem(28);
-}
-ol.-initial {
-  padding-left: rem(36);
 }
 h1, h2, h3, h4, h5, h6, p, button {
   margin: 0;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
+  letter-spacing: inherit;
   line-height: inherit;
   color: inherit;
 }
