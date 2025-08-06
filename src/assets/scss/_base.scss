@@ -26,6 +26,7 @@ html {
 }
 
 body {
+  min-width: 320px;
   margin: 0;
   background-image: url('../img/bg-dots.png');
   background-color: var(--color-gray-mid);
@@ -213,8 +214,6 @@ section {
   transition: none;
 }
 
-[data-parallax-speed] {
-  display: flex;
-  align-items: center;
+[data-parallax-offset] {
   overflow: hidden;
 }

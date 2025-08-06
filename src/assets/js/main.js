@@ -170,25 +170,28 @@ tl.to($blockadeTexts[2], { x: '-60vw' }, 'startLabel+=5%');
 tl.to($blockadeTexts[3], { x: '90vw' }, 'startLabel+=10%');
 
 // 圖片視差滾動
-gsap.utils.toArray('[data-parallax-speed]').forEach(mask => {
-  const img = mask.querySelector('img');
+gsap.utils.toArray('[data-parallax-offset]').forEach(mask => {
+  const wrapper = mask;
+  const img = wrapper.querySelector('img');
+  
+  img.style.willChange = 'transform';
 
   const tl = gsap.timeline({
+    defaults: { ease: 'linear' },
     scrollTrigger: {
-      trigger: mask,
+      trigger: wrapper,
       start: 'top bottom',
       end: 'bottom top',
       scrub: true
     }
   });
 
-  const speed = mask.dataset.parallaxSpeed;
-  // 預設 .u-object-fit.-parallax 圖片高度放大 200px
-  // 所以位移控制在 100
-  const y = Number(speed) * 100;
-  tl.fromTo(
-    img,
-    { y: -1 * y, ease: 'power1.out' },
-    { y, ease: 'power1.out' }
-  );
+  const offset = Number(wrapper.dataset.parallaxOffset);
+  img.style.setProperty('--parallax-offset', Math.abs(offset));
+
+  if (offset > 0) {
+    tl.fromTo(img, { y: -1 * offset }, { y: 0 });
+  } else {
+    tl.fromTo(img, { y: 0 }, { y: offset });
+  }
 });
