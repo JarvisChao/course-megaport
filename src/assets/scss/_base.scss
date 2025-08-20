@@ -6,22 +6,19 @@
   border-width: 0;
 }
 
-::selection {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-}
-::-moz-selection {
-  background-color: var(--color-primary);
-  color: var(--color-white);
-}
+// html {
+//   font-size: 16px; 
+// }
+// @media (max-width: 1200px) {
+//   html {
+//     font-size: 15px;
+//   }
+// }
 
 html {
   font-size: 16px;
   @include media(max-xl) {
     font-size: 15px;
-  }
-  @include media(max-ipad) {
-    font-size: 14px;
   }
 }
 
@@ -33,9 +30,12 @@ body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
   font-weight: 400;
+  // ios 文字去毛邊
   -webkit-font-smoothing: antialiased;
+  // letter-spacing: 1.2px;
+  // 0.08em 會根據設定的文字大小 0.08 倍的間距
   letter-spacing: var(--tracking-normal);
-  line-height: var(--leading-normal);
+  line-height: var(--leading-tight);
   color: var(--color-gray-light);
   transition: background-color 0.8s;
   &.is-news-active {
@@ -43,6 +43,7 @@ body {
     background-color: var(--color-primary);
   }
 }
+
 
 /* ----------------------------------- */
 /* ------ Reset ------ */
@@ -70,6 +71,7 @@ svg {
   vertical-align: middle;
 }
 a, button, input, label, select, textarea {
+  // 防止雙點擊畫面放大
   -ms-touch-action: manipulation;
   touch-action: manipulation;
 }
@@ -81,15 +83,18 @@ a, button {
   user-select: none;
   &:hover {
     text-decoration: none;
+    color: inherit;
   }
 }
 button {
   padding: 0;
   background: none;
   appearance: none;
+  border: none;
 }
 h1, h2, h3, h4, h5, h6, p, button {
   margin: 0;
+  // 防止插件影響我們自己的設定
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
@@ -107,6 +112,9 @@ span {
   display: block;
   line-height: inherit;
 }
+// .u-inline {
+//   display: inline;
+// }
 
 /* ----------------------------------- */
 /* ------ Layouts ------ */
@@ -123,18 +131,34 @@ section {
 // Container
 // 客製 Bootstrap container 控制最大寬度
 .container {
-  --container-width: var(--container-normal);
-  @each $size, $value in $container-map {
-    &-#{$size} {
-      --container-width: #{$value};
-    }
+  --container-width: var(--container-default);
+  &-md {
+    --container-width: var(--container-md);
   }
+  &-sm {
+    --container-width: var(--container-sm);
+  }
+  &-xs {
+    --container-width: var(--container-xs);
+  }
+  &-2xs {
+    --container-width: var(--container-2xs);
+  }
+  &-3xs {
+    --container-width: var(--container-3xs);
+  }
+  // @each $size, $value in $container-map {
+  //   &-#{$size} {
+  //     --container-width: var(--container-#{$size});
+  //   }
+  // }
 }
+
 [class*="container"] {
-  // 因為有的 section 不是在 100vw 大小內
-  // 用來計算 -align-left 等修飾符
+  // 這邊需要定義 Section 寬度，是因為 Section 不宜一定總是寬度 100%
   --section-width: 100vw;
-  max-width: var(--container-width) !important;
+  max-width: var(--container-width);
+  margin: 0 auto;
 
   // 靠左或右，並同時保有 container 最大寬特性
   &[class*="-align"] {
@@ -213,3 +237,4 @@ section {
 [data-aos=custom] {
   transition: none;
 }
+

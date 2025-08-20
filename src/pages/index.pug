@@ -1,10 +1,12 @@
 include ../layouts/_Settings.pug
-include ../data/_artist.pug
-include ../data/_news.pug
+
 include ../components/_Blockade.pug
 include ../components/_ArtistCard.pug
 include ../components/_Card.pug
 include ../components/_Btn.pug
+
+include ../data/_artist.pug
+include ../data/_news.pug
 
 doctype html
 html(lang="en")
@@ -40,11 +42,11 @@ html(lang="en")
                 )
 
 
-      section(id="lineup" class="-gradient u-pb-0 l-lineup")
+      section(id="lineup" class="-gradient pb-0 l-lineup")
         +Blockade(class="l-lineup__blockade")
         div(class="l-lineup__sticky")
           div(class="container")
-            div(class="u-mb-20" data-aos="fade-up")
+            div(class="mb-20" data-aos="fade-up")
               h2(class="o-section-title") LINEUP
                 span(class="o-text-lg") MEGAPORT FESTIVAL
 
@@ -53,44 +55,57 @@ html(lang="en")
               class="row -gap l-lineup__box js-parallax"
               data-input-element=".l-lineup"
             )
-              - const artistFeaturedList = artistList.filter(item => item.featured);
-
               div(class="col-sm-5 l-lineup__wrap" data-depth="0.1")
-                +ArtistCard(artistFeaturedList[0])
+                +ArtistCard({
+                  data: artistList[0]
+                })
               div(class="col-sm-7 l-lineup__wrap" data-depth="-0.1")
-                +ArtistCard(artistFeaturedList[1])
+                +ArtistCard({
+                  data: artistList[1],
+                  size: 'lg'
+                })
               div(class="col-lg-4 col-sm-7 l-lineup__wrap" data-depth="-0.2")
-                +ArtistCard(artistFeaturedList[2])
+                +ArtistCard({
+                  data: artistList[2],
+                  size: 'lg',
+                  direction: 'reverse'
+                })
               div(class="col-lg-4 col-sm-5 l-lineup__wrap" data-depth="0.2")
-                +ArtistCard(artistFeaturedList[3])
+                +ArtistCard({
+                  data: artistList[3],
+                  direction: 'reverse'
+                })
               div(
                 class="col-lg-4 col-sm-5 offset-lg-0 offset-sm-4 l-lineup__wrap"
                 data-depth="-0.2"
               )
-                +ArtistCard(artistFeaturedList[4])
+                +ArtistCard({
+                  data: artistList[4],
+                  direction: 'reverse'
+                })
 
 
       section(id="news" class="l-home-news")
         div(class="l-home-news__swiper-btn -prev")
-          iconify-icon.u-icon(icon="fa-solid:arrow-left")
+          iconify-icon(icon="fa-solid:arrow-left" class="u-icon")
         div(class="l-home-news__swiper-btn -next")
-          iconify-icon.u-icon(icon="fa-solid:arrow-right")
+          iconify-icon(icon="fa-solid:arrow-right" class="u-icon")
 
         div(class="container")
-          div(class="u-mb-20 u-text-center" data-aos="fade-up")
+          div(class="mb-20 text-center" data-aos="fade-up")
             h2(class="o-section-title") NEWS
               span(class="o-text-lg") MEGAPORT FESTIVAL
               
           div(class="swiper l-home-news__swiper" data-aos="fade-up")
             div(class="swiper-wrapper")
-              each item, index in newsList
+              each item in newsList
                 div(class="swiper-slide l-home-news__slide")
-                  +Card(item, index)
+                  +Card({ data: item })
 
           
       section(id="about" class="-gradient l-about")
         div(class="container")
-          div(class="u-mb-20" data-aos="fade-right")
+          div(class="mb-20" data-aos="fade-right")
             h2(class="o-section-title") ABOUT
               span(class="o-text-lg") MEGAPORT FESTIVAL
 
@@ -106,14 +121,14 @@ html(lang="en")
                   )
             div(class="col-md-4 order-md-0 order-1")
               div(class="l-about__content-wrap")
-                div(class="l-about__content u-mb-16" data-aos="fade-up")
-                  h3(class="u-text-2xl u-mb-4") 2022 年即將邁入第十三屆的《大港開唱》
-                  p(class="u-fw-500 u-line-clamp-3") 每年三月於高雄舉辦的大型音樂祭典，受到全台灣及日本香港年輕觀眾的喜愛，近年已成為台灣最具指標性的大型戶外音樂祭活動。
+                div(class="l-about__content mb-16" data-aos="fade-up")
+                  h3(class="text-2xl fw-900 mb-4") 2022 年即將邁入第十三屆的《大港開唱》
+                  p(class="fw-500 line-clamp-3") 每年三月於高雄舉辦的大型音樂祭典，受到全台灣及日本香港年輕觀眾的喜愛，近年已成為台灣最具指標性的大型戶外音樂祭活動。
                 div(class="l-about__content" data-aos="fade-up")
-                  h3(class="u-text-2xl u-mb-4") 「人生」與「音樂」
-                  p(class="u-fw-500 u-line-clamp-3") 大港舉辦在高雄港邊，獨特的海港地景和人文風情，常勾起人生中各種酸甜苦辣的回憶。也因如此，大港總是邀請有著豐富人生歷程的知名藝人及業界前輩演出，也會與新一代的樂團或藝人一起合作演出，交融出世代之間的化學效應，往往成為當年度為人津津樂道的經典現場
+                  h3(class="text-2xl fw-900 mb-4") 「人生」與「音樂」
+                  p(class="fw-500 line-clamp-3") 大港舉辦在高雄港邊，獨特的海港地景和人文風情，常勾起人生中各種酸甜苦辣的回憶。也因如此，大港總是邀請有著豐富人生歷程的知名藝人及業界前輩演出，也會與新一代的樂團或藝人一起合作演出，交融出世代之間的化學效應，往往成為當年度為人津津樂道的經典現場
 
-                //- div(class="o-btn -align-right u-mt-16")
+                //- div(class="o-btn -align-right mt-16")
                 //-   a(
                 //-     href=`${basePath}/about.html` target="_blank"
                 //-     class="o-btn__link"
@@ -121,13 +136,11 @@ html(lang="en")
                 +Btn({
                   href: 'about.html',
                   align: 'right'
-                })(class="u-mt-16" data-aos="fade-up") MORE
+                })(class="mt-16" data-aos="fade-up") MORE
 
     include ../layouts/_Footer.pug
 
-    script(src="js/parallax.min.js")
     script(src="js/swiper-bundle.min.js")
-    include ../layouts/_Scripts.pug
     script.
       //-- Swiper
       const headerSwiper = new Swiper('.l-hero__swiper', {

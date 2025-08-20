@@ -1,27 +1,33 @@
-include ./_Btn.pug
+include ../components/_Btn.pug
 
-mixin Card(options, index)
+mixin Card(options)
   -
-    // Object.assign 用來合併預設值及傳進來的 options 值
     const props = Object.assign({
-      // 預設值
-      date: '',
-      title: '',
-      description: '',
-      img: '',
-      content: '',
-      link: `${basePath}/news/detail/${index}.html`
-    }, options);
+      data: {}
+    }, options)
 
-  article.c-card
-    span.o-text-lg.c-card__date #{props.date}
-    .c-card__wrap
-      a.u-img-ratio.c-card__img-mask(href=props.link)
-        img.u-object-fit.-abs.js-lazy(data-src=props.img, alt=props.title)
-      .c-card__body
-        h3.u-text-md.u-fw-700 #{props.title}
-        p.u-line-clamp-2.c-card__desc #{props.description}
+    const data = props.data;
+    const classes = [];
+
+  article(class="c-card" class=classes)
+    span(class="c-card__date") #{data.publish_date}
+    div(class="c-card__wrap")
+      a(
+        href=`${basePath}/news/${data.path || data.id}.html`
+        class="u-img-ratio" 
+        style="--ratio: 1/1"
+      )
+        img(
+          src=`${basePath}/${data.image}`
+          alt=data.title
+          class="u-object-fit"
+        )
+
+      h3(class="my-4 text-md fw-700 line-clamp-1") #{data.title}
+      p(class="line-clamp-2") #{data.description}
+
+      div(class="o-btn -align-right ")
         +Btn({
-          href: props.link,
+          href: `${basePath}/news/${data.path || data.id}.html`,
           align: 'right'
-        }).u-mt-auto MORE
+        })(class="mt-10 mb-2") MORE

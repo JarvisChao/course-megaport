@@ -1,13 +1,21 @@
 .l-home-news {
-  &__swiper {    // 避免 card 上下陰影被吃掉
-    padding: rem(10) 0;
+  &__swiper {
+    // 確保卡片的 hover 陰影不會被 overflow hidden 吃掉
+    padding: rem(16);
+    // 設定手機版輪播上下張預覽
+    // 缺點是，最後一張會空掉
+    // @include media(max-sm) {
+    //   padding: rem(16) 10vw;
+    // }
   }
-  &__slide {    // 為了保持 flex stretch 特性，需取消插件預設 100%
-    height: auto;
+  &__slide {
+    // slidesPerView: 'auto'
+    // 改善輪播上下張預覽最後一張會空掉問題
     @include media(max-sm) {
-      width: 80%;
+      width: 70vw
     }
   }
+  
   &__swiper-btn {
     position: absolute;
     top: 50%;
@@ -27,6 +35,7 @@
       background-color: var(--color-secondary);
       color: var(--color-black);
       box-shadow: 0 0 var(--spacing-1) var(--color-gray-light-80);
+      transition: 0s;
     }
     &.-prev {
       left: 0;
@@ -44,6 +53,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    padding-bottom: var(--spacing-2);
     border-bottom: 2px solid var(--color-gray-light);
   }
   &__content {

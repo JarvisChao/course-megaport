@@ -1,8 +1,7 @@
-@use 'sass:math';
-
-// 計算 rem
-@function rem($pxNumber) {
-  @return calc(var(--html-spacing) * $pxNumber);
+// scss 函示
+@function rem($pxValue) {
+  // #{} 讓變數可以帶進原生 css calc 轉成數值計算
+  @return calc(var(--html-spacing) * #{$pxValue});
 }
 
 // `calc(var(--html-spacing) * $pxNumber)` 編譯出來為 =>

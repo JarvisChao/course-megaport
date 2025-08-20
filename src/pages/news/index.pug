@@ -1,34 +1,7 @@
-include ../../layouts/_Settings.pug
+include ../../components/_NewsList.pug
 include ../../data/_news.pug
-include ../../components/_Blockade.pug
-include ../../components/_Card.pug
 
-doctype html
-html(lang="en")
-  head
-    - 
-      path = '/news'
-      pageTitle = '最新消息';
-      infoTitle = '最新消息後面的資訊標題';
-      description = '最新消息的網頁描述';
-
-    include ../../layouts/_Head.pug
-
-  body
-    include ../../layouts/_Header.pug
-
-
-    main(class="l-main")
-      div(class="l-hero-inner" data-aos="fade-down")
-        +Blockade(class="l-hero-inner__blockade")
-        h2(class="u-text-3xl u-tracking-0") NEWS
-        
-      section(class="l-news")
-        div(class="container")
-          div(class="row -gap -gap-y-md")
-            each item, index in newsList
-              div(class="col-xxl-3 col-lg-4 col-6")
-                +Card(item, index)
-
-    include ../../layouts/_Footer.pug
-    include ../../layouts/_Scripts.pug
++NewsList({
+  catePath: '',
+  list: newsList
+})

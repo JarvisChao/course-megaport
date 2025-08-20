@@ -20,10 +20,10 @@ meta(name="description" content=description)
 
 //- <Page Title> - <Site Name>｜<Info Title>
 //- js 字串模板使用反引號 `` 加 $ 字號 `${}`
-- pageTitle = `${pageTitle ? `${pageTitle} - ` : ''}`;
-- title = `${pageTitle}${siteName}｜${infoTitle}`
+- const newPageTitle = `${pageTitle ? `${pageTitle} - ` : ''}`;
+- let title = `${newPageTitle}${siteName}｜${infoTitle}`
 if !infoTitle
-  - title = `${pageTitle}${siteName}`
+  - title = `${newPageTitle}${siteName}`
 meta(property="og:title", content=title)
 //- pug 的內容語法，使用 # 字號 #{}
 title #{title}

@@ -41,27 +41,31 @@ a.forEach(function(item) {
 });
 
 // Navbar
-let isNavOpened = false;
-const $body = document.body;
-const $nav = document.querySelector('.c-nav');
-const $burger = document.querySelector('.o-burger');
-function toggleNav() {
-  if (!isNavOpened) {
-    // $body.style.overflow = 'hidden';
+const burgerEl = document.querySelector('.o-burger');
+const navEl = document.querySelector('.c-nav');
+
+let isMenuOpened = false;
+burgerEl.addEventListener('click', function() {
+  // if (isMenuOpened) isMenuOpened = false;
+  // else isMenuOpened = true;
+
+  // toggle 開關
+  isMenuOpened = !isMenuOpened
+
+  if (isMenuOpened) {
+    // this 會指向 burgerEl
     lenis.stop();
-    $nav.classList.add('is-opened');
-    $burger.classList.add('is-opened');
-    isNavOpened = true;
+    this.classList.add('is-opened');
+    navEl.classList.add('is-opened');
   } else {
-    // $body.style.overflow = '';
     lenis.start();
-    $nav.classList.remove('is-opened');
-    $burger.classList.remove('is-opened');
-    isNavOpened = false;
+    this.classList.remove('is-opened');
+    navEl.classList.remove('is-opened');
   }
-}
+});
+
 window.matchMedia('(min-width: 1400px)').addEventListener('change', function(e) {
-  if (isNavOpened) {
+  if (isMenuOpened) {
     if (e.matches) {
       lenis.start();
     } else {
